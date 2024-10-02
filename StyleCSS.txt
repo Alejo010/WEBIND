@@ -1,0 +1,26 @@
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/css/font-alpona.css">
+  <link rel="stylesheet" href="/styles/css/prettify.css">
+  <link rel="stylesheet" href="/styles/css/responsive-tables.css">
+
+  <link rel="stylesheet" href="/styles/css/bootstrap-reset.css">
+
+  <link rel="stylesheet" href="/styles/exportstyle/angular-material.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.min.css">
+
+
+  <link rel="stylesheet" href="/styles/exportstyle/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/chartcss/c3.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/elegant-icons-style.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/line-icons.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/owl.carousel.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/style-responsive.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/style.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/widgets.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/xcharts.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/datepicker3.css">
+
+  <link rel="stylesheet" href="/styles/css/styles.css">

@@ -1,0 +1,6 @@
+npm run mocha test/bootstrap.test.js test/integration/**/*.test.js
+npm run mocha test/integration/service/*.test.js
+
+
+ejemplo:
+npm run mocha test/integration/service/PacienteService.test.js

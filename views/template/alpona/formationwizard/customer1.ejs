@@ -1,0 +1,219 @@
+<form id="default" name="myform"  class="form-horizontal">
+  <legend>Datos del niño (a)
+    <img src="/correct.png" ng-show="!!form1.$errors.required">
+  </legend>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Historia Clínica:</label>
+    <div class="col-lg-10">
+      <input type="text" placeholder="Historia Clínica"
+      class="form-control"
+      name="hclinica"
+      tooltip-placement="top" tooltip-trigger="'none'"
+      uib-tooltip="Algunos datos son incorrectos"
+      tooltip-class="customClass"
+      tooltip-is-open="myform.hclinica.$dirty && myform.hclinica.$invalid"
+      ng-pattern="vm.nameRegExp"
+      maxlength="50"
+      ng-model="vm.customerData.hc"
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Carnet Identidad:</label>
+    <div class="col-lg-10">
+      <input type="text" placeholder="00000000000" class="form-control"
+             name="cidentidad"
+             tooltip-placement="top" tooltip-trigger="'none'"
+             uib-tooltip="El Carnet de Identidad  debe tener 11 números"
+             tooltip-class="customClass"
+             tooltip-is-open="myform.cidentidad.$dirty && myform.cidentidad.$invalid"
+             name="cidentidad"
+             ng-pattern="/^\d{11}$/"
+             maxlength="11"
+             ng-model="vm.customerData.ci"
+
+      >
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="col-lg-2 control-label">Nombre y Apellidos:</label>
+  <div class="col-lg-10">
+    <input type="text" placeholder="Full Name" class="form-control"
+           name="fullname"
+           tooltip-placement="top" tooltip-trigger="'none'"
+           uib-tooltip="Algunos datos son incorrectos"
+           tooltip-class="customClass"
+           tooltip-is-open="myform.fullname.$dirty && myform.fullname.$invalid"
+           ng-pattern="vm.nameRegExp"
+           maxlength="50"
+           ng-model="vm.customerData.name"
+
+
+     >
+  </div>
+</div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label"> Apellidos:</label>
+    <div class="col-lg-10">
+      <input type="text" placeholder="Apellidos" class="form-control"
+             name="lastname"
+             tooltip-placement="top" tooltip-trigger="'none'"
+             uib-tooltip="Algunos datos son incorrectos"
+             tooltip-class="customClass"
+             tooltip-is-open="myform.name.$dirty && myform.lastname.$invalid"
+             ng-pattern="vm.nameRegExp"
+             maxlength="50"
+             ng-model="vm.customerData.lastname"
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Fecha Nac:</label>
+    <div class="form-group">
+      <div class="col-lg-8">
+        <input type="text" id="dp2"
+               tooltip-placement="bottom" tooltip-trigger="'none'"
+        uib-tooltip="myform.birdDate.$dirty && myform.birdDate.$invalid"
+        class="form-control" uib-datepicker-popup="{{vm.format}}" name="birdDate"
+        ng-pattern="vm.dateRegExp" is-open="vm.popupBirthDate.opened"
+        datepicker-options="vm.dateOptions"
+        tooltip-class="customClass"
+        placeholder="" type="text"
+        ng-model="vm.customerData.birdDate"
+               ng-click="vm.openBirthDate()"
+        >
+</div>
+</div>
+</div>
+  <div class="form-group">
+<label class="col-lg-2 control-label">Edad:</label>
+<div class="col-lg-10">
+<input type="text" placeholder="Edad" class="form-control"
+       name="age"
+       tooltip-placement="top" tooltip-trigger="'none'"
+       uib-tooltip="La edad deben ser números"
+       tooltip-class="customClass"
+       tooltip-is-open="myform.age.$dirty && myform.age.$invalid"
+       name="cidentidad"
+       ng-pattern="/^\d{2}$/"
+       maxlength="2"
+       ng-model="customerData.age">
+</div>
+</div>
+  <div class="form-group">
+<label class="col-lg-2 control-label">Dirección:</label>
+<div class="col-lg-10">
+<input type="text" placeholder="Dirección" class="form-control"
+       name="address"
+       tooltip-placement="top" tooltip-trigger="'none'"
+       uib-tooltip="Algunos datos son incorrectos"
+       tooltip-class="customClass"
+       tooltip-is-open="myform.address.$dirty && myform.address.$invalid"
+       ng-pattern="nameRegExp"
+       maxlength="100"
+       ng-model="vm.customerData.address"
+
+>
+</div></div>
+  <div class="form-group">
+      <label class="col-lg-2 control-label">Municipio:</label>
+    <div class="col-lg-10">
+       <input  class="form-control"
+              placeholder="Seleccionar el municipio" type="text"  ng-model="vm.customerData.mcpio"
+              uib-typeahead="imcapl for imcapl in vm.municipios | filter:$viewValue"
+              name="mcpal"
+              tooltip-placement="top" tooltip-trigger="'none'"
+              uib-tooltip="Algunos datos son incorrectos"
+              tooltip-class="customClass"
+              tooltip-is-open="myform.mcpal.$dirty && myform.mcpal.$invalid"
+              ng-pattern="vm.nameRegExp"
+              maxlength="40"
+      >
+    </div>
+
+      <!--<div class="col-lg-10">-->
+      <!--<select class="form-control">-->
+      <!--<option>San luis</option>-->
+      <!--<option>Stgo de Cuba</option>-->
+      <!--<option>Mella</option>-->
+      <!--</select>-->
+      <!--</div>-->
+    </div>
+  <div class="form-group">
+  <label class="col-lg-2 control-label">Provincia:</label>
+    <div class="col-lg-10">
+    <input  class="form-control"
+            placeholder="Seleccionar la provincia" type="text"  ng-model="vm.customerData.prov"
+            uib-typeahead="iprov for iprov in vm.provincias | filter:$viewValue"
+            name="prov"
+            tooltip-placement="top" tooltip-trigger="'none'"
+            uib-tooltip="Algunos datos son incorrectos"
+            tooltip-class="customClass"
+            tooltip-is-open="myform.prov.$dirty && myform.prov.$invalid"
+            ng-pattern="vm.nameRegExp"
+            maxlength="40"
+    >
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="col-lg-2 control-label">Area de Salud:</label>
+    <div class="col-lg-10">
+    <input  class="form-control"
+            placeholder="Seleccionar el área de salud" type="text"  ng-model="vm.customerData.healtharea"
+            uib-typeahead="ihealt  for ihealt in vm.healthsArea | filter:$viewValue"
+            name="health"
+            tooltip-placement="top" tooltip-trigger="'none'"
+            uib-tooltip="Algunos datos son incorrectos"
+            tooltip-class="customClass"
+            tooltip-is-open="myform.health.$dirty && myform.health.$invalid"
+            ng-pattern="vm.nameRegExp"
+            maxlength="40"
+    >
+    </div>
+  </div>
+
+  <div class="form-group">
+  <label class="col-lg-2 control-label">Sexo:</label>
+  <div class="col-lg-10">
+  <label class="radio">
+  <input type="radio" name="optionsRadios" value="male" checked ng-model="vm.customerData.sex">
+  M</label>
+  <label class="radio">
+  <input type="radio" name="optionsRadios" value="female" ng-model="vm.customerData.sex" >
+  F</label>
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="col-lg-2 control-label">Peso al nacer (kg):</label>
+  <div class="col-lg-10">
+    <input type="text" placeholder="Peso al nacer" class="form-control"
+           name="peso"
+           tooltip-placement="top" tooltip-trigger="'none'"
+           uib-tooltip="El peso debe ser números"
+           tooltip-class="customClass"
+           tooltip-is-open="myform.peso.$dirty && myform.peso.$invalid"
+            ng-pattern="/^\d{3}$/"
+           maxlength="3"
+           ng-model="vm.customerData.peso">
+  </div>
+</div>
+<div class="form-group">
+<label class="col-lg-2 control-label">Raza:</label>
+<div class="col-lg-10">
+<!--<select class="form-control">-->
+<!--<option>Blanca</option>-->
+<!--<option>Negra</option>-->
+<!--<option>Mestiza</option>-->
+<!--</select>-->
+
+  <ui-select ng-model="selected.value">
+  <ui-select-match>
+    <span ng-bind="$select.selected.name"></span>
+  </ui-select-match>
+  <ui-select-choices repeat="item in (vm.itemArray | filter: $select.search) track by item.id">
+    <span ng-bind="item.name"></span>
+  </ui-select-choices>
+  </ui-select>
+</div>
+</div>
+</form>

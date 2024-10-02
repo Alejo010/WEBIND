@@ -1,0 +1,77 @@
+
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 widget-module">
+        <div class="box-widget">
+          <div class="widget-container">
+            <div class="widget-block">
+              <h2>{{title}}</h2>
+
+              <div class="widget-content box-padding">
+
+                <form name="form_med" novalidate ng-submit="save()" class="form-horizontal">
+                  <div class="form-group">
+
+                    <label class="col-lg-3 control-label">Nombre:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="text" ng-model="medico.nombre" placeholder="Escriba el nombre"
+                               name="nombre" required class="form-control">
+                      </div>
+                    </div>
+
+                    <label class="col-lg-3 control-label">Apellidos:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="text" ng-model="medico.apellidos" placeholder="Escriba los apellidos"
+                             class="form-control">
+                      </div>
+                    </div>
+
+                    <label class="col-lg-3 control-label">CI:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input  ng-model="medico.ci" name="ci"
+
+                                placeholder="Escriba el CI" class="form-control">
+                      </div>
+                    </div>
+
+                    <label class="col-lg-3 control-label">Num. Médico:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input
+                                ng-model="medico.numeroMedico" minlength="5" name="numeroMedico"
+                                placeholder="Escriba el número" class="form-control">
+                      </div>
+                    </div>
+
+                    <label for="especialidad" class="col-lg-3 control-label">Especialidad: </label>
+                    <div class="col-lg-9">
+                      <select id="especialidad" name="especialidad" ng-model="medico.especialidad"
+                              required class="form-control">
+                        <option value="">Seleccione una opción</option>
+                        <option ng-repeat="esp in especialidades" value="{{esp.id}}" label="{{esp.nombre}}">{{esp.nombre}}</option>
+                      </select>
+                    </div>
+                    <strong class="col-lg-3" ng-if="medico.especialidad.nombre">{{medico.especialidad.nombre}}</strong>
+
+                  </div>
+                  <div class="card__actions">
+                    <button type="submit"  class="btn btn--blue btn--l btn--raised"><i
+                      class="icon-checkmark"></i> Guardar
+                    </button>
+                    <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/medico/index" class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

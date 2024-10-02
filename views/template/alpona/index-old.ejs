@@ -1,0 +1,248 @@
+<div class="main-wrapper">
+  <div class="scroll-top">
+    <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+  </div>
+  <!-- TOP BAR ng-show="userAuthenticated" -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <a href="#" class="left-toggle"><i class="icon-menu-2 "></i></a>
+          <!-- LOGO -->
+          <div class="branding">
+            <a href="index.html"><img src="images/alpona-logo.png" alt="Alpona Logo"></a>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 responsive-notification-mnu">
+          <ul class="notification-bar">
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                  class="icon-bell"></i></a>
+              <div class="dropdown-menu">
+                <div class="dropdown-head">
+                  <h6>Usted tiene 10 notificaciones</h6>
+                </div>
+                <ul class="notification-list">
+                  <li><a href="#" class="clearfix"><i class="icon-star blue"></i><span class="notification-intro">Donec pretium enim vel nisl viverra posuere.<span
+                          class="notification-time">8 min ago</span></span></a></li>
+                  <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                          class="notification-time">3 hours ago</span></span></a></li>
+                  <li><a href="#" class="clearfix"><i class=" icon-bolt brown"></i><span class="notification-intro">Fusce eget ipsum in odio consectetur condimentum et id nisl.<span
+                          class="notification-time">5 hours ago</span></span></a></li>
+                  <li><a href="#" class="clearfix"><i class=" icon-ok-sign green"></i><span class="notification-intro">Mauris fringilla metus in mauris molestie tempor <span
+                          class="notification-time">8 hours ago</span></span></a></li>
+                </ul>
+                <div class="action-btn">
+                  <button class="btn btn-block">Ver todo</button>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                  class="count-noty">12</span><i class="icon-envelop-opened"></i></a>
+              <div class="dropdown-menu">
+                <div class="dropdown-head">
+                  <h6>Usted tiene 10 mensajes</h6>
+                </div>
+                <ul class="msg-list">
+                  <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40" alt="Avatar"
+                                                                                     src="images/avatar-40x40/binjal.png"></span><span><i>binjal</i> is posted an article. lacus est congue... </span><span
+                        class="notification-meta"> 12 hours ago </span></a></li>
+                  <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40" alt="Avatar"
+                                                                                     src="images/avatar-40x40/sharmin.png"></span><span><i>sharmin</i> is posted an article. lacus est congue... </span><span
+                        class="notification-meta"> 12 hours ago </span></a></li>
+                  <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40" alt="Avatar"
+                                                                                     src="images/avatar-40x40/shusi.png"></span><span><i>shusi</i> is posted an article. lacus est congue... </span><span
+                        class="notification-meta"> 12 hours ago </span></a></li>
+                  <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40" alt="Avatar"
+                                                                                     src="images/avatar-40x40/jamjam.png"></span><span><i>jamjam</i> is posted an article. lacus est congue... </span><span
+                        class="notification-meta"> 12 hours ago </span></a></li>
+                  <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40" alt="Avatar"
+                                                                                     src="images/avatar-40x40/sinha.png"></span><span><i>sinha</i> is posted an article. lacus est congue... </span><span
+                        class="notification-meta"> 12 hours ago </span></a></li>
+                </ul>
+                <div class="action-btn">
+                  <button class="btn btn-block">Ver todo</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-4 clearfix responsive-log-mnu">
+          <!-- ADMIN DRODOWN MENU -->
+          <div class="loged-nav pull-right">
+            <ul class="clearfix">
+              <li class="log-nav dropdown pull-right"><a class="dropdown-toggle clearfix" data-toggle="dropdown">
+                  <span class="pull-left loged-user-name">Especialista {{4 + 7}}</span><span
+                    class="logged-user-thumb pull-right"><img class="img-circle" src="images/admin-avatar.jpg"
+                                                              alt="Admin"></span></a>
+                <div class="dropdown-menu">
+                  <ul class="pull-right">
+                    <li><a href="#">Nombre de usuario</a></li>
+                    <li><a href="#">Editar perfil</a></li>
+                    <li><a href="#">Email </a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="logout-link"><i class="icon-lock-3"></i> Salir</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- LEFT BAR  ng-show="userAuthenticated" -->
+  <div class="left-bar merge-left">
+    <!-- SEARCH BAR -->
+    <div class="search-bar">
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+                        </span>
+      </div>
+    </div>
+    <!-- LEFT NAV -->
+    <div class="left-nav">
+      <ul class="side-navigation accordion" id="nav-accordion">
+        <li><a href="index.html"><i class="icon-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="icon-user-4"></i>Consulta</a>
+          <ul>
+            <li><a href="" data-target="#makemedicalquery/" class=""><i
+                  class="icon-double-angle-right"></i>Nueva consulta</a></li>
+            <li><a href=""><i class="icon-double-angle-right"></i> Nuevo Paciente</a></li>
+            <li><a href=""><i class="icon-double-angle-right"></i>Consulta de Seguimiento</a></li>
+            <li><a href="form-wizard.ejs"><i class="icon-double-angle-right"></i>Listar consultas</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="icon-group"></i>Interconsulta</a>
+          <ul>
+            <li><a href="basic-table.html"><i class="icon-double-angle-right"></i> Pacientes remitidos desde... </a>
+            </li>
+            <li><a href="table-themes.html"><i class="icon-double-angle-right"></i> Pacientes remitidos hacia...</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="icon-user-3"></i> Listado de pacientes</a>
+
+        </li>
+        <li><a href="#"><i class="icon-user-3"></i> Reportes</a>
+          <ul>
+            <li><a href="blank-layout.html"><i class="icon-double-angle-right"></i> Por especialidad </a></li>
+            <li><a href="fixed-topbar.html"><i class="icon-double-angle-right"></i> Por Edad</a></li>
+            <li><a href="fixed-leftbar.html"><i class="icon-double-angle-right"></i> Por Municipio</a></li>
+            <li><a href="top-dropdown-menu.html"><i class="icon-double-angle-right"></i> Por Hospital de Nacimiento</a>
+            </li>
+            <li><a href="no-sidebar.html"><i class="icon-double-angle-right"></i> Por &Aacuterea de salud</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="icon-briefcase-3 "></i> Otras opciones</a>
+          <ul>
+            <li><a href="typography-boxy.html"><i class="icon-double-angle-right"></i> Calendario </a></li>
+            <li><a href="typography-non-boxy.html"><i class="icon-double-angle-right"></i> Repositorio</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- SITE CONTAINER -->
+  <div ng-view>
+
+  </div>
+
+</div>
+
+<!--[if lte IE 7]>
+<script src="js/font-alpona-ie7.js"></script>
+<![endif]-->
+<script>
+  google.load('visualization', '1', {'packages': ['geochart']});
+  google.setOnLoadCallback(drawRegionsMap);
+  function drawRegionsMap() {
+    var data = google.visualization.arrayToDataTable([
+      ['Country', 'Popularity'],
+      ['Germany', 200],
+      ['United States', 300],
+      ['Brazil', 400],
+      ['Canada', 500],
+      ['France', 600],
+      ['RU', 700]
+    ]);
+    var options = {
+      colorAxis: {colors: ['009933', '#e88a05', '#3498db']}
+    };
+    var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+  ;
+</script>
+<script>
+  /*====MINI CHART ====*/
+  $(function () {
+    $(".sparkbar").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+      type: 'bar',
+      height: '50',
+      barWidth: 6,
+      barSpacing: 2,
+      barColor: '#5fbf00',
+      negBarColor: '#bf0000',
+      tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+  });
+  $(function () {
+    $(".sparkline").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+      type: 'line',
+      height: '50',
+      width: '100',
+      barWidth: 6,
+      barSpacing: 2,
+      barColor: '#5fbf00',
+      negBarColor: '#bf0000',
+      tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+  });
+  $(function () {
+    $(".sparkpie").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+      type: 'pie',
+      height: '50',
+      barWidth: 6,
+      barSpacing: 2,
+      barColor: '#5fbf00',
+      negBarColor: '#bf0000',
+      tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+    });
+  });
+  $(function () {
+    $(".line-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, 15, 20, 40, 60], {
+      type: 'line',
+      width: '100',
+      height: '50',
+      lineColor: '#2b2b2b',
+      fillColor: '#e5e5e5',
+      lineWidth: 2,
+      highlightSpotColor: '#0e8e0e',
+      spotRadius: 3,
+      drawNormalOnTop: true
+    });
+    $(".bar-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, -15, 20, 40, 60], {
+      type: 'bar',
+      height: '60',
+      barWidth: 4,
+      barSpacing: 1,
+      barColor: '#007f00'
+    });
+    $(".pie-min-chart").sparkline([3, 5, 2, 10, 8], {
+      type: 'pie',
+      width: '60',
+      height: '60'
+    });
+    $(".tristate-min-chart").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
+      type: 'tristate',
+      height: '50',
+      posBarColor: '#bf005f',
+      negBarColor: '#ff7f00',
+      zeroBarColor: '#545454',
+      barWidth: 6,
+      barSpacing: 1
+    });
+  });
+</script>

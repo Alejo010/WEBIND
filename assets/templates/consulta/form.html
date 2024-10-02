@@ -1,0 +1,846 @@
+<style>
+  input.ng-invalid {
+    border-color: red;
+  }
+</style>
+<div class="main-container">
+  <div class="container">
+    <div class="page-header" align="center">
+      <h4 style="padding-top: 9px;">
+        <i class="icon-file-plus-2"></i> {{title}}</h4>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 widget-module">
+        <div class="box-widget">
+          <div class="widget-head clearfix">
+            <span class="h-icon"><i class="icon-signup"></i></span>
+            <h4 class="pull-left">Ingrese los datos de la nueva consulta</h4>
+          </div>
+          <div class="widget-container">
+            <div class="widget-block">
+              <div class="widget-content box-padding">
+                <form ng-submit="save()" name="formConsulta" id="formConsulta" novalidate class="form-horizontal">
+
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label"><span class="text-danger">* </span> Motivo de
+                      consulta:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <textarea rows="3" type="text" style="width: 697px;" ng-required="true"
+                                  ng-model="consulta.motivo" name="motivo" ng-minlength="3"
+                                  class="form-control"></textarea>
+                        <span class="text-danger"
+                              ng-show="formConsulta.motivo.$touched && formConsulta.motivo.$error.required">Este campo es requerido.</span>
+                        <span class="text-danger" ng-show="formConsulta.motivo.$error.minlength"> Escriba mínimo 3 caracteres. </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix">
+
+                    <fieldset class="default-fieldset" ng-if="examenesPendientes.length > 0">
+                      <legend>Exámenes indicados pendientes de resultado</legend>
+                      <br>
+
+                      <div class="col-lg-6" align="center">
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Exámenes pendientes: </label>
+                          <div class="col-lg-5">
+                            <div class="input-group">
+                              <select class="form-control" id="examP" name="examP" ng-model="data.examenPendiente"
+                                      ng-options="examP.examen.nombre for examP in examenesPendientes">
+                                <option value="">---- Seleccione ----</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6" align="center">
+                        <div class="form-group">
+                          <label class="col-lg-4 control-label">Resultado de exámenes Indicados:</label>
+                          <div class="col-lg-6">
+                            <div class="input-group">
+                              <textarea style="width: 337px;" type="text" ng-model="data.examenPendiente.resultado"
+                                        class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>Ingrese aquí la información del Examen físico</legend>
+                      <br>
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label"><span class="text-danger">* </span>Examen físico:</label>
+                        <div class="col-lg-9">
+                          <div class="input-group">
+                                                        <textarea type="text" style="width: 697px;"
+                                                                  ng-model="consulta.examenFisico"
+                                                                  placeholder="Escriba aquí" ng-required="true"
+                                                                  name="examenFisico" ng-minlength="3" maxlength="500"
+                                                                  class="form-control">
+                      </textarea>
+                            <span class="text-danger"
+                                  ng-show="formConsulta.examenFisico.$touched && formConsulta.examenFisico.$error.required">Este campo es requerido.</span>
+                            <span class="text-danger" ng-show="formConsulta.examenFisico.$error.minlength"> Escriba mínimo 3 caracteres. </span>
+
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>Desarrollo Psicomotor: (hasta los 12 meses):</legend>
+                      <br>
+
+                      <div class="col-md-4">
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.fijacionVisual" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label"> Fijación Visual</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.seguimientoVisual" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Seguimiento visual</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.sonrisaSocial" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Sonrisa social</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.gorjeo" ng-true-value="'Si'" ng-false-value="'No'"/>
+                          <label class="control-label">Gorjeo</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.sostenCefalico" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Sostén cefálico</label>
+                        </div>
+
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.manosALaLineaMedia" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Manos a la línea media</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.vocaliza" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Vocaliza</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.controlCefalico" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Control cefálico</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.agarreGrosero" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Agarre grosero</label>
+
+                        </div>
+
+                      </div>
+                      <div class="col-md-4">
+
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.transferenciaDeObjetos" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Transferencia de objetos</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.roladoDePronoASupino" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Rolado de prono a supino</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.roladoDeSupinoAProno" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Rolado de supino a prono</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.sostenSentado" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Sostén sentado</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.sedestacion" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Sedestación</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.trompetillas" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Trompetillas</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.pinzaDigital" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Pinza digital</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.cuatroPuntos" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Cuatro puntos</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.monosilabos" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Monosílabos</label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.gateoAlterno" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Gateo alterno</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.seParaConAyuda" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Se para con ayuda</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.bipedestacionConApoyo" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Bipedestación con apoyo</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.bipedestacionIndependiente" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Bipedestación independiente</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.pasosSueltos" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Pasos sueltos</label>
+                        </div>
+
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.palabras4a6" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">4 a 6 palabras</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.respondePorSuNombre" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Responde por su nombre</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.cumpleOrdenesComplejas" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Cumple ordenes complejas</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" ng-model="consulta.respondeEstimuloSonoro" ng-true-value="'Si'"
+                                 ng-false-value="'No'"/>
+                          <label class="control-label">Responde a estímulos sonoro</label>
+                        </div>
+                      </div>
+
+                      <br><br>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>Indicar exámenes aquí:</legend>
+                      <br>
+                      <div class="form-group">
+
+                        <div class="col-lg-6">
+                          <label class="col-lg-3 control-label">Indicar examen:</label>
+                          <div align="center">
+                            <div class="input-group">
+                              <select class="form-control" id="exam" name="exam" ng-model="data.selected_exam"
+                                      ng-options="exa.nombre for exa in examenes">
+                                <option value="">---- Seleccione----</option>
+                              </select>
+                            </div>
+                            <button ng-click="adicionarExamen()" type="button" class="btn btn--blue btn--l btn--raised">
+                              Añadir
+                            </button>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div ng-if="examArray.length > 0" align="center">
+                            <div class="input-group">
+                              <div>
+                                <label class="col-lg-3 control-label">Se indica:</label>
+                                <div id="divExamenesSelect" class="col-lg-7">
+                                  <select class="form-control" multiple="multiple">
+                                    <option ng-repeat="item in examArray">{{item.nombre}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>Información sobre diagnóstico y tratamiento:</legend>
+                      <br>
+                      <div class="col-lg-6">
+
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Impresión diagnóstica:</label>
+                          <div class="col-lg-5">
+                            <div class="input-group">
+                              <textarea type="text" ng-model="consulta.impresionDiagnostica" placeholder="Escriba aquí"
+                                        style="width: 337px;" class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class=" form-group">
+                          <label class="col-lg-3 control-label">Tratamiento:</label>
+                          <div class="col-lg-5">
+                            <div class="input-group">
+                              <textarea type="text" style="width: 337px;" ng-model="consulta.tratamiento"
+                                        placeholder="Escriba aquí" class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Tratamiento con MNT:</label>
+                          <div class="col-lg-5">
+                            <div class="input-group">
+                              <textarea type="text" style="width: 337px;" ng-model="consulta.mnt"
+                                        placeholder="Escriba aquí como indicará este tipo de tratamiento"
+                                        class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">Evolución:</label>
+                          <div class="col-lg-6">
+                            <div class="input-group">
+                              <textarea style="width: 337px;" type="text" ng-model="consulta.evolucion"
+                                        placeholder="Escriba aquí" minlength="3" class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">Diagnóstico definitivo:</label>
+                          <div class="col-lg-6">
+                            <div class="input-group">
+                              <textarea style="width: 337px;" type="text" ng-model="consulta.diagosticoDef"
+                                        placeholder="Escriba aquí" class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">Pertinencia:</label>
+                          <div class="col-lg-6">
+                            <select style="width: 337px;" class="form-control" id="positivo" name="positivo"
+                                    ng-model="consulta.positivo"
+                                    ng-options="p.value as p.label for p in positivoOptions">
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>En caso de remitir seleccione las especialidades</legend>
+                      <br>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Remitir a:</label>
+                          <div class="col-lg-5">
+                            <select style="width: 337px;" class="form-control" id="especialidad_destino"
+                                    name="especialidad_destino" ng-model="data.nuevaRemision"
+                                    ng-options="esp.nombre for esp in especialidades">
+                              <option value="">---- No remitir ----</option>
+                            </select>
+                            <button ng-click="adicionarRemision()" type="button"
+                                    class="btn btn--blue btn--l btn--raised">
+                              Añadir
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6" ng-if="remisionesArray.length > 0">
+                        <div class="form-group">
+                          <div id="divRemisionSelect">
+                            <label class="col-lg-3 control-label">Se remite a:</label>
+                            <div id="divEspecSelect" class="col-lg-6">
+                              <select style="width: 337px;" class="form-control" multiple="multiple">
+                                <option ng-repeat="item in remisionesArray">{{item.nombre}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12" ng-if="remisionesArray.length > 0">
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label"><span class="text-danger">* </span>Motivo de
+                            remisión:</label>
+                          <div class="col-lg-10">
+                                                        <textarea type="text" style="width: 697px;"
+                                                                  ng-model="data.motivoNuevaRemision"
+                                                                  placeholder="Escriba aquí la causa de la remisión"
+                                                                  ng-required="true" name="motivoNuevaRemision"
+                                                                  minlength="1" maxlength="1000" class="form-control">
+                                                      </textarea>
+                            <span ng-show="formConsulta.motivoNuevaRemision.$touched && stepy_form.ci.$error.required">Campo requerido</span>
+
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset">
+                      <legend>Fecha de próxima consulta</legend>
+                      <br>
+                      <div class="form-group">
+                        <label class="col-lg-2 control-label">Seleccionar fecha:</label>
+                        <div class="col-lg-3">
+                          <input type="date" data-date-format="dd/mm/yyyy" ng-model="consulta.fechaProximaConsulta"
+                                 placeholder="Escriba aquí" id="fecha" name="fecha" minlength="3" class="form-control"/>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="default-fieldset" ng-if="permit_records">
+                      <legend>Grabar llanto infantil</legend>
+                      <br>
+                      <label class="col-lg-3 control-label">Si desea grabar el llanto del niño, seleccione
+                        un dispositivo de grabación:</label>
+
+
+                      <!--MODO grabacion
+ -->
+                      <div>
+                        <select style="width: 337px;" class="form-control" name="listaDeDispositivos"
+                                id="listaDeDispositivos"></select>
+                        <p id="duracion"></p>
+                        <button class="btn btn--blue btn--l btn--raised" type="button" name="btnComenzarGrabacion"
+                                onclick="javascript:comenzarAGrabar();" id="btnComenzarGrabacion">Comenzar
+                        </button>
+                        <button class="btn btn--blue btn--l btn--raised" type="button" name="btnComenzarGrabacion"
+                                onclick="javascript:detenerGrabacion();" id="btnDetenerGrabacion">Detener
+                        </button>
+
+                        <ul style="margin-left: 50px" id="recordingslist"></ul>
+                      </div>
+
+
+                      <!-- <div class="col-lg-5">
+                         <select style="width: 337px;" class="form-control" id="listaDeDispositivos"
+                                 name="listaDeDispositivos">
+                         </select>
+
+                         <label class="control-label" name="duracion" id="duracion"></label>
+
+                         <button class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised" onclick="javascript:comenzarAGrabar();"
+                                 type="button" name="btnComenzarGrabacion" id="btnComenzarGrabacion">Comenzar
+                         </button>
+                         <button class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised" onclick="javascript:detenerGrabacion();"
+                                type="button" name="btnComenzarGrabacion"id="btnDetenerGrabacion">Detener
+                         </button>
+                         <h2>Recordings</h2>
+                         <ul id="recordingslist"></ul>
+                        &lt;!&ndash; <button ng-click="adicionarRecord()" type="button" class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised">
+                           Añadir
+                         </button>&ndash;&gt;
+
+                       </div>-->
+
+                    </fieldset>
+
+                    <div>
+                      <br>
+                      <div class="form-group">
+                        <div class="col-md-5">
+                          <label class="control-label"><h5> Marque aquí si ha revisado los datos y están correctos</h5>
+                          </label>
+                          <div class="checkbox">
+                            <input type="checkbox" ng-model="checked" ng-init="checked=false"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-lg-9">
+                      <div class="card__actions">
+                        <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/"
+                           class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+                        <div ng-if="checked" class="col-lg-6">
+                          <button ng-disabled="formConsulta.$invalid" type="submit"
+                                  class="btn btn--blue btn--l btn--raised"><i
+                            class="icon-checkmark"></i> Guardar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  //var elements = document.getElementById('divImprimirPDF');
+  /*-----------------grabar audio-----------------------------------------------*/
+  // Esperar a que el documento esté listo...
+  const tieneSoporteUserMedia = () =>
+    !!(navigator.mediaDevices.getUserMedia)
+
+  // Declaración de elementos del DOM
+  $listaDeDispositivos = document.getElementById('listaDeDispositivos');
+  $duracion = document.getElementById('duracion');
+  $btnComenzarGrabacion = document.getElementById('btnComenzarGrabacion');
+  $btnDetenerGrabacion = document.getElementById('btnDetenerGrabacion');
+
+  // Amable aviso para que el mundo comience a usar navegadores decentes ;)
+  if (typeof MediaRecorder === "undefined" || !tieneSoporteUserMedia()) {
+    alert("Tu navegador web no cumple los requisitos, se sugiere usar Firefox o Google Chrome");
+    btnComenzarGrabacion.disabled = true;
+    btnDetenerGrabacion.disabled = true;
+  }
+
+
+  // Algunas funciones útiles
+  const limpiarSelect = () => {
+    for (let x = $listaDeDispositivos.options.length - 1; x >= 0; x--) {
+      $listaDeDispositivos.options.remove(x);
+    }
+  }
+
+  const segundosATiempo = numeroDeSegundos => {
+    let horas = Math.floor(numeroDeSegundos / 60 / 60);
+    numeroDeSegundos -= horas * 60 * 60;
+    let minutos = Math.floor(numeroDeSegundos / 60);
+    numeroDeSegundos -= minutos * 60;
+    numeroDeSegundos = parseInt(numeroDeSegundos);
+    if (horas < 10) horas = "0" + horas;
+    if (minutos < 10) minutos = "0" + minutos;
+    if (numeroDeSegundos < 10) numeroDeSegundos = "0" + numeroDeSegundos;
+
+    return `${horas}:${minutos}:${numeroDeSegundos}`;
+  };
+
+  // Variables "globales"
+  let tiempoInicio, mediaRecorder, idIntervalo;
+
+  function refrescar() {
+    $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
+  }
+
+  // Consulta la lista de dispositivos de entrada de audio y llena el select
+  function llenarLista() {
+    navigator
+      .mediaDevices
+      .enumerateDevices()
+      .then(dispositivos => {
+        limpiarSelect();
+        dispositivos.forEach((dispositivo, indice) => {
+          if (dispositivo.kind === "audioinput") {
+            const $opcion = document.createElement("option");
+            // Firefox no trae nada con label, que viva la privacidad
+            // y que muera la compatibilidad
+            $opcion.text = dispositivo.label || `Dispositivo ${indice + 1}`;
+            $opcion.value = dispositivo.deviceId;
+            $listaDeDispositivos.appendChild($opcion);
+          }
+        })
+      })
+  };
+
+  // Ayudante para la duración; no ayuda en nada pero muestra algo informativo
+  function comenzarAContar() {
+    tiempoInicio = Date.now();
+    idIntervalo = setInterval(refrescar, 500);
+  };
+
+  // Comienza a grabar el audio con el dispositivo seleccionado
+  function comenzarAGrabar() {
+    if (!$listaDeDispositivos.options.length) return alert("No hay dispositivos");
+    // No permitir que se grabe doblemente
+    if (mediaRecorder) return alert("Ya se está grabando");
+
+    navigator.mediaDevices.getUserMedia({
+      audio: {
+        deviceId: $listaDeDispositivos.value,
+      }
+    })
+      .then(
+        stream => {
+          // Comenzar a grabar con el stream
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.start();
+          comenzarAContar();
+          // En el arreglo pondremos los datos que traiga el evento dataavailable
+          const fragmentosDeAudio = [];
+          // Escuchar cuando haya datos disponibles
+          mediaRecorder.addEventListener("dataavailable", evento => {
+            // Y agregarlos a los fragmentos
+            fragmentosDeAudio.push(evento.data);
+          });
+          // Cuando se detenga (haciendo click en el botón) se ejecuta esto
+          mediaRecorder.addEventListener("stop", () => {
+            // Detener el stream
+            stream.getTracks().forEach(track => track.stop());
+            // Detener la cuenta regresiva
+            detenerConteo();
+            // Convertir los fragmentos a un objeto binario
+            const blobAudio = new Blob(fragmentosDeAudio);
+
+            preguntaSiGuarda(blobAudio);
+            return;
+            //createDownloadLink(blobAudio);
+
+            // Crear una URL o enlace para descargar
+            const urlParaDescargar = URL.createObjectURL(blobAudio);
+            // Crear un elemento <a> invisible para descargar el audio
+            let a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            a.href = urlParaDescargar;
+            a.download = "grabacion.wav";
+
+
+            // Hacer click en el enlace
+            a.click();
+            // Y remover el objeto
+            window.URL.revokeObjectURL(urlParaDescargar);
+          });
+        }
+      )
+      .catch(error => {
+        // Aquí maneja el error, tal vez no dieron permiso
+        console.log(error)
+      });
+  };
+
+  function preguntaSiGuarda(blobAudio) {
+    var pregunta = confirm("Desea conservar y descargar la grabación?")
+    if (pregunta) {
+      alert("Se ha conservado la grabación");
+      //createDownloadLink(blobAudio);
+      //recorder && recorder.exportWAV(function(blob) {
+      var url = URL.createObjectURL(blobAudio);
+      //var url = URL.createObjectURL(blob);
+      var li = document.createElement('li');
+      var au = document.createElement('audio');
+      var hf = document.createElement('a');
+
+      au.controls = true;
+      au.src = url;
+      hf.href = url;
+      hf.download = new Date().toISOString() + '.wav';
+      hf.innerHTML = hf.download;
+      li.appendChild(au);
+      li.appendChild(hf);
+      recordingslist.appendChild(li);
+    }
+    else {
+      return alert("Se ha desechado la grabación");
+    }
+  }
+  function detenerConteo() {
+    clearInterval(idIntervalo);
+    tiempoInicio = null;
+    $duracion.textContent = "";
+  }
+
+  function detenerGrabacion() {
+    if (!mediaRecorder) return alert("No se está grabando");
+    mediaRecorder.stop();
+    mediaRecorder = null;
+  };
+
+
+  /* $btnComenzarGrabacion.addEventListener("click", comenzarAGrabar);
+   $btnDetenerGrabacion.addEventListener("click", detenerGrabacion);
+   */
+  // Cuando ya hemos configurado lo necesario allá arriba llenamos la lista
+
+  llenarLista();
+
+  function createDownloadLink(blobAudio) {
+    //recorder && recorder.exportWAV(function(blob) {
+    var url = URL.createObjectURL(blobAudio);
+    //var url = URL.createObjectURL(blob);
+    var li = document.createElement('li');
+    var au = document.createElement('audio');
+    var hf = document.createElement('a');
+
+    au.controls = true;
+    au.src = url;
+    hf.href = url;
+    hf.download = new Date().toISOString() + '.wav';
+    hf.innerHTML = hf.download;
+    li.appendChild(au);
+    li.appendChild(hf);
+    recordingslist.appendChild(li);
+    // });
+  }
+
+
+  /*const tieneSoporteUserMedia = () => !!(navigator.mediaDevices.getUserMedia);
+   var records = [];
+   // Declaración de elementos del DOM
+   $listaDeDispositivos = document.getElementById('listaDeDispositivos');
+   $duracion = document.getElementById('duracion');
+   $btnComenzarGrabacion = document.getElementById('btnComenzarGrabacion');
+   $btnDetenerGrabacion = document.getElementById('btnDetenerGrabacion');
+
+   const segundosATiempo = numeroDeSegundos => {
+   let horas = Math.floor(numeroDeSegundos / 60 / 60);
+   numeroDeSegundos -= horas * 60 * 60;
+   let minutos = Math.floor(numeroDeSegundos / 60);
+   numeroDeSegundos -= minutos * 60;
+   numeroDeSegundos = parseInt(numeroDeSegundos);
+   if (horas < 10) horas = "0" + horas;
+   if (minutos < 10) minutos = "0" + minutos;
+   if (numeroDeSegundos < 10) numeroDeSegundos = "0" + numeroDeSegundos;
+
+   return `${horas}:${minutos}:${numeroDeSegundos}`;
+   };
+
+   // Variables "globales"
+   let tiempoInicio, mediaRecorder, idIntervalo;
+   const refrescar = () => {
+   $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
+
+   };
+   // Consulta la lista de dispositivos de entrada de audio y llena el select
+   const llenarLista = () => {
+   navigator
+   .mediaDevices
+   .enumerateDevices()
+   .then(dispositivos => {
+   limpiarSelect();
+   dispositivos.forEach((dispositivo, indice) => {
+   if (dispositivo.kind === "audioinput") {
+   const $opcion = document.createElement("option");
+   // Firefox no trae nada con label, que viva la privacidad
+   // y que muera la compatibilidad
+   $opcion.text = dispositivo.label || `Dispositivo ${indice + 1}`;
+   $opcion.value = dispositivo.deviceId;
+   $listaDeDispositivos.appendChild($opcion);
+   }
+   })
+   })
+   };
+
+
+   // Si no soporta...
+   // Amable aviso para que el mundo comience a usar navegadores decentes ;)
+   if (typeof MediaRecorder === "undefined" || !tieneSoporteUserMedia()) {
+   alert("Tu navegador web no cumple los requisitos se le sugiere Firefox o Google Chrome");
+   }
+
+   // Algunas funciones útiles
+   const limpiarSelect = () => {
+   for (let x = $listaDeDispositivos.options.length - 1; x >= 0; x--) {
+   $listaDeDispositivos.options.remove(x);
+   }
+   }
+
+
+   // Ayudante para la duración; no ayuda en nada pero muestra algo informativo
+   function comenzarAContar() {
+   tiempoInicio = Date.now();
+   idIntervalo = setInterval(refrescar, 500);
+   };
+
+   // Comienza a grabar el audio con el dispositivo seleccionado
+   function comenzarAGrabar() {
+   if (!$listaDeDispositivos.options.length) return alert("No hay dispositivos");
+   // No permitir que se grabe doblemente
+   if (mediaRecorder) return alert("Ya se está grabando");
+
+   navigator.mediaDevices.getUserMedia({
+   audio: {
+   deviceId: $listaDeDispositivos.value,
+   }
+   })
+   .then(
+   stream => {
+   // Comenzar a grabar con el stream
+   mediaRecorder = new MediaRecorder(stream);
+   mediaRecorder.start();
+   comenzarAContar();
+   // En el arreglo pondremos los datos que traiga el evento dataavailable
+   const fragmentosDeAudio = [];
+   // Escuchar cuando haya datos disponibles
+   mediaRecorder.addEventListener("dataavailable", evento => {
+   // Y agregarlos a los fragmentos
+   fragmentosDeAudio.push(evento.data);
+   });
+   // Cuando se detenga (haciendo click en el botón) se ejecuta esto
+   mediaRecorder.addEventListener("stop", () => {
+   // Detener el stream
+   stream.getTracks().forEach(track => track.stop());
+   // Detener la cuenta regresiva
+   detenerConteo();
+   // Convertir los fragmentos a un objeto binario
+   const blobAudio = new Blob(fragmentosDeAudio);
+   records.push(blobAudio);
+
+
+   // Crear una URL o enlace para descargar
+   const urlParaDescargar = URL.createObjectURL(blobAudio);
+   // Crear un elemento <a> invisible para descargar el audio
+   let a = document.createElement("a");
+   document.body.appendChild(a);
+   a.style = "display: none";
+   a.href = urlParaDescargar;
+   a.download = "grabacion_llanto.wav";
+   // Hacer click en el enlace
+   a.click();
+   // Y remover el objeto
+   window.URL.revokeObjectURL(urlParaDescargar);
+   });
+   }
+   )
+   .catch(error => {
+   // Aquí maneja el error, tal vez no dieron permiso
+   console.log(error)
+   });
+   };
+
+
+   function detenerConteo() {
+   clearInterval(idIntervalo);
+   tiempoInicio = null;
+   $duracion.textContent = "";
+   }
+
+   detenerGrabacion = () => {
+   if (!mediaRecorder) return alert("No se está grabando");
+   mediaRecorder.stop();
+   mediaRecorder = null;
+   };
+
+
+   /!*$btnComenzarGrabacion.addEventListener("click", comenzarAGrabar);
+   $btnDetenerGrabacion.addEventListener("click", detenerGrabacion);*!/
+
+   // Cuando ya hemos configurado lo necesario allá arriba llenamos la lista
+   llenarLista();*/
+
+</script>

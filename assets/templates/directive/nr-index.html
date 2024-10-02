@@ -1,0 +1,62 @@
+
+<div>
+  <div class="p+">
+    <div class="bgc-blue-500 tc-white" flex-container="row" flex-align="center center">
+      <div flex-item="3"></div>
+      <div flex-item="4">
+        <h4 class="fs-display-1 display-block">{{entityName}} - Cantidad:
+          <span ng-show="entities" >{{entities.length}}</span>
+        </h4>
+      </div>
+      <div flex-item="3"></div>
+    </div>
+  </div>
+
+  <div class="p+">
+    <a href="#!/backend/{{slug}}/new" lx-tooltip="Insertar Nuevo" class="btn btn--m btn--green btn--fab" lx-ripple>+</a>
+
+  </div>
+
+  <div class="p+">
+    <div flex-container="row">
+      <div flex-item>
+
+      </div>
+    </div>
+  </div>
+
+  <table align="center" class=" table data-tbl-boxy responsive">
+    <thead>
+    <tr>
+      <th>
+        Nombre
+      </th>
+      <th>
+        Opciones:
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="entity in entities">
+      <td>
+        {{entity.nombre}}
+      </td>
+      <td>
+        <div class="btn-group-sm">
+          <a href="#!/backend/{{slug}}/show/{{entity.id}}" class="btn btn-small show-tooltip" title="Ver" href="#"><i class="icon-zoom-in"></i></a>
+          <a href="#!/backend/{{slug}}/edit/{{entity.id}}" class="btn btn-small show-tooltip" title="Editar" href="#"><i class="icon-edit"></i></a>
+          <a href="javascript:void(0)" ng-click="remove(entity)" class="btn btn-small btn-danger show-tooltip" title="Eliminar"><i class="icon-trash"></i></a>
+        </div>
+
+      </td>
+    </tr>
+
+    <div data-pagination="" data-num-pages="numPages()"
+         data-current-page="currentPage" data-max-size="maxSize"
+         data-boundary-links="true"></div>
+
+
+    </tbody>
+  </table>
+  </div>
+</div>

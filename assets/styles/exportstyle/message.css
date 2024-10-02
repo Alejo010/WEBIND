@@ -1,0 +1,56 @@
+.messages{margin:0;padding:10px;padding-bottom:0;list-style:none;}
+.messages>li{margin-bottom:15px}
+.messages>li>img{float:left;width:60px;height:60px;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%}
+.messages>li>div{background-color:#00aaff;padding:10px;padding-top:1px;margin-left:80px;position:relative;border-radius: 15px;}
+.messages>li>div:before{content:"";position:absolute;width:0;height:0;left:-10px;top:19px;border-right:10px solid #00aaff;border-top:8px solid transparent;border-bottom:8px solid transparent;
+  }
+.messages>li>div h5{font-weight:700;display:inline-block}
+.messages>li>div p{color:#ffffff;font-size: large}
+.messages>li>div .time{margin-top:5px;color:#0b0b0b;}
+
+
+.messages.messages-stripped>li:nth-child(odd)>div{background-color:#eef1f4}
+.messages.messages-stripped>li:nth-child(odd)>div:before{border-right-color:#eef1f4}
+.messages.messages-zigzag>li:nth-child(even)>img{float:right}
+.messages.messages-zigzag>li:nth-child(even)>div{margin-right:80px;margin-left:0}
+.messages.messages-zigzag>li:nth-child(even)>div:before{right:-10px;left:auto;border-left:10px solid #f7f8f9;border-right:0}
+.messages.messages-zigzag>li:nth-child(even)>div h5{float:right}
+.messages.messages-zigzag>li:nth-child(even)>div .time{float:none}
+.messages.messages-chat>li>div{padding-top:0;padding-bottom:2px}
+.messages.messages-chat>li>div p{margin-bottom:3px;line-height:16px}
+.messages li .messages-actions{position:absolute;bottom:5px;right:10px;display:none}
+.messages li:hover .messages-actions{display:block}
+.messages li .messages-actions a{font-size:16px;margin:0 3px}
+.messages-input-form{position:relative;border:1px solid #ddd;margin-top:10px}
+.messages-input-form .input{margin-right:90px}
+.messages-input-form .input input[type=text]{border:0;margin-bottom:0;display:block}
+.messages-input-form .buttons{position:absolute;right:0;top:0}
+.messages-input-form .buttons a{color:#ccc;margin:4px;line-height:32px}
+.messages-input-form .buttons a>i{font-size:16px}
+.messages-input-form .buttons a:hover{color:#555}
+.messages-input-form .buttons .btn{margin-top:-5px;margin-right:1px}
+
+
+
+.messages.messages-response>li>div{background-color:#00aaff;padding:10px;padding-top:1px;margin-left:80px;position:relative}
+.messages.messages-response>li>img{float:right}
+.messages.messages-response>li>div{margin-right:80px;margin-left:0}
+.messages.messages-response>li>div:before{right:-10px;left:auto;border-left:10px solid #2b8118;border-right:0}
+.messages.messages-response>li>div h5{float:right}
+.messages.messages-response>li>div .time{float:none}
+
+.font-data {
+  padding-top:5px;
+  color:#000066;
+  font-size: medium
+}
+
+/*
+
+.ng-valid{
+  border: #12ff6b;
+}
+.ng-invalid{
+  border: #ff3a3a;
+}
+*/

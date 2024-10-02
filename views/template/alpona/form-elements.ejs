@@ -1,0 +1,211 @@
+<div class="main-container">
+  <div class="container" style="padding-left: 25px;padding-top: 10px ">
+
+    <div class="page-header">
+      <h1><i class="icon-file"></i> Nueva consulta
+        <small></small>
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12 widget-module">
+        <div class="square-widget widget-collapsible">
+          <div class="widget-head clearfix">
+            <h4 class="pull-left"><i class="icon-paragraph-justify-2"></i> Buscar el Paciente</h4>
+
+          </div>
+
+
+
+          <div class="widget-container">
+            <form class="form-horizontal" name="myform"  >
+              <div class="form-group">
+                <label class="col-lg-2 control-label">HC</label>
+                <div class="col-lg-10">
+                  <input type="text" placeholder="Inserte número de la Historia Clínica"
+                         class="form-control" tooltip-placement="top" tooltip-trigger="'none'"
+                         uib-tooltip="La Historia Clínica debe tener 5 números"
+                         tooltip-class="customClass"
+                         tooltip-is-open="myform.hclinica.$dirty && myform.hclinica.$invalid"
+                         name="hclinica"
+                         ng-pattern="/^\d{5}$/"
+                         maxlength="5"
+                         ng-model="search.HC">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">CI:</label>
+                <div class="col-lg-10">
+                  <input type="text" placeholder="Inserte el Carnet de Identidad"
+                         class="form-control" tooltip-placement="top" tooltip-trigger="'none'"
+                         uib-tooltip="El Carnet de Identidad  debe tener 11 números"
+                         tooltip-class="customClass"
+                         tooltip-is-open="myform.cidentidad.$dirty && myform.cidentidad.$invalid"
+                         name="cidentidad"
+                         ng-pattern="/^\d{11}$/"
+                         maxlength="11"
+                         ng-model="search.CI">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Nombre y apellidos</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" placeholder="Inserte el nombre y apellidos"
+                         name="fullname"
+                         class="form-control" tooltip-placement="top" tooltip-trigger="'none'"
+                         uib-tooltip="Algunos datos son incorrectos"
+                         tooltip-class="customClass"
+                         tooltip-is-open="myform.fullname.$dirty && myform.fullname.$invalid"
+                         ng-pattern="nameRegExp"
+                         maxlength="50"
+                         ng-model="search.fullname">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-2 control-label">&nbsp;</label>
+                <div class="col-lg-10">
+                  <div class="form-actions">
+                    <button type="submit"  ng-disabled="myform.$invalid" class="btn  btn-primary pull-left" ng-click="searchQuery()">Buscar</button>
+                    <!--<button type="submit" class="btn btn-primary"  ng-show="queryResultShow"  ng-click="showCreateWindow()">+ Agregar consulta</button>-->
+                 <!---->
+                  </div>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <p></p>
+
+    <div class="col-md-8" ng-show="queryResultShow">
+      <div class="square-widget">
+        <div class="widget-head clearfix">
+          <h4 class="pull-left"><i class="icon-align-justify"></i> Resumen del Paciente</h4>
+        </div>
+        <div class="widget-container">
+          <p>
+          </p>
+          <dl class="dl-horizontal">
+            <dt>#HC:</dt>
+            <dd>{{resultquery.datos_paciente.hc}}</dd>
+            <dt>Nombre:</dt>
+            <dd>{{resultquery.fullname}}</dd>
+            <dt>Fecha Nac:</dt>
+            <dd>{{resultquery.datos_paciente.fecha_nac}}</dd>
+            <dt>Sexo:</dt>
+            <dd>{{resultquery.sexo.sexo}}</dd>
+            <dt>Raza:</dt>
+            <dd>{{resultquery.raza.raza}}</dd>
+            <dt>Dirección:</dt>
+            <dd>{{resultquery.direction}}</dd>
+            <dt>Remitido por:</dt>
+            <dd>{{resultquery.persona.sendby}}</dd>
+
+            <!--Modal Window
+
+            <script type="text/ng-template" id="myModalContent.html">
+              <div class="modal-header">
+                <h3 class="modal-title">Datos del paciente</h3>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li ng-repeat="item in items">
+                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                  </li>
+                </ul>
+                <dl class="dl-horizontal">
+                  <dt>#HC:</dt>
+                  <dd>{{item.hc}}</dd>
+                  <dt>Nombre:</dt>
+                  <dd>{{item.persona.fullname}}</dd>
+                  <dt>Fecha Nac:</dt>
+                  <dd>{{item.persona.fechanac}}</dd>
+                  <dt>Sexo:</dt>
+                  <dd>{{item.persona.sexo}}</dd>
+                  <dt>Raza:</dt>
+                  <dd>{{item.persona.raza}}</dd>
+                  <dt>Dirección:</dt>
+                  <dd>{{item.persona.address}}</dd>
+                  <dt>Remitido por:</dt>
+                  <dd>{{item.persona.sendby}}</dd>
+                  <dt>Edad gestacional al parto:</dt>
+                  <dd>{{item.persona.edadgestacional}}</dd>
+                  <dt>Peso al nacer:</dt>
+                  <dd>{{item.persona.bornweight}}</dd>
+                  <dt>Area de Salud:</dt>
+                  <dd>{{item.persona.healtharea}}</dd>
+                  <dt>Natural de:</dt>
+                  <dd>{{item.persona.mcpal}}
+                  <dt>Procedencia:</dt>
+                  <dd>{{item.persona.procedencia}}</dd>
+                  <dt>Motivo de consulta:</dt>
+                  <dd>presenta una patología rara en el cráneo</dd>
+                </dl>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+              </div>
+            </script>
+
+            <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+            <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
+            <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
+            <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{
+              animationsEnabled }})
+            </button>
+            <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+-->
+
+            <uib-accordion close-others="oneAtATime">
+              <div uib-accordion-group class="panel-default" is-open="status.open">
+                <uib-accordion-heading >
+                 <div ng-click="searcMoreInfo()"> Ver más datos! <i class="pull-right glyphicon"
+                              ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                 </div>
+                </uib-accordion-heading>
+                <dt>Edad gestacional al parto:</dt>
+                <dd>{{resultquery.datos_paciente.antc_prenat.edad_gestacional}}</dd>
+                <dt>Peso al nacer:</dt>
+                <dd>{{resultquery.datos_paciente.antc_perinat.peso_al_nacer}}</dd>
+                <dt>Area de Salud:</dt>
+                <dd>{{resultquery.datos_paciente.area_salud.name}}</dd>
+                <dt>Natural de:</dt>
+                <dd>{{resultquery.datos_paciente.area_salud.municipio.municipio}}
+                <dt>Procedencia:</dt>
+                <dd>Urbana</dd>
+                <dt>Motivo de consulta:</dt>
+                <dd>Presenta una patología rara en el cráneo</dd>
+              </div>
+            </uib-accordion>
+          </dl>
+          <form>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">&nbsp;</label>
+            <div class="col-lg-10">
+              <div class="form-actions">
+                 <button type="submit" class="btn btn-primary"  ng-show="queryResultShow"  ng-click="showCreateWindow()">+ Agregar consulta</button>
+              </div>
+            </div>
+          </div>
+          </form>
+          <p>&nbsp; </p>
+          <p> &nbsp;</p>
+
+
+          <!--<div class="form-group">-->
+          <!--<label class="col-lg-8 control-label">Examen Físico</label>-->
+          <!--<div class="col-lg-10">-->
+          <!--<textarea rows="5" cols="60" class="form-control"></textarea>-->
+          <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

@@ -1,0 +1,271 @@
+           <!-- SITE CONTAINER -->
+            <div class="main-container">
+                <div class="container">
+				<div class="row">
+                        <div class="col-md-12">
+                            <!-- SHORTCUT BAR -->
+                            <div class="shortcut-bar">
+                                <ul class="shortcut-items">
+                                    <li><a href="#"><i class="icon-user-4"></i><span class="shortcut-label">Consulta</span></a></li>
+                                    <li><a href="#"><i class="icon-stats-up"></i><span class="shortcut-label">Reportes</span></a></li>
+                                    <li><a href="#"><i class="icon-group"></i><span class="shortcut-label">Interconsulta</span></a></li>
+                                    <li><a href="#"><i class="icon-user-3"></i><span class="shortcut-label">Pacientes</span></a></li>
+                                    <li><a href="#"><i class="icon-calendar-6"></i><span class="shortcut-label">Calendario</span></a></li>
+                                    <li><a href="#"><i class="icon-download-alt"></i><span class="shortcut-label">Repositorio</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="page-header">
+                                <h1> <center>Insertar datos del paciente</center></h1>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="square-widget">
+                                <div class="widget-container">
+                                    <div class="stepy-tab">
+                                    </div>
+                                    <form name="myForm" id="default" class="form-horizontal">
+                                        <fieldset ng-form="part_one" title="Inf. Inicial">
+                                            <legend>Datos del niño (a)
+                                              <img src="/correct.png" ng-show="!!part_one.$errors.required">
+                                            </legend>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">HC:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="HC" class="form-control">
+                                                </div>
+
+                                            </div><div class="form-group">
+                                                <label class="col-lg-2 control-label">Nombre y Apellidos:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Full Name" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Fecha Nac:</label>
+                                                <div class="form-group">
+                                                        <div class="col-lg-8">
+                                                            <input class="form-control" type="text" id="dp2" data-date-format="mm/dd/yy" value="02/16/12">
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Edad:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Edad" class="form-control">
+                                                </div>
+                                            </div>
+											<div class="form-group">
+                                                <label class="col-lg-2 control-label">Dirección:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Dirección" class="form-control">
+                                                </div></div>
+
+												<div class="form-group">
+												<label class="col-lg-2 control-label">Municipio:</label>
+                                                        <div class="col-lg-10">
+                                                            <select class="form-control">
+                                                                <option>San luis</option>
+                                                                <option>Stgo de Cuba</option>
+                                                                <option>Mella</option>
+                                                            </select>
+                                                        </div>
+														</div>
+														<div class="form-group">
+														<label class="col-lg-2 control-label">Provincia:</label>
+                                                        <div class="col-lg-10">
+                                                            <select class="form-control">
+                                                                <option>Stgo</option>
+                                                                <option>Gtmo</option>
+                                                            </select>
+                                                        </div>
+                                            </div>
+
+											<div class="form-group">
+                                                        <label class="col-lg-2 control-label">Area de Salud:</label>
+                                                        <div class="col-lg-10">
+                                                            <select class="form-control">
+                                                                <option>Armando Garcia</option>
+                                                                <option>30 de Noviembre</option>
+                                                                <option>Frank Pais</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+											<div class="form-group">
+                                                        <label class="col-lg-2 control-label">Sexo:</label>
+                                                        <div class="col-lg-10">
+                                                            <label class="radio">
+                                                                <input type="radio" name="optionsRadios" value="option1" checked>
+                                                                M</label>
+																<label class="radio">
+                                                                <input type="radio" name="optionsRadios" value="option2" checked>
+                                                                F</label>
+                                                        </div>
+                                            </div>
+											<div class="form-group">
+                                                <label class="col-lg-2 control-label">Peso al nacer:</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Peso al nacer" class="form-control">
+                                                </div>
+                                            </div>
+<div class="form-group">
+                                                        <label class="col-lg-2 control-label">Raza:</label>
+                                                        <div class="col-lg-10">
+                                                            <select class="form-control">
+                                                                <option>Blanca</option>
+                                                                <option>Negra</option>
+                                                                <option>Mestizo</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                        </fieldset>
+                                        <fieldset ng-form="part_two" title="Antecedentes prenatales">
+                                            <legend>Información de la madre
+                                              <img src="/correct.png" ng-show="!!part_two.$errors.required">
+                                            </legend>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Edad gestacional al parto</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Edad gestacional al parto" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Enfermedades padecidas</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Enfermedades padecidas" class="form-control">
+                                                </div>
+                                            </div>
+											<div class="form-group">
+                                                <label class="col-lg-2 control-label">Diabetes gestacional</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Diabetes gestacional" class="form-control">
+                                                </div>
+                                            </div>
+											<div class="form-group">
+                                                <label class="col-lg-2 control-label">Consumo de drogas</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Cuáles?" class="form-control">
+                                                </div>
+                                            </div><div class="form-group">
+                                                <label class="col-lg-2 control-label">Otras</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" placeholder="Cuáles?" class="form-control">
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                        <fieldset ng-form="part_tree" title="Antec.Pat.Pers.(APP)">
+                                                                <legend>APP</legend>
+
+                                          <div class="form-group">
+                                                                            <label class="col-lg-2 control-label">Seleccionar cuales</label>
+                                                                            <div class="col-lg-10">
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option1"> Trastorno del habla o lenguaje </label>
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option2"> Trastorno del aprendizaje </label>
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno de atención </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno del desarrollo psicomotor </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Respiración bucal </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Otitis media a repetición </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno visual </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Epilepsia </label>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                            </fieldset>
+                                        <fieldset ng-form="part_four" title="Antec.Pat.Fam.(APF)">
+                                                                <legend>APF</legend>
+
+                                          <div class="form-group">
+                                                                            <label class="col-lg-2 control-label">Seleccionar cuales</label>
+                                                                            <div class="col-lg-10">
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option1"> Sordera familiar </label>
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option2"> Trastorno del habla o lenguaje </label>
+                                                                                <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno del aprendizaje </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno de atención </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Trastorno visual </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Epilepsia </label>
+                                                    <label class="checkbox-inline">
+                                                                                    <input type="checkbox" value="option3"> Enfermedades psiquiátricas </label>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                <div class="form-group">
+                                                                    <label class="col-lg-2 control-label">Examen Físico</label>
+                                                                    <div class="col-lg-10">
+                                                                        <textarea rows="5" cols="60" class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                      <button type="submit" class="btn btn-success">Guardar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            /*=====STEPY WIZARD====*/
+            $(function() {
+                $('#default').stepy({
+                    backLabel: 'Anterior',
+                    block: true,
+                    nextLabel: 'Siguiente',
+                    titleClick: true,
+                    titleTarget: '.stepy-tab'
+                });
+            });
+            /*=====STEPY WIZARD WITH VALIDATION====*/
+            $(function() {
+                $('#stepy_form').stepy({
+                    backLabel: 'Back',
+                    nextLabel: 'Next',
+                    errorImage: true,
+                    block: true,
+                    description: true,
+                    legend: false,
+                    titleClick: true,
+                    titleTarget: '#top_tabby',
+                    validate: true
+                });
+                $('#stepy_form').validate({
+                    errorPlacement: function(error, element) {
+                        $('#stepy_form div.stepy-error').append(error);
+                    },
+                    rules: {
+                        'name': 'required',
+                        'email': 'required',
+                    },
+                    messages: {
+                        'name': {
+                            required: 'Name field is required!'
+                        },
+                        'email': {
+                            required: 'Email field is requerid!'
+                        },
+                    }
+                });
+            });
+        </script>

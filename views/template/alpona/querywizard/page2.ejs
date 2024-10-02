@@ -1,0 +1,113 @@
+<!--CUSTOMER FORM-->
+<form name="customerForm" class="form-horizontal" role="form">
+</form>
+<!--END CUSTOMER FORM-->
+
+<!--CUSTOMER FORM-->
+<form name="customerForm" role="form">
+    <div class="row">
+        <div class="col col-md-6"><!--FIRST GLOBAL COLUMN-->
+            <div class="row"><!--INNER ROW-->
+                <div class="col col-md-8 col-md-offset-2"><!--FINAL COLUMN LEVEL-->
+
+                  <div class="form-group">
+                    <label class="control-label" for="number">Evolución (*)</label>
+                    <!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">-->
+                    <textarea name="evolution" id="evolution"
+                              ng-model="vm.customerData.driverLicence.number"
+                              ng-pattern="vm.numberRegExp"
+                              ng-change="vm.checkCustomerLicenceNumber()"
+                              maxlength="40"
+                              placeholder="vm.customerData.driverLicence.number"
+                              class="form-control"
+                              rows="4"
+                              required />
+
+                    <span style="color:#cc0000" ng-show="licence.number.$dirty && licence.number.$invalid">
+                <span ng-show="licence.number.$error.required">Licence number is required.</span>
+                <span ng-show="licence.number.$error.pattern">You sould provide 12 digit.</span>
+            </span>
+
+                    <span style="color:#cc0000" ng-show="vm.customerLicenceNumberUsed">There is a registered customer with that same licence number in this year.</span>
+                    <!--</div>-->
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label " for="number">Exámen Físico (*)</label>
+                    <!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">-->
+                    <textarea name="examenfisic" id="examenfisic"
+                              ng-model="vm.customerData.driverLicence.number"
+                              ng-pattern="vm.numberRegExp"
+                              ng-change="vm.checkCustomerLicenceNumber()"
+                              maxlength="40"
+                              placeholder="vm.customerData.driverLicence.number"
+                              class="form-control"
+                              rows="4"
+                              required />
+
+                    <span style="color:#cc0000" ng-show="licence.number.$dirty && licence.number.$invalid">
+                <span ng-show="licence.number.$error.required">Licence number is required.</span>
+                <span ng-show="licence.number.$error.pattern">You sould provide 12 digit.</span>
+            </span>
+
+                    <span style="color:#cc0000" ng-show="vm.customerLicenceNumberUsed">There is a registered customer with that same licence number in this year.</span>
+                    <!--</div>-->
+                  </div>
+                </div><!--END FINAL COLUMN LEVEL-->
+            </div><!--END INNER ROW-->
+        </div><!--END FIRST GLOBAL COLUMN-->
+
+        <div class="col col-md-6"><!--SECOND GLOBAL COLUMN-->
+            <div class="row"><!--INNER ROW-->
+                <div class="col col-md-8 col-md-offset-1"><!--FINAL COLUMN LEVEL-->
+
+                  <div class="form-group">
+                    <label class="control-label" for="number">Diagnóstico Definido (*)</label>
+                    <!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">-->
+            <textarea name="diagnost" id="diagnost"
+                      ng-model="vm.customerData.driverLicence.number"
+                      ng-pattern="vm.numberRegExp"
+                      ng-change="vm.checkCustomerLicenceNumber()"
+                      maxlength="40"
+                      placeholder="vm.customerData.driverLicence.number"
+                      class="form-control"
+                      rows="4"
+                      required />
+
+                      <span style="color:#cc0000" ng-show="licence.number.$dirty && licence.number.$invalid">
+                <span ng-show="licence.number.$error.required">Licence number is required.</span>
+                <span ng-show="licence.number.$error.pattern">You sould provide 12 digit.</span>
+            </span>
+
+                      <span style="color:#cc0000" ng-show="vm.customerLicenceNumberUsed">There is a registered customer with that same licence number in this year.</span>
+                    <!--</div>-->
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label " for="number">Tratamiento (*)</label>
+                    <!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">-->
+                    <textarea name="tratamiento" id="tratamiento"
+                              ng-model="vm.customerData.driverLicence.number"
+                              ng-pattern="vm.numberRegExp"
+                              ng-change="vm.checkCustomerLicenceNumber()"
+                              maxlength="40"
+                              placeholder="vm.customerData.driverLicence.number"
+                              class="form-control"
+                              rows="4"
+                              required />
+
+                    <span style="color:#cc0000" ng-show="licence.number.$dirty && licence.number.$invalid">
+                <span ng-show="licence.number.$error.required">Licence number is required.</span>
+                <span ng-show="licence.number.$error.pattern">You sould provide 12 digit.</span>
+            </span>
+
+                    <span style="color:#cc0000" ng-show="vm.customerLicenceNumberUsed">There is a registered customer with that same licence number in this year.</span>
+                    <!--</div>-->
+                  </div>
+
+                </div><!--END FINAL COLUMN LEVEL-->
+            </div><!--END INNER ROW-->
+        </div><!--END SECOND GLOBAL COLUMN-->
+    </div>
+</form>
+<!--END CUSTOMER FORM-->

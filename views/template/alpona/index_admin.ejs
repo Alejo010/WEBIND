@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html ng-app="WebInd" lang="en">
+<head>
+  <div ng-cloak>
+    <title ng-cloak>WebInd: Un programa para el control hospitalario.</title>
+  </div>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!--
+      Stylesheets and Preprocessors
+      ==============================
+
+      You can always bring in CSS files manually with `<link>` tags, or asynchronously
+      using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+      of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, stylesheets from your `assets/styles` folder are included
+      here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+      are supported. In production, your styles will be minified and concatenated into
+      a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your CSS files
+          + Import stylesheets from other directories
+          + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+  -->
+
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/css/bootstrap.css">
+  <link rel="stylesheet" href="/styles/css/font-alpona.css">
+  <link rel="stylesheet" href="/styles/css/prettify.css">
+  <link rel="stylesheet" href="/styles/css/responsive-tables.css">
+  <link rel="stylesheet" href="/styles/css/jquery.stepy.css">
+  <link rel="stylesheet" href="/styles/css/bootstrap-reset.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/angular-material.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.min.css">
+  <link rel="stylesheet" href="/styles/css/angular-bootstrap-calendar.min.css">
+  <link rel="stylesheet" href="/styles/css/colorpicker.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/chartcss/c3.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/elegant-icons-style.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/line-icons.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/owl.carousel.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/style-responsive.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/widgets.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/xcharts.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/datepicker3.css">
+  <link rel="stylesheet" href="/styles/css/styles.css">
+  <link rel="stylesheet" href="/styles/mdi/css/materialdesignicons.css">
+  <link rel="stylesheet" href="/styles/css/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/js/lumx/dist/lumx.css">
+  <link rel="stylesheet" href="/styles/css/select/select.min.css">
+  <!--STYLES END-->
+
+
+</head>
+<!--<div class="layout-align-center" ng-show="i18nLoaded" ng-hide="!i18nLoaded"><img src="/images/loading.gif" /></div>-->
+<body calls="ng-cloak" ng-controller="HeaderController">
+<main ng-hide="i18nLoaded">
+  <div class="main-wrapper">
+    <div class="scroll-top">
+      <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+    </div>
+    <!-- TOP BAR ng-show="userAuthenticated" -->
+    <div class="top-bar" ng-show="userAuthenticated">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-md-4">
+            <a href="#" class="left-toggle"><i class="icon-menu-2 "></i></a>
+            <!-- LOGO -->
+            <div class="branding" align="left">
+              <a href="index.html"><img src="images/logo_webind.png" alt="Alpona Logo"></a>
+            </div>
+
+          </div>
+          <div class="col-sm-4 col-md-4 responsive-notification-mnu">
+            <ul class="notification-bar">
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-bell"></i></a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-head">
+                    <h6>Usted tiene 10 notificaciones</h6>
+                  </div>
+                  <ul class="notification-list">
+                    <li><a href="#" class="clearfix"><i class="icon-star blue"></i><span class="notification-intro">Donec pretium enim vel nisl viverra posuere.<span
+                            class="notification-time">8 min ago</span></span></a></li>
+                    <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                            class="notification-time">3 hours ago</span></span></a></li>
+                    <li><a href="#" class="clearfix"><i class=" icon-bolt brown"></i><span class="notification-intro">Fusce eget ipsum in odio consectetur condimentum et id nisl.<span
+                            class="notification-time">5 hours ago</span></span></a></li>
+                    <li><a href="#" class="clearfix"><i class=" icon-ok-sign green"></i><span
+                          class="notification-intro">Mauris fringilla metus in mauris molestie tempor <span
+                            class="notification-time">8 hours ago</span></span></a></li>
+                  </ul>
+                  <div class="action-btn">
+                    <button class="btn btn-block">Ver todo</button>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="count-noty">12</span><i
+                    class="icon-envelop-opened"></i></a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-head">
+                    <h6>Usted tiene 10 mensajes</h6>
+                  </div>
+                  <ul class="msg-list">
+                    <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40"
+                                                                                       alt="Avatar"
+                                                                                       src="images/avatar-40x40/binjal.png"></span><span><i>binjal</i> is posted an article. lacus est congue... </span><span
+                          class="notification-meta"> 12 hours ago </span></a></li>
+                    <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40"
+                                                                                       alt="Avatar"
+                                                                                       src="images/avatar-40x40/sharmin.png"></span><span><i>sharmin</i> is posted an article. lacus est congue... </span><span
+                          class="notification-meta"> 12 hours ago </span></a></li>
+                    <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40"
+                                                                                       alt="Avatar"
+                                                                                       src="images/avatar-40x40/shusi.png"></span><span><i>shusi</i> is posted an article. lacus est congue... </span><span
+                          class="notification-meta"> 12 hours ago </span></a></li>
+                    <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40"
+                                                                                       alt="Avatar"
+                                                                                       src="images/avatar-40x40/jamjam.png"></span><span><i>jamjam</i> is posted an article. lacus est congue... </span><span
+                          class="notification-meta"> 12 hours ago </span></a></li>
+                    <li class="clearfix"><a href="#"><span class="dropdown-thumb"><img width="40" height="40"
+                                                                                       alt="Avatar"
+                                                                                       src="images/avatar-40x40/sinha.png"></span><span><i>sinha</i> is posted an article. lacus est congue... </span><span
+                          class="notification-meta"> 12 hours ago </span></a></li>
+                  </ul>
+                  <div class="action-btn">
+                    <button class="btn btn-block">Ver todo</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-4 clearfix responsive-log-mnu">
+            <!-- ADMIN DRODOWN MENU -->
+            <div class="loged-nav pull-right">
+              <ul class="clearfix">
+                <li class="log-nav dropdown pull-right"><a class="dropdown-toggle clearfix" data-toggle="dropdown">
+                    <span class="pull-left loged-user-name">Especialista</span><span
+                      class="logged-user-thumb pull-right"><img class="img-circle" src="images/admin-avatar.jpg"
+                                                                alt="Admin"></span></a>
+                  <div class="dropdown-menu">
+                    <ul class="pull-right">
+                      <li><a href="#">Nombre de usuario</a></li>
+                      <li><a href="#">Editar perfil</a></li>
+                      <li><a href="#">Email </a></li>
+                      <li class="divider"></li>
+                      <li><a href="" class="logout-link" ng-click="closeLogin($event)" onclick="return false;"><i
+                            class="icon-lock-3"></i> Salir</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LEFT BAR  ng-show="userAuthenticated" -->
+
+    <div class="row">
+      <div class="left-bar merge-left" ng-show="userAuthenticated">
+
+        <!-- LEFT NAV -->
+        <div class="left-nav" style="padding-left: 20px">
+          <ul class="side-navigation accordion" id="nav-accordion">
+            <li><a href="#!/maincotainer" data-target="#maincotainer/" class=""><i class="icon-home"></i> </a>
+            </li>
+
+            <!--
+            <li><a href="#"><i class="icon-user-4"></i>Consulta</a>
+              <ul>
+                <li><a href="#!/wizard/" data-target="#wizard/" class=""><i class="icon-double-angle-right"></i>Nueva
+                    consulta</a></li>
+                <li><a href="#!/makemedicalquery/" data-target="#makemedicalquery/" class=""><i
+                      class="icon-double-angle-right"></i> Nuevo Paciente</a></li>
+                <li><a href="#!/newquery/" data-target="#newquery/" class=""><i class="icon-double-angle-right"></i>Consulta
+                    de Seguimiento</a></li>
+                <li><a href="#!/viewquery/" data-target="#viewquery/" class=""><i class="icon-double-angle-right"></i>Listar
+                    consultas</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="icon-group"></i>Interconsulta</a>
+              <ul>
+                <li><a href="basic-table.html"><i class="icon-double-angle-right"></i> Pacientes remitidos desde... </a>
+                </li>
+                <li><a href="table-themes.html"><i class="icon-double-angle-right"></i> Pacientes remitidos hacia...</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="icon-user-3"></i> Listado de pacientes</a>
+
+            </li>
+            <li><a href="#"><i class="icon-user-3"></i> Reportes</a>
+              <ul>
+                <li>
+                  <a href="#!/reporte/especialidad"><i class="icon-double-angle-right"></i> Por especialidad </a>
+                </li>
+                <li>
+                  <a href="#!/reporte/edad"><i class="icon-double-angle-right"></i> Por Edad</a>
+                </li>
+                <li>
+                  <a href="#!/reporte/municipio"><i class="icon-double-angle-right"></i> Por Municipio</a>
+                </li>
+                <li>
+                  <a href="#!/reporte/hospital"><i class="icon-double-angle-right"></i> Por Hospital</a>
+                </li>
+                <li>
+                  <a href="#!/reporte/area-salud"><i class="icon-double-angle-right"></i> Por &Aacuterea de salud</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="icon-briefcase-3 "></i> Otras opciones</a>
+              <ul>
+                <li><a href="#!/wizard/" data-target="#wizard/"><i class="icon-double-angle-right"></i> Calendario </a>
+                </li>
+                <li><a href="typography-non-boxy.html"><i class="icon-double-angle-right"></i> Repositorio</a></li>
+              </ul>
+            </li>
+             -->
+            <li><a href="#"><i class="icon-briefcase-3 "></i>Gestionar Usuarios</a>
+              <ul>
+                <li>
+                  <a href="#!/backend/medico/index"> <i class="icon-double-angle-right"></i> Médicos </a>
+                </li>
+
+                <li>
+                  <a href="#!/backend/usuario/index"> <i class="icon-double-angle-right"></i> Usuarios </a>
+                </li>
+
+                <li>
+                  <a href="#!/backend/rol/index"> <i class="icon-double-angle-right"></i> Rol </a>
+                </li>
+
+              </ul>
+            </li>
+
+
+
+
+
+            <li><a href="#"><i class="icon-briefcase-3 "></i>Nomencladores</a>
+              <ul>
+                <li>
+                  <a href="#!/backend/area-salud/index"> <i class="icon-double-angle-right"></i> Área de salud </a>
+
+                </li>
+                <li>
+                  <a href="#!/backend/especialidad/index"> <i class="icon-double-angle-right"></i>Especialidad</a>
+                </li>
+                <li>
+                  <a href="#!/backend/examen/index"> <i class="icon-double-angle-right"></i>Examen</a>
+                </li>
+                <li>
+                  <a href="#!/backend/hospital/index"> <i class="icon-double-angle-right"></i>Hospital</a>
+                </li>
+                <li>
+                  <a href="#!/backend/movimiento-fetal/index"> <i class="icon-double-angle-right"></i>
+                    Movimiento Fetal
+                  </a>
+                </li>
+                <li>
+                  <a href="#!/backend/nivel-escolaridad/index"> <i class="icon-double-angle-right"></i>
+                    Nivel Escolaridad
+                  </a>
+                </li>
+                <!--<li>-->
+                  <!--<a href="#!/backend/ocupacion/index"> <i class="icon-double-angle-right"></i>-->
+                    <!--Ocupación-->
+                  <!--</a>-->
+                <!--</li>-->
+                <li>
+                  <a href="#!/backend/parentezco/index"> <i class="icon-double-angle-right"></i>
+                    Parentezco
+                  </a>
+                </li>
+                <li>
+                  <a href="#!/backend/tipo-parto/index"> <i class="icon-double-angle-right"></i>
+                    Tipo Parto
+                  </a>
+                </li>
+                <li>
+                  <a href="#!/backend/llanto/index"> <i class="icon-double-angle-right"></i>
+                    Llanto
+                  </a>
+                </li>
+                <li>
+                  <a href="#!/backend/municipio/index"> <i class="icon-double-angle-right"></i>
+                    Municipio
+                  </a>
+                </li>
+                <li>
+                  <a href="#!/backend/provincia/index"> <i class="icon-double-angle-right"></i>
+                    Provincia
+                  </a>
+                </li>
+
+              </ul>
+
+
+
+            </li>
+
+            <li><a href="#"><i class="icon-briefcase-3 "></i>Auditoría</a>
+              <ul>
+                <li>
+                  <a href=""> <i class="icon-double-angle-right"></i> Ver Registro de acciones </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="main-wrapper">
+        <div class="scroll-top">
+          <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+        </div>
+        <!-- SITE CONTAINER -->
+        <div class="main-container">
+          <div class="container">
+            <div class="row" ng-show="userAuthenticated">
+              <div class="col-md-12">
+                <!-- SHORTCUT BAR -->
+                <div class="shortcut-bar">
+                  <ul class="shortcut-items">
+                    <li>
+                      <a href="#"><i class="icon-group"></i><span class="shortcut-label">Usuarios</span></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon-user-4"></i><span class="shortcut-label">Nomencladores</span></a>
+                    </li>
+
+                    <li>
+                      <a href="#"><i class="icon-download-alt"></i><span class="shortcut-label">Auditoría</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <!--<div class="page-header">-->
+                <!--<h1> <center>Insertar datos del paciente</center></h1>-->
+                <!--</div>-->
+              </div>
+            </div>
+
+
+            <div ng-view>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SITE CONTAINER -->
+
+  </div>
+  <!--[if lte IE 7]>
+  <script src="js/font-alpona-ie7.js"></script>
+  <![endif]-->
+  <script>
+    google.load('visualization', '1', {'packages': ['geochart']});
+    google.setOnLoadCallback(drawRegionsMap);
+    function drawRegionsMap() {
+      let data = google.visualization.arrayToDataTable([
+        ['Country', 'Popularity'],
+        ['Germany', 200],
+        ['United States', 300],
+        ['Brazil', 400],
+        ['Canada', 500],
+        ['France', 600],
+        ['RU', 700]
+      ]);
+      let options = {
+        colorAxis: {colors: ['009933', '#e88a05', '#3498db']}
+      };
+      let chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+  </script>
+  <script>
+    /*====MINI CHART ====*/
+    $(function () {
+      $(".sparkbar").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+        type: 'bar',
+        height: '50',
+        barWidth: 6,
+        barSpacing: 2,
+        barColor: '#5fbf00',
+        negBarColor: '#bf0000',
+        tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+      });
+    });
+    $(function () {
+      $(".sparkline").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+        type: 'line',
+        height: '50',
+        width: '100',
+        barWidth: 6,
+        barSpacing: 2,
+        barColor: '#5fbf00',
+        negBarColor: '#bf0000',
+        tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+      });
+    });
+    $(function () {
+      $(".sparkpie").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+        type: 'pie',
+        height: '50',
+        barWidth: 6,
+        barSpacing: 2,
+        barColor: '#5fbf00',
+        negBarColor: '#bf0000',
+        tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+      });
+    });
+    $(function () {
+      $(".line-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, 15, 20, 40, 60], {
+        type: 'line',
+        width: '100',
+        height: '50',
+        lineColor: '#2b2b2b',
+        fillColor: '#e5e5e5',
+        lineWidth: 2,
+        highlightSpotColor: '#0e8e0e',
+        spotRadius: 3,
+        drawNormalOnTop: true
+      });
+      $(".bar-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, -15, 20, 40, 60], {
+        type: 'bar',
+        height: '60',
+        barWidth: 4,
+        barSpacing: 1,
+        barColor: '#007f00'
+      });
+      $(".pie-min-chart").sparkline([3, 5, 2, 10, 8], {
+        type: 'pie',
+        width: '60',
+        height: '60'
+      });
+      $(".tristate-min-chart").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
+        type: 'tristate',
+        height: '50',
+        posBarColor: '#bf005f',
+        negBarColor: '#ff7f00',
+        zeroBarColor: '#545454',
+        barWidth: 6,
+        barSpacing: 1
+      });
+    });
+  </script>
+</main>
+<!--
+    Client-side Templates
+    ========================
+
+    HTML templates are important prerequisites of modern, rich client applications.
+    To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+    that you load these templates client-side.
+
+    By default, your Gruntfile is configured to automatically load and precompile
+    client-side JST templates in your `assets/templates` folder, then
+    include them here automatically (between TEMPLATES and TEMPLATES END).
+
+    To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+    For example, here are a few things you could do:
+
+        + Import templates from other directories
+        + Use a different template engine (handlebars, jade, dust, etc.)
+        + Internationalize your client-side templates using a server-side
+          stringfile before they're served.
+-->
+
+<!--TEMPLATES-->
+<script type="text/javascript" src="/jst.js"></script>
+<!--TEMPLATES END-->
+
+
+<!--
+
+  Client-side Javascript
+  ========================
+
+  You can always bring in JS files manually with `script` tags, or asynchronously
+  on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+  take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+  By default, files in your `assets/js` folder are included here
+  automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+  CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+  and concatenated into a single file.
+
+  To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+  For example, here are a few things you could do:
+
+      + Change the order of your scripts
+      + Import scripts from other directories
+      + Use a different preprocessor, like TypeScript
+
+-->
+
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/alponajs/jquery.js"></script>
+<script src="/js/alponajs/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="/js/alponajs/prettify.js"></script>
+<script src="/js/alponajs/jquery.nicescroll.js"></script>
+<script src="/js/alponajs/jquery.cookie.js"></script>
+<script src="/js/alponajs/jquery.hoverIntent.minified.js"></script>
+<script src="/js/alponajs/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/js/alponajs/jquery.validate.js"></script>
+<script src="/js/alponajs/jquery.stepy.js"></script>
+<script src="/js/alponajs/common-script.js"></script>
+<script src="/js/dependencies/exportedjs/bootstrap.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-animate.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-cookies.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-datepicker.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-resource.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-route.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-translate.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-locale_es-cu.js"></script>
+<script src="/js/dependencies/exportedjs/ui-bootstrap-tpls.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-spinners.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-translate.js"></script>
+<script src="/js/dependencies/exportedjs/bootstrap-datepicker.js"></script>
+<script src="/js/dependencies/exportedjs/checklist-model.js"></script>
+<script src="/js/dependencies/exportedjs/locale"></script>
+<script src="/js/dependencies/exportedjs/locales.js"></script>
+<script src="/js/dependencies/exportedjs/locales.min.js"></script>
+<script src="/js/dependencies/exportedjs/moment-with-locales.js"></script>
+<script src="/js/dependencies/exportedjs/moment-with-locales.min.js"></script>
+<script src="/js/dependencies/exportedjs/moment.min.js"></script>
+<script src="/js/dependencies/exportedjs/rzslider.min.js"></script>
+<script src="/js/dependencies/exportedjs/wow.min.js"></script>
+<script src="/js/dependencies/angular-audio-recorder.js"></script>
+<script src="/js/dependencies/angular-audio-recorder.min.js"></script>
+<script src="/js/dependencies/angular-bootstrap-calendar-tpls.min.js"></script>
+<script src="/js/dependencies/angular-sanitize.js"></script>
+<script src="/js/dependencies/bootstrap-colorpicker-module.js"></script>
+<script src="/js/dependencies/bootstrap-colorpicker-module.min.js"></script>
+<script src="/js/dependencies/faker.js"></script>
+<script src="/js/dependencies/html2canvas.min.js"></script>
+<script src="/js/dependencies/html2pdf.bundle.js"></script>
+<script src="/js/dependencies/jspdf.min.js"></script>
+<script src="/js/dependencies/jspdf.plugin.autotable.js"></script>
+<script src="/js/dependencies/pdfmake.min.js"></script>
+<script src="/js/dependencies/saveHtmlToPdf.js"></script>
+<script src="/js/dependencies/saveHtmlToPdf.min.js"></script>
+<script src="/js/select/select.min.js"></script>
+<script src="/js/chartjs/Chart.min.js"></script>
+<script src="/js/chartjs/angular-chart.min.js"></script>
+<script src="/js/angulartimer/angular-timer.min.js"></script>
+<script src="/js/angulartimer/angular-timer-all.min.js"></script>
+<script src="/js/advacedsearch/angular-advanced-searchbox-tpls.min.js"></script>
+<script src="/js/daterange/angular-datepicker.js"></script>
+<script src="/js/velocity/velocity.js"></script>
+<script src="/js/velocity/velocity.ui.js"></script>
+<script src="/js/lumx/dist/lumx.js"></script>
+<script src="/js/datatables/dataTables.bootstrap.js"></script>
+<script src="/js/datatables/jquery.dataTables.js"></script>
+<script src="/js/config/config.js"></script>
+<script src="/js/app/app.js"></script>
+<script src="/js/app/language/en.js"></script>
+<script src="/js/app/language/es.js"></script>
+<script src="/js/app/language/fr.js"></script>
+<script src="/js/app/service/ApiService.js"></script>
+<script src="/js/app/service/ChartOpinionServices.js"></script>
+<script src="/js/app/service/QueryServices.js"></script>
+<script src="/js/app/service/ReporteService.js"></script>
+<script src="/js/app/service/TodoService.js"></script>
+<script src="/js/app/service/ToolsService.js"></script>
+<script src="/js/app/service/WorkService.js"></script>
+<script src="/js/app/directive/ErrorMessageDirective.js"></script>
+<script src="/js/app/directive/NrEditDirective.js"></script>
+<script src="/js/app/directive/NrIndexDirective.js"></script>
+<script src="/js/app/directive/NrNewDirective.js"></script>
+<script src="/js/app/directive/NrShowDirective.js"></script>
+<script src="/js/app/directive/SidebarDirective.js"></script>
+<script src="/js/app/factory/DatatableFactory.js"></script>
+<script src="/js/app/filter/LevelFilter.js"></script>
+<script src="/js/app/filter/LimitWordsFilter.js"></script>
+<script src="/js/app/filter/MonthFilter.js"></script>
+<script src="/js/app/filter/WeekFilter.js"></script>
+<script src="/js/app/controller/AreaSaludBackendController.js"></script>
+<script src="/js/app/controller/AreaSaludReporteController.js"></script>
+<script src="/js/app/controller/CalendarController.js"></script>
+<script src="/js/app/controller/CalendarioBackendController.js"></script>
+<script src="/js/app/controller/ChartController.js"></script>
+<script src="/js/app/controller/ConsultaBackendController.js"></script>
+<script src="/js/app/controller/ConsultaBackendControllerHL7v2.js"></script>
+<script src="/js/app/controller/ConsultaMessageBuilderQBP_Q21.js"></script>
+<script src="/js/app/controller/CurrentOpinionController.js"></script>
+<script src="/js/app/controller/DrogaBackendController.js"></script>
+<script src="/js/app/controller/EspecialidadBackendController.js"></script>
+<script src="/js/app/controller/EspecialidadReporteController.js"></script>
+<script src="/js/app/controller/ExamenBackendController.js"></script>
+<script src="/js/app/controller/HeaderController.js"></script>
+<script src="/js/app/controller/HospitalBackendController.js"></script>
+<script src="/js/app/controller/LlantoBackendController.js"></script>
+<script src="/js/app/controller/LoginController.js"></script>
+<script src="/js/app/controller/MainController.js"></script>
+<script src="/js/app/controller/MedicoBackendController.js"></script>
+<script src="/js/app/controller/Modal.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrl.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrlMail.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrlWizard.js"></script>
+<script src="/js/app/controller/ModalInstanceMessage.js"></script>
+<script src="/js/app/controller/MovimientoFetalBackendController.js"></script>
+<script src="/js/app/controller/MunicipioBackendController.js"></script>
+<script src="/js/app/controller/NivelEscolaridadBackendController.js"></script>
+<script src="/js/app/controller/OcupacionBackendController.js"></script>
+<script src="/js/app/controller/PacienteBackendController.js"></script>
+<script src="/js/app/controller/PacienteBackendControllerHL7v2.js"></script>
+<script src="/js/app/controller/PacienteMessageBuilderADT_A01.js"></script>
+<script src="/js/app/controller/PacientesPorEspecialidadReporteController.js"></script>
+<script src="/js/app/controller/ParentezcoBackendController.js"></script>
+<script src="/js/app/controller/ProvinciaBackendController.js"></script>
+<script src="/js/app/controller/QueryListController.js"></script>
+<script src="/js/app/controller/QueryWizardController.js"></script>
+<script src="/js/app/controller/RemisionesSalidaPageController.js"></script>
+<script src="/js/app/controller/RemisionPageController.js"></script>
+<script src="/js/app/controller/ReporteController.js"></script>
+<script src="/js/app/controller/RolBackendController.js"></script>
+<script src="/js/app/controller/TimerController.js"></script>
+<script src="/js/app/controller/TipoPartoBackendController.js"></script>
+<script src="/js/app/controller/TodoCtrl.js"></script>
+<script src="/js/app/controller/UsuarioBackendController.js"></script>
+<script src="/js/app/controller/UsuarioChatController.js"></script>
+<script src="/js/app/controller/UsuarioHomeController.js"></script>
+<script src="/js/app/controller/WizardController.js"></script>
+<script src="/js/app/api-routes.js"></script>
+<script src="/js/app/routing/backend.js"></script>
+<script src="/js/app/routing/example.js"></script>
+<script src="/js/app/routing/reporte.js"></script>
+<script src="/js/app/routing/routes.js"></script>
+<script src="/js/app/ModalDemoCtrl.js"></script>
+<script src="/js/app/utils.js"></script>
+<!--SCRIPTS END-->
+</body>
+</html>
+

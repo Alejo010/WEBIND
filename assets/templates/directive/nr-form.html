@@ -1,0 +1,64 @@
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 widget-module">
+        <div class="box-widget">
+          <div class="widget-container">
+            <div class="widget-block">
+              <h2>{{title}}</h2>
+
+              <div class="widget-content box-padding">
+                <form ng-submit="save()" novalidate class="form-horizontal">
+                  <div class="form-group">
+
+                    <label class="col-lg-3 control-label">Nombre:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="text" name="nombre" ng-model="entity.nombre" placeholder="Ingresar nuevo" required  ng-maxlength="80" ng-minlength="2" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__actions">
+                    <button type="submit"  class="btn btn--blue btn--l btn--raised"><i
+                      class="icon-checkmark"></i> Guardar
+                    </button>
+                    <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/{{slug}}/index" class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+
+<form ng-submit="save()">
+  <div class="card" style="margin-top: 1em">
+    <div class="p+">
+      <h2>{{title}}</h2>
+      <div flex-container="row">
+        <div flex-item>
+          <error-message></error-message>
+        </div>
+      </div>
+      <div flex-container="row">
+        <div flex-item>
+          <lx-text-field label="Nombre">
+            <input type="text" ng-model="entity.nombre" required="required" minlength="3">
+          </lx-text-field>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div class="card__actions">
+      <button type="submit" class="btn btn--blue btn--l btn--raised"> Guardar</button>
+    </div>
+  </div>
+</form>
+-->

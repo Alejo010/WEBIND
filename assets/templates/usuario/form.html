@@ -1,0 +1,126 @@
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 widget-module">
+        <div class="box-widget">
+          <div class="widget-container">
+            <div class="widget-block">
+              <h2>{{title}}</h2>
+
+              <div class="widget-content box-padding">
+
+                <form class="form-horizontal" name="form_usuario">
+                  <div class="form-group">
+
+                    <label class="col-lg-3 control-label">Nombre:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="text" ng-model="usuario.nombre" placeholder="Escriba el nombre"
+                               required name="nombre" class="form-control">
+                        <span ng-show="nombreInvalido">Por favor entre el nombre</span>
+                        <span ng-show="form_usuario.$dirty && form_usuario.nombre.$error.required">Este campo es obligatorio</span>
+                        <span
+                          ng-show="form_usuario.$dirty && form_usuario.nombre.$error.minlength">El mínimo es 3</span>
+                        <br/><br/>
+                      </div>
+                    </div>
+                    <br>
+                    <label class="col-lg-3 control-label">Apellidos:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="text" ng-model="usuario.apellidos" placeholder="Escriba los apellidos"
+                               required minlength="1" ng-maxlength="100" name="apellidos" class="form-control">
+                        <span ng-show="apellidoInvalido">Por favor entre el nombre</span>
+                      </div>
+                    </div>
+                    <br>
+                    <label class="col-lg-3 control-label">CI:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input pattern="[0-9]{11}" ng-model="usuario.ci" required minlength="11" maxlength="11"
+                               name="ci" placeholder="Escriba el CI" class="form-control">
+                      </div>
+                    </div>
+                    <br>
+                    <label class="col-lg-3 control-label">Nombre de usuario:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input ng-model="usuario.username" required minlength="1" ng-maxlength="50"
+                               name="username" placeholder="Escriba el nombre de usuario"
+                               class="form-control">
+                      </div>
+                    </div>
+                    <br>
+
+                    <label for="rol" class="col-lg-3 control-label">Rol: </label>
+                    <div class="col-lg-9">
+                      <select required class="form-control" id="rol" name="rol"
+                              ng-model="usuario.rol"
+                              ng-options="ro.nombre
+                                        for ro in roles track by ro.id" ng-change="selRoles()">
+                          <option value="">---- Seleccione ----</option>
+                      </select>
+                    </div>
+
+                    <div ng-hide="esmedico">
+                      <label class="col-lg-3 control-label">Num. Médico:</label>
+                      <div class="col-lg-9">
+                        <div class="input-group">
+                          <input type="number" required ng-model="usuario.medico.numeroMedico" minlength="1" name="numeroMedico"
+                            placeholder="Escriba el número" class="form-control">
+                        </div>
+                      </div>
+
+                      <label for="especialidad" class="col-lg-3 control-label">Especialidad: </label>
+                      <div class="col-lg-9">
+                        <select id="especialidad" name="especialidad" ng-model="usuario.medico.especialidad"
+                                required class="form-control">
+                          <option value="">Seleccione una opción</option>
+                          <option ng-hide="mFilter1" ng-repeat="esp in especialidades "
+                                  ng-if="esp.nombre === 'Neonatología' || esp.nombre ==='Pediatría'" value="{{esp.id}}"
+                                  label="{{esp.nombre}}">
+                            {{esp.nombre}}
+                          </option>
+                          <option ng-hide="mFilter2" ng-repeat="esp in especialidades"
+                                  ng-if="esp.nombre !== 'Neonatología' && esp.nombre !=='Pediatría'" value="{{esp.id}}"
+                                  label="{{esp.nombre}}">
+                            {{esp.nombre}}
+                          </option>
+                        </select>
+                      </div>
+                      <strong class="col-lg-3" ng-if="usuario.medico.especialidad.nombre">{{usuario.medico.especialidad.nombre}}</strong>
+                    </div>
+                    <label class="col-lg-3 control-label">Contraseña</label>
+                    <div class="col-lg-9">
+                      <div class="input-group">
+                        <input type="password" required name="password" ng-model="usuario.password"
+                               minlength="1" ng-maxlength="15" placeholder="contraseña" class="form-control">
+                      </div>
+                    </div>
+
+                    <label class="col-lg-3 control-label">Correo electrónico:</label>
+                    <div class="col-lg-9">
+                      <div class="input-group"><span class="input-group-addon">@</span>
+                        <input type="email" required ng-model="usuario.email" required class="form-control"
+                               name="email" minlength="5" ng-maxlength="30" placeholder="Escriba el correo"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="card__actions">
+                      <button ng-click="save()" class="btn btn--blue btn--l btn--raised"><i
+                        class="icon-checkmark"></i> Guardar
+                      </button>
+                      <a type="button" href="#!/backend/usuario/index" class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+                    </div>
+
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

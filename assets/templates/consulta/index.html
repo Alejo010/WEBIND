@@ -1,0 +1,120 @@
+<div class="scroll-top">
+    <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+</div>
+
+<div class="main-wrapper">
+
+    <div class="scroll-top">
+        <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+    </div>
+    <div class="main-container">
+        <div class="container">
+            <div class="bgc-blue-500 tc-white">
+                <div class="page-header" align="center">
+                    <h4 ng-show="consultas">Historial de Consultas del paciente : {{consultas[0].paciente.nombre}} {{consultas[0].paciente.apellidos}}, total: {{consultas.length}}
+                    </h4>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" onclick="history.back()" class="btn btn--blue btn--l btn--raised"><i
+          class="icon-reply-3 "></i> Volver atrás
+        </button>
+            </div>
+            <br>
+
+            <div class="col-md-6">
+                <i class="icon-search-3"></i>
+                <label class="control-label">Filtrar:</label>
+                <div>
+                    <input type="text" ng-model="buscarCon" placeholder="Filtrar por características" name="buscarC" class="form-control">
+                </div>
+                <br>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget-container">
+                        <div class="table-responsive">
+                            <div class="table-wrapper-scroll-y">
+                                <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Fecha:
+                                            </th>
+                                            <th>
+                                                Especialidad:
+                                            </th>
+                                            <th>
+                                                Consultado por:
+                                            </th>
+                                            <th>
+                                                Motivo de Consulta:
+                                            </th>
+                                            <th>
+                                                Impresión diagnóstica:
+                                            </th>
+                                            <th>
+                                                Diagnóstico definitivo:
+                                            </th>
+                                            <th>
+                                                Opciones:
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="consulta in consultas | filter: buscarCon">
+                                            <td>
+                                                {{consulta.fecha | date:'dd MMMM yyyy'}}
+                                            </td>
+                                            <td>
+                                                {{consulta.medico.especialidad.nombre}}
+                                            </td>
+                                            <td>
+                                                {{consulta.medico.nombre}} {{consulta.medico.apellidos}}
+                                            </td>
+                                            <td>
+                                                {{consulta.motivo}}
+                                            </td>
+                                            <td ng-if="consulta.impresionDiagnostica">
+                                                {{consulta.impresionDiagnostica}}
+                                            </td>
+                                            <td ng-if="!consulta.impresionDiagnostica">
+                                                --
+                                            </td>
+                                            <td ng-if="consulta.diagosticoDef">
+                                                {{consulta.diagosticoDef}}
+                                            </td>
+                                            <td ng-if="!consulta.diagosticoDef">
+                                                --
+                                            </td>
+
+                                            <td>
+                                                <!--<div class="row">-->
+                                                <div class=" btn-group-sm">
+                                                    <a href="#!/backend/consulta/show/{{consulta.id}}" class="btn btn-small show-tooltip" title="Ver información de esta consulta"><i class="icon-clipboard-4"></i></a>
+                                                    <a href="#!/backend/paciente/show/{{consulta.paciente.id}}" class="btn btn-small show-tooltip" title="Ver información del paciente"><i class="icon-search-2"></i> </a>
+                                                    <a href="#!/backend/paciente/imprimir/{{consulta.paciente.id}}" class="btn btn-small show-tooltip" title="Ver vista para impresión"><i
+                            class="icon-print-4"></i></a>
+                                                </div>
+                                                <!--</div>-->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="javascript">
+    $(document).ready(function () { $('#dtVerticalScrollExample').DataTable({ "scrollY": "200px", "scrollCollapse": true, }); $('.dataTables_length').addClass('bs-select'); });
+</script>

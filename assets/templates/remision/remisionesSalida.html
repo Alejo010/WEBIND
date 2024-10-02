@@ -1,0 +1,92 @@
+<div ng-cloak>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="square-widget">
+
+        <div class="bgc-blue-500 tc-white">
+          <div class="page-header" align="center">
+            <h4>
+              <div ng-if="bandera != 0">{{title}}</div>
+              <div ng-if="bandera === 0"><p>--- Usted no ha realizado remisiones ---</p></div>
+            </h4>
+          </div>
+        </div>
+
+        <div class="col-md-6" ng-if="bandera != 0">
+          <i class="icon-search-3"></i>
+          <label class="control-label">Buscar:</label>
+          <div>
+            <input type="text" ng-model="buscarRemSalida"
+                   placeholder="Escriba aquí"
+                   name="buscarRemSal"
+                   class="form-control">
+          </div>
+          <br>
+        </div>
+
+        <div class="col-md-12">
+          <div class="widget-container" ng-if="bandera != 0">
+            <div class="table-responsive">
+              <div class="table-wrapper-scroll-y">
+                <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                       width="100%">
+                  <thead>
+                  <tr>
+                    <th> Fecha de remisión</th>
+                    <th> Nombre del Paciente</th>
+                    <th> TM</th>
+                    <th> HC</th>
+                    <th> Especialidad destino</th>
+                    <th> Motivo</th>
+                    <!--<th> Opciones</th>-->
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="remision in remisiones | filter: buscarRemSalida">
+                    <td> {{remision.fecha | date:'dd MMMM yyyy'}}</td>
+                    <td> {{remision.paciente.nombre}} {{remision.paciente.apellidos}}</td>
+                    <td> {{remision.paciente.ci}}</td>
+                    <td> {{remision.paciente.hc}}</td>
+                    <td> {{remision.especialidad_destino.nombre}}</td>
+                    <td> {{remision.motivo}}</td>
+                    <!--<td>-->
+                    <!--<div class="row">-->
+                    <!--<div class=" btn-group-sm">-->
+                    <!--<a href="#!/backend/paciente/show/{{remision.consulta.paciente.id}}" class="btn btn-small-->
+                    <!--show-tooltip" title="Ver información del paciente"><i class="icon-search-2"></i> </a>-->
+                    <!--<a-->
+                    <!--href="#!/backend/consulta/new/{{remision.consulta.paciente.id}}/{{medico.id}}?remision={{remision.id}}"-->
+                    <!--class="btn btn-small show-tooltip" title="Nueva consulta">+<i class="icon-stethoscope"></i></a>-->
+                    <!--<a href="#!/backend/consulta/index/{{remision.consulta.paciente.id}}"-->
+                    <!--class="btn btn-small show-tooltip" title="Ver su Historia Clínica"><i-->
+                    <!--class="icon-stack-list"></i></a></div>-->
+                    <!--</div>-->
+                    <!--</td>-->
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div ng-show="indexPage.totalItems > 0" align="right" style="color:#000066">
+              <ul style="margin-top: 0px;margin-bottom: 0px" uib-pagination boundary-links="true"
+                  items-per-page="indexPage.itemPerPage"
+                  total-items="indexPage.totalItems"
+                  ng-click="getPagableRecords()" ng-model="indexPage.currentPage" class="pagination-sm"
+                  previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="javascript">
+  $(document).ready(function () {
+    $('#dtVerticalScrollExample').DataTable({
+      "scrollY": "200px",
+      "scrollCollapse": true,
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>

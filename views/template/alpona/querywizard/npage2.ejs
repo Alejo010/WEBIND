@@ -1,0 +1,147 @@
+<br />
+<form name="licence" class="form-horizontal" role="form">
+
+  <!--<div class="form-group">-->
+    <!--<label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="dateOfDeliverance">Fecha (*)</label>-->
+    <!--<div class="input-group date col-xs-12 col-sm-6 col-md-5 col-lg-5 ident-date">-->
+      <!--<input name="dateOfDeliverance" id="dateOfDeliverance"-->
+             <!--ng-model="vm.customerData.driverLicence.dateOfDeliverance"-->
+             <!--class="form-control"-->
+             <!--type="text" required-->
+             <!--placeholder="{{ vm.customerData.driverLicence.dateOfDeliverance}}"-->
+             <!--ng-pattern="vm.dateRegExp"-->
+             <!--ng-change="vm.verifyDeliDate()"-->
+             <!--uib-datepicker-popup="{{vm.format}}"-->
+             <!--is-open="vm.popupDeliDate.opened"-->
+             <!--datepicker-options="vm.DeliDateOptions"/>-->
+      <!--<span class="input-group-addon" ><span id="deliDateInit" class="fa fa-calendar" ng-click="vm.openDeliDate()"></span></span>-->
+    <!--</div>-->
+
+    <!--<div class="col col-xs-12 col-sm-offset-5 col-sm-6 col-md-offset-4 col-md-5 col-lg-offset-4 col-lg-5">-->
+      <!--<span style="color:#cc0000" ng-show="licence.dateOfDeliverance.$dirty && licence.dateOfDeliverance.$invalid">You should provide a valid date string.</span>-->
+      <!--<span style="color:#cc0000" ng-show="vm.showDDerror">The date provided is out of posible range.</span>-->
+    <!--</div>-->
+  <!--</div>-->
+   <div class="form-group">
+       <label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="number">Examen Físico(*)</label>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <textarea name="examenf" id="examenf"
+                   ng-model="vm.customerData.driverLicence.number"
+                   ng-pattern="vm.numberRegExp"
+                   ng-change="vm.checkCustomerLicenceNumber()"
+                   maxlength="40"
+                   placeholder="vm.customerData.driverLicence.number"
+                   class="form-control"
+                  rows="4"
+                   required />
+
+            <span style="color:#cc0000" ng-show="licence.number.$dirty && licence.number.$invalid">
+                <span ng-show="licence.number.$error.required">Licence number is required.</span>
+                <span ng-show="licence.number.$error.pattern">You sould provide 12 digit.</span>
+            </span>
+
+            <span style="color:#cc0000" ng-show="vm.customerLicenceNumberUsed">There is a registered customer with that same licence number in this year.</span>
+        </div>
+    </div>
+  <!--<div class="form-group">&lt;!&ndash;CIVILITY&ndash;&gt;-->
+    <!--<label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="remition">Remitir a:</label>-->
+    <!--<select name="remition" id="civility" class="form-control col-xs-12 col-sm-6 col-md-5 col-lg-5 " ng-model="vm.customerData.civility">-->
+      <!--<option value="Nr" selected>Ortopedia</option>-->
+      <!--<option value="Bl">Endocrino</option>-->
+      <!--<option value="Mest">Neonatología</option>-->
+      <!--<option value="Mest">Estomatología</option>-->
+    <!--</select>-->
+  <!--</div>-->
+
+  <!--<div class="form-group">&lt;!&ndash;CIVILITY&ndash;&gt;-->
+    <!--<label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="doctors">Remitir a:</label>-->
+    <!--<select name="doctors" id="civility" class="form-control col-xs-12 col-sm-6 col-md-5 col-lg-5 " ng-model="vm.customerData.civility">-->
+      <!--<option value="Nr" selected>José Martínez Lostanou</option>-->
+      <!--<option value="Bl">Carlos José del Pozo Tellez</option>-->
+      <!--<option value="Mest">Marcos Aurelio López Palomares</option>-->
+      <!--<option value="Mest">Ernesto Suárez Pérez</option>-->
+    <!--</select>-->
+  <!--</div>-->
+    <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="eventjust">Evolución</label>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <textarea name="evolution" id="evolution"
+             ng-model="vm.customerData.address"
+             maxlength="100"
+             placeholder="vm.customerData.address"
+             class="form-control"  rows="4"/>
+
+      <span style="color:#cc0000" ng-show="licence.placeOfDeliverance.$dirty && licence.placeOfDeliverance.$invalid">
+                <span ng-show="licence.placeOfDeliverance.$error.required">Place of Deliverance is required.</span>
+            </span>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="eventjust">Motivo</label>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <textarea name="address" id="address"
+             ng-model="vm.customerData.address"
+             maxlength="100"
+             placeholder="vm.customerData.address"
+             class="form-control" type="text"
+             rows="4"
+            />
+
+      <span style="color:#cc0000" ng-show="licence.placeOfDeliverance.$dirty && licence.placeOfDeliverance.$invalid">
+                <span ng-show="licence.placeOfDeliverance.$error.required">Place of Deliverance is required.</span>
+            </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="eventjust">Tratamiento</label>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <textarea name="tratmt" id="tratmt"
+             ng-model="vm.customerData.address"
+             maxlength="100"
+             placeholder="vm.customerData.address"
+             class="form-control"
+             rows="4"
+
+      />
+
+      <span style="color:#cc0000" ng-show="licence.placeOfDeliverance.$dirty && licence.placeOfDeliverance.$invalid">
+                <span ng-show="licence.placeOfDeliverance.$error.required">Place of Deliverance is required.</span>
+            </span>
+    </div>
+
+  </div>
+
+
+
+
+    <!--<div class="form-group">-->
+        <!--<label class="control-label col-xs-12 col-sm-5 col-md-4 col-lg-4" for="dateOfProcuration">Date Of Procuration (*)</label>-->
+        <!--<div class="input-group date col-xs-12 col-sm-6 col-md-5 col-lg-5 ident-date">-->
+            <!--<input name="dateOfProcuration" id="dateOfProcuration"-->
+                   <!--ng-model="vm.customerData.driverLicence.dateOfProcuration"-->
+                   <!--class="form-control"-->
+                   <!--type="text" required-->
+                   <!--placeholder="{{vm.customerData.driverLicence.dateOfProcuration}}"-->
+                   <!--ng-pattern="vm.dateRegExp"-->
+                   <!--ng-change="vm.verifyProcDate()"-->
+                   <!--uib-datepicker-popup="{{vm.format}}"-->
+                   <!--is-open="vm.popupProcDate.opened"-->
+                   <!--datepicker-options="vm.DeliDateOptions" />-->
+            <!--<span class="input-group-addon" ><span id="procDateInit" class="fa fa-calendar" ng-click="vm.openProcDate()"></span></span>-->
+        <!--</div>-->
+
+        <!--<div class="col col-xs-12 col-sm-offset-5 col-sm-6 col-md-offset-4 col-md-5 col-lg-offset-4 col-lg-5">-->
+            <!--<span style="color:#cc0000" ng-show="licence.dateOfProcuration.$dirty && licence.dateOfProcuration.$invalid">You should provide a valid date string.</span>-->
+            <!--<span style="color:#cc0000" ng-show="vm.showPDerror">The procuration date provided is out of posible range.</span>-->
+            <!--<span style="color:#cc0000" ng-show="vm.showPDerrorLessDD">The procuration date can´t be before deliverance date.</span>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-9 col-sm-offset-2 col-md-offset-1">
+            <div uib-alert ng-repeat="message in vm.validationMessages" ng-class="'alert-' + message.type" close="vm.closeMessage($index)" dismiss-on-timeout="4000">{{message.info}}</div>
+        </div>
+    </div>
+</form>

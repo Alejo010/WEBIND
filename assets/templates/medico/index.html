@@ -1,0 +1,87 @@
+
+<div class="p+">
+  <div class="bgc-blue-500 tc-white" flex-container="row" flex-align="center center">
+    <div flex-item="3"></div>
+    <div flex-item="4">
+      <h2 ng-show="medicos" class="fs-display-1 display-block" > Total de Médicos: {{medicos.length}}
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="p+">
+  <a href="#!/backend/medico/new" lx-tooltip="Insertar Nuevo" class="btn btn--m btn--green btn--fab" lx-ripple>+</a>
+</div>
+<div class="p+">
+  <div flex-container="row">
+  </div>
+</div>
+
+
+
+<div>
+  <div>
+    <div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="square-widget">
+            <div class="widget-container" >
+
+              <table align="center" class=" table data-tbl-boxy responsive">
+                <thead>
+                <tr>
+                  <th>
+                    Nombre:
+                  </th>
+                  <th>
+                    Apellidos:
+                  </th>
+                  <th>
+                    CI:
+                  </th>
+                  <th>
+                    No. Médico:
+                  </th>
+                  <th>
+                    Especialidad:
+                  </th>
+                  <th>
+                    Opciones:
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="medico in medicos">
+                  <td>
+                    {{medico.nombre}}
+                  </td>
+                  <td>
+                    {{medico.apellidos}}
+                  </td>
+                  <td>
+                    {{medico.ci}}
+                  </td>
+                  <td>
+                    {{medico.numeroMedico}}
+                  </td>
+                  <td>
+                    {{medico.especialidad.nombre}}
+                  </td>
+                  <td>
+                    <div class="btn-group-sm">
+                      <a href="#!/backend/medico/show/{{medico.id}}" class="btn btn-small show-tooltip" title="Ver" href="#"><i class="icon-zoom-in"></i></a>
+                      <a href="#!/backend/medico/edit/{{medico.id}}" class="btn btn-small show-tooltip" title="Editar" href="#"><i class="icon-edit"></i></a>
+                      <a ng-click="remove(medico)" class="btn btn-small btn-danger show-tooltip" title="Eliminar"><i class="icon-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

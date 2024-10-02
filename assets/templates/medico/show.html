@@ -1,0 +1,40 @@
+
+<div class="col-lg-12">
+  <div class="square-widget">
+    <div class="widget-head clearfix">
+      <p> &nbsp;</p>
+      <p> &nbsp;</p>
+      <h3 class="pull-left"><i class="icon-align-justify"></i> Médico: {{medico.nombre}} {{medico.apellidos}}</h3>
+    </div>
+    <div class="widget-container">
+      <p>                                    </p>
+      <dl class="dl-horizontal">
+        <dt>CI: </dt>
+        <dd> {{medico.ci}}</dd>
+        <p>&nbsp; </p>
+
+        <dt>Num. Médico: </dt>
+        <dd> {{medico.numeroMedico}}</dd>
+        <p>&nbsp; </p>
+
+        <dt>Especialidad: </dt>
+        <dd>{{medico.especialidad.nombre}} </dd>
+        <p>&nbsp; </p>
+
+        <dt>Cant. Consultas:</dt>
+        <dd>{{medico.consultas.length}}</dd>
+
+      </dl>
+      <p> &nbsp;</p>
+      <div class="col-lg-12">
+
+        <div class="card__actions" >
+          <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/medico/index" class="btn btn--m btn--blue btn--flat" lx-ripple>Volver</a>
+
+        <!--  <button type="button" class="btn btn--blue btn--l btn--raised"> Cancelar</button>
+        -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

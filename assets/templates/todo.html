@@ -1,0 +1,23 @@
+<div class="container" ng-controller="TodoCtrl">
+  <div class="jumbotron">
+    <h1 align="center">Todo Applicaregttion</h1>
+    <br>
+    <a href="#!/message">Ir a...</a>
+    <div id="todo-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+
+      </div>
+    </div>
+  </div>
+  <div id="todo-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">sa
+      <div class="checkbox" ng-repeat="todo in todos">
+        <label>
+          <input type="checkbox" ng-click="removeTodo(todo)">
+          {{ todo.value }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+

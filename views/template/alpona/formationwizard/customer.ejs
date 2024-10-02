@@ -1,0 +1,188 @@
+<!--CUSTOMER FORM-->
+<form name="customerForm" class="form-horizontal" role="form">
+</form>
+<!--END CUSTOMER FORM-->
+
+<!--CUSTOMER FORM-->
+<form name="customerForm" role="form">
+    <div class="row">
+        <div class="col col-md-6"><!--FIRST GLOBAL COLUMN-->
+            <div class="row"><!--INNER ROW-->
+                <div class="col col-md-8 col-md-offset-2"><!--FINAL COLUMN LEVEL-->
+
+
+
+                    <div class="form-group"><!--NAME-->
+                        <label class="control-label" for="name">Nombre (*)</label>
+                        <input name="name" id="name"
+                               ng-model="vm.customerData.name"
+                               ng-pattern="vm.nameRegExp"
+                               maxlength="40"
+                               placeholder="vm.customerData.name"
+                               class="form-control"
+                               type="text"
+                               required/>
+                        <span style="color:#cc0000" ng-show="customerForm.name.$dirty && customerForm.name.$invalid">
+                            <span ng-show="customerForm.name.$error.required">Name is required.</span>
+                            <span ng-show="customerForm.name.$error.pattern">Invalid name format. You should provide between 2 and 40 words characters.</span>
+                        </span>
+                    </div><!--END NAME-->
+
+                    <div class="form-group"><!--FIRST NAME-->
+                        <label class="control-label" for="firstName">Apellidos (*)</label>
+                        <input name="firstName" id="firstName"
+                               ng-model="vm.customerData.firstName"
+                               ng-pattern="vm.nameRegExp"
+                               maxlength="40"
+                               placeholder="vm.customerData.firstName"
+                               class="form-control"
+                               type="text" required/>
+                        <span style="color:#cc0000"
+                              ng-show="customerForm.firstName.$dirty && customerForm.firstName.$invalid">
+                            <span ng-show="customerForm.firstName.$error.required">First name is required.</span>
+                            <span ng-show="customerForm.firstName.$error.pattern">Invalid first name format. You should provide between 2 and 40 words characters.</span>
+                        </span>
+                    </div><!--END FIRST NAME-->
+
+
+
+                  <div class="form-group"><!--CIVILITY-->
+                    <label class="control-label" for="sexo">Sexo</label>
+                    <select name="sexo" id="sexo" class="form-control" ng-model="vm.customerData.sexo">
+                      <option value="Mas" selected>Masculino</option>
+                      <option value="Fem">Femenino</option>
+                    </select>
+                  </div><!--END CIVILITY-->
+
+                  <div class="form-group"><!--CIVILITY-->
+                    <label class="control-label" for="color">Raza</label>
+                    <select name="color" id="color" class="form-control" ng-model="vm.customerData.color">
+                      <option value="Nr" selected>Negro</option>
+                      <option value="Bl">Blanco</option>
+                      <option value="Mest">Mestizo</option>
+                    </select>
+                  </div>
+                      <!--&lt;!&ndash;EMAIL &ndash;&gt;-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label" for="email">Email (*)</label>-->
+                        <!--<input name="email" id="email"-->
+                               <!--ng-model="vm.customerData.email"-->
+                               <!--ng-pattern="vm.emailRedExp"-->
+                               <!--placeholder="vm.customerData.email"-->
+                               <!--maxlength="50"-->
+                               <!--class="form-control"-->
+                               <!--type="text" required/>-->
+                        <!--<span style="color:#cc0000" ng-show="customerForm.email.$dirty && customerForm.email.$invalid">-->
+                            <!--<span ng-show="customerForm.email.$error.required">Email is required.</span>-->
+                            <!--<span ng-show="customerForm.email.$error.pattern">Invalid email address.</span>-->
+                        <!--</span>-->
+                    <!--</div>&lt;!&ndash;END EMAIL&ndash;&gt;-->
+                </div><!--END FINAL COLUMN LEVEL-->
+            </div><!--END INNER ROW-->
+        </div><!--END FIRST GLOBAL COLUMN-->
+
+        <div class="col col-md-6"><!--SECOND GLOBAL COLUMN-->
+            <div class="row"><!--INNER ROW-->
+                <div class="col col-md-8 col-md-offset-1"><!--FINAL COLUMN LEVEL-->
+
+                  <div class="form-group"><!--BIRTH CITY-->
+                    <label class="control-label" for="birthCity">Carnet Ident (*)</label>
+                    <input name="birthCity" id="birthCity"
+                           ng-model="vm.customerData.birthCity"
+                           maxlength="11"
+                           placeholder="vm.customerData.birthCity"
+                           ng-pattern="vm.nameRegExp"
+                           required
+                           class="form-control" type="text"/>
+                    <span style="color:#cc0000"
+                          ng-show="customerForm.birthCity.$dirty && customerForm.birthCity.$invalid">
+                            <span ng-show="customerForm.birthCity.$error.pattern">Invalid city name. You should provide between 2 and 40 words characters.</span>
+                        </span>
+                  </div><!--END BIRTH CITY-->
+
+                  <div class="form-group"><!--PHONE NUMBER-->
+                    <label class="control-label" for="phoneNumber">Teléfono </label>
+                    <input name="phoneNumber" id="phoneNumber"
+                           class="form-control" type="text"
+                           placeholder="vm.customerData.phoneNumber"
+                           ng-model="vm.customerData.phoneNumber"
+                           maxlength="10"
+                           ng-pattern="vm.phoneRegExp"/>
+                    <span style="color:#cc0000"
+                          ng-show="customerForm.phoneNumber.$dirty && customerForm.phoneNumber.$invalid">
+                            <span ng-show="customerForm.phoneNumber.$error.required">Phone number is required.</span>
+                            <span ng-show="customerForm.phoneNumber.$error.pattern">Invalid phone format. You must enter 10 digits starting with '0'.</span>
+                        </span>
+                  </div><!--END PHONE NUMBER-->
+
+                  <div class="form-group"><!--ZIPCODE-->
+                    <label class="control-label" for="zipCode">Número Historia (*)</label>
+                    <input name="zipCode" id="zipCode"
+                           ng-model="vm.customerData.zipCode"
+                           class="form-control"
+                           ng-pattern="vm.zipcodeRegExp"
+                           maxlength="5"
+                           placeholder="vm.customerData.zipCode"
+                           required
+                           type="text"/>
+                    <span style="color:#cc0000"
+                          ng-show="customerForm.zipCode.$dirty && customerForm.zipCode.$invalid">
+                            <span ng-show="customerForm.zipCode.$error.required">Zipcode is required.</span>
+                            <span ng-show="customerForm.zipCode.$error.pattern">Invalid zipcode format. You must enter 5 digits.</span>
+                        </span>
+                  </div><!--END ZIPCODE-->
+
+
+                  <!--<div class="form-group">&lt;!&ndash;BIRTH DATE&ndash;&gt;-->
+                        <!--<label class="control-label" for="birthDate">Birth Date (*)</label>-->
+                        <!--<div class="input-group date">-->
+                            <!--<input name="birthDate" id="birthDate"-->
+                                   <!--ng-model="vm.customerData.birthDate"-->
+                                   <!--ng-pattern="vm.dateRegExp"-->
+                                   <!--ng-change="vm.verifyBirthDate()"-->
+                                   <!--class="form-control"-->
+                                   <!--type="text"-->
+                                   <!--required-->
+                                   <!--placeholder="{{birthDate}}"-->
+                                   <!--uib-datepicker-popup="{{vm.format}}"-->
+                                   <!--is-open="vm.popupBirthDate.opened"-->
+                                   <!--datepicker-options="vm.BirthDateOptions"/>-->
+                           <!--<span class="input-group-addon">-->
+                               <!--<span id="birthDateInit" class="fa fa-calendar" ng-click="vm.openBirthDate()"></span>-->
+                           <!--</span>-->
+                        <!--</div>-->
+                        <!--<span style="color:#cc0000" ng-show="customerForm.birthDate.$dirty && customerForm.birthDate.$invalid">You should provide a valid date string.</span>-->
+                        <!--<span style="color:#cc0000" ng-show="vm.showBDerror">Invalid birth date, your age is out of range 16-80 years old.</span>-->
+                    <!--</div>&lt;!&ndash;END BIRTH DATE&ndash;&gt;-->
+
+
+                    <div class="form-group"><!--ADDRESS-->
+                        <label class="control-label" for="address">Dirección</label>
+                        <input name="address" id="address"
+                               ng-model="vm.customerData.address"
+                               maxlength="100"
+                              placeholder="vm.customerData.address"
+                               class="form-control" type="text" aria-multiline="true"/>
+                    </div><!--END ADDRESS-->
+
+                    <!--<div class="form-group">&lt;!&ndash;CITY&ndash;&gt;-->
+                        <!--<label class="control-label" for="city">City</label>-->
+                        <!--<input name="city" id="city"-->
+                               <!--ng-model="vm.customerData.city"-->
+                               <!--maxlength="40"-->
+                               <!--ng-pattern="vm.nameRegExp"-->
+                               <!--placeholder="vm.customerData.city"-->
+                               <!--class="form-control" type="text"/>-->
+                        <!--<span style="color:#cc0000" ng-show="customerForm.city.$dirty && customerForm.city.$invalid">-->
+                            <!--<span ng-show="customerForm.city.$error.pattern">Invalid city name. You should provide between 2 and 40 words characters.</span>-->
+                        <!--</span>-->
+                    <!--</div>&lt;!&ndash;END CITY&ndash;&gt;-->
+
+
+
+                </div><!--END FINAL COLUMN LEVEL-->
+            </div><!--END INNER ROW-->
+        </div><!--END SECOND GLOBAL COLUMN-->
+    </div>
+</form>
+<!--END CUSTOMER FORM-->

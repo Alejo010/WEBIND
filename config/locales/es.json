@@ -1,0 +1,6 @@
+{
+  "Welcome": "Bienvenido",
+  "A brand new app.": "Una nueva aplicación.",
+  "no-delete-entity": "%s está siendo utilizado, no se puede eliminar.",
+  "duplicate-entity": "Duplicado. Ya existe un elemento %s."
+}

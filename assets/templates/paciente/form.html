@@ -1,0 +1,529 @@
+<style>
+    input.ng-invalid {
+        border-color: red;
+    }
+</style>
+<div class="main-wrapper">
+
+    <!-- SITE CONTAINER // -->
+    <div class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- SHORTCUT BAR -->
+
+                    <div class="page-header">
+                        <h1><i class="icon-file"></i> {{title}} </h1>
+                    </div>
+                    <div class="main-container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-widget">
+                                        <div class="widget-head clearfix">
+                                            <div id="top_tabby" class="block-tabby pull-left">
+                                            </div>
+                                        </div>
+                                        <div class="widget-container">
+                                            <div class="widget-block">
+                                                <div class="widget-content box-padding">
+                                                    <form id="stepy_form" name="stepy_form" class=" form-horizontal left-align form-well" novalidate>
+
+                                                        <fieldset title="Datos Generales">
+                                                            <legend>Información Personal</legend>
+                                                            <br>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Nombre del paciente:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input class="form-control" type="text" ng-model="paciente.nombre" ng-required="true" placeholder="Escriba el nombre" name="nombre" id="nombre" ng-maxlength="100" ng-minlength="3" />
+                                                                    <span class="text-danger" ng-show="stepy_form.nombre.$touched && stepy_form.nombre.$error.required">El nombre es requerido.</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.nombre.$error.minlength"> Escriba mínimo 3 caracteres. </span >
+
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >HC:</label>
+                                <div class="col-lg-4">
+                                  <input ng-model="paciente.hc" class="form-control" ng-required="true" ng-maxlength="11" ng-minlength="5"
+                                         placeholder="Escriba la HC" name="hc" ng-pattern="/^(\d)+$/" type="text"/>
+                                  <span class="text-danger" ng-show="stepy_form.hc.$touched && stepy_form.hc.$error.required">Campo requerido.</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.hc.$error.minlength"> Escriba mínimo 5 dígitos </span >
+                                  <span class="text-danger" ng-show ="stepy_form.hc.$error.maxlength" > Escriba máximo 11 dígitos </span >
+                                  <span class="text-danger" ng-show="stepy_form.hc.$error.pattern"> Escriba sólo dígitos</span >
+
+                                </div>
+                              </div>
+
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Apellidos:</label>
+                                <div class="col-lg-4">
+                                  <input class="form-control" type="text"
+                                         ng-model="paciente.apellidos" ng-required="true"
+                                         placeholder="Escriba los apellidos" name="apellidos"
+                                         ng-maxlength="100" ng-minlength="4"/>
+                                  <span class="text-danger" ng-show="stepy_form.apellidos.$touched && stepy_form.apellidos.$error.required">Campo requerido.</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.apellidos.$error.minlength"> Escriba mínimo 4 caracteres </span >
+                                  <span class="text-danger" ng-show ="stepy_form.apellidos.$error.maxlength" > Escriba máximo 90 caracteres </span >
+
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Sexo:</label>
+                                <div class="col-lg-4">
+                                  <!--<input ng-model="paciente.hc" class="form-control" placeholder="Escriba la HC" name="hc" type="text"/>-->
+                                  <!---->
+                                  <select id="sexo" name="sexo" ng-model="paciente.sexo" ng-minlength="true" class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="sex in sexos" value="{{sex.id}}" label="{{sex.nombre}}">
+                                      {{sex.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Fecha Nacimiento: {{edad}}</label>
+                                <div class="col-lg-4">
+                                  <input class="form-control" name="fechaNacimiento" type="date" id="fechaNacimiento"
+                                         placeholder="dd/mm/aaaa" ng-required="true"
+                                         ng-model="paciente.fechaNacimiento" ng-change="calcularEdad()"
+                                         data-date-format="dd/mm/yyyy"
+                                  />
+                                  <span class="text-danger" ng-if="span" class="text-danger">Introduzca una fecha correcta</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.fechaNacimiento.$touched && stepy_form.fechaNacimiento.$error.required">Campo requerido</span>
+                                                                </div>
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Tarjeta de menor:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input class="form-control" name="ci" ng-model="paciente.ci" id="ci" ng-required="true" ng-pattern="/^(\d)+$/" ng-minlength="11" ng-maxlength="11">
+                                                                    <!--ng-pattern="/^[0-9]*$/"-->
+                                                                    <span class="text-danger" ng-show="stepy_form.ci.$touched && stepy_form.ci.$error.required">Campo requerido</span>
+                                                                    <span class="text-danger" colorpicker="red" ng-show="stepy_form.ci.$error.minlength"> Escriba 11 dígitos </span >
+                                  <span class="text-danger" ng-show ="stepy_form.ci.$error.maxlength" > Escriba 11 dígitos </span >
+                                  <p class="text-danger" ng-show="stepy_form.ci.$error.pattern">Escriba sólo dígitos</p>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Provincia:</label>
+                                <div class="col-lg-4">
+                                  <select class="form-control" id="provincia" name="provincia"
+                                          ng-model="data.provincia" ng-required="true"
+                                          ng-options="pro.nombre
+                                        for pro in provincias track by pro.id" ng-change="selProvincias()">
+                                    <!--<option value="">-Seleccione la provincia-</option>-->
+                                  </select>
+                                </div>
+
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Direcci&oacuten:</label>
+                                <div class="col-lg-4">
+                                    <textarea type="text" class="form-control" ng-model="paciente.direccion" ng-required="true" ng-minlength="5" ng-maxlength="200"
+                                              placeholder="Escriba la dirección" name="direccion"></textarea>
+                                  <span class="text-danger" ng-show="stepy_form.direccion.$touched && stepy_form.direccion.$error.required">Campo requerido.</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.direccion.$error.minlength"> Escriba mínimo 3 caracteres. </span >
+                                  <span class="text-danger" ng-show ="stepy_form.direccion.$error.maxlength" > Demasiados caracteres </span >
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Municipio:</label>
+                                <div class="col-lg-4">
+                                  <select required class="form-control" id="municipio" name="municipio"
+                                          ng-model="paciente.municipio" ng-required="true"
+                                          ng-options="mun.nombre
+                                        for mun in municipiosSel track by mun.id" ng-change="selMunicipios()">
+                                    <!--<option value="">-Seleccione un municipio-</option>-->
+                                  </select>
+                                </div>
+
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Raza:</label>
+                                <div class="col-lg-4">
+                                  <select id="raza" name="raza" ng-model="paciente.raza" class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="raz in razas" value="{{raz.id}}" label="{{raz.nombre}}">
+                                      {{raz.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Área de Salud:</label>
+                                <div class="col-lg-4">
+                                  <select id="areaSalud" name="areaSalud" class="form-control"
+                                          ng-model="paciente.areaSalud" ng-required="true"
+                                          ng-options="area.nombre for area in areasSalud track by area.id">
+                                  </select>
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Hospital:</label>
+                                <div class="col-lg-4">
+                                  <select id="hospital" name="hospital" ng-model="paciente.hospital"
+                                           class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="hosp in hospitales" value="{{hosp.id}}"
+                                            label="{{hosp.nombre}}">{{hosp.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                            </fieldset>
+                            <fieldset title="Antededent. Prenatales">
+                              <legend>Información de la Madre</legend>
+                              <br>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Hábitos tóxicos:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPrenatal.habitosToxicosMadre"
+                                         placeholder="Hábitos tóxicos" name="habitosToxicosMadre"
+                                         maxlength="200" class="form-control"/>
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Edad materna:</label>
+                                <div class="col-lg-4">
+                                  <input type="number" ng-model="paciente.antecedente.antPrenatal.edadMaterna"
+                                         placeholder="Edad materna" ng-required="true" ng-minlength="2" ng-maxlength="22"
+                                         class="form-control" name="edadMaterna" min="9" max="70" ng-pattern="/^(\d)+$/"/>
+                                  <span class="text-danger" ng-show="stepy_form.edadMaterna.$touched && stepy_form.edadMaterna.$error.required">Campo requerido.</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.edadMaterna.$error.minlength"> Escriba dos dígitos </span >
+                                  <span class="text-danger" ng-show ="stepy_form.edadMaterna.$error.maxlength" > Escriba dos dígitos </span >
+                                  <p class="text-danger" ng-show="stepy_form.edadMaterna.$error.pattern">Escriba sólo dígitos</p>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Alteraciones ecosonográficas:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPrenatal.alteracionesEcosonograficas"
+                                         placeholder="Alteraciones ecosonográficas"
+                                         maxlength="200" name="alteracionesEcosonograficas"
+                                         class="form-control"
+                                  />
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Movimientos fetales:</label>
+                                <div class="col-lg-4">
+                                  <select id="movimientoFetal" name="movimientoFetal"
+                                          ng-model="paciente.antecedente.antPrenatal.movimientoFetal"
+                                           class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="movf in movimientosF" value="{{movf.id}}"
+                                            label="{{movf.nombre}}">{{movf.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Antecedentes obstétricos:</label>
+                                <div class="col-lg-4">
+                                  <input ng-model="paciente.antecedente.antPrenatal.antObstetricos"
+                                         placeholder="Antecedentes obstétricos" name="antObstetricos"
+                                         maxlength="200" class="form-control"/>
+                                </div>
+                                <label class="col-lg-1 control-label">Enfermedades agudas:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPrenatal.enfermedadesMaternasAgudas"
+                                         placeholder="Enfermedades maternas agudas" name="enfermedadesMaternasAgudas"
+                                         maxlength="200" class="form-control"/>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Enfermedades crónicas:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPrenatal.antEnfCronicaMaterna"
+                                         placeholder="Enfermedades crónicas madre" name="antEnfCronicaMaterna"
+                                         maxlength="200" class="form-control"/>
+                                </div>
+                                <label class="col-lg-1 control-label">Información adicional:</label>
+                                <div class="col-lg-4">
+                                  <input type="text" ng-model="paciente.antecedente.antPrenatal.otros"
+                                         placeholder="" class="form-control" name="otrosAntPrenat"/>
+                                </div>
+                              </div>
+
+                            </fieldset>
+
+                            <fieldset title="Antededent. Perinatales">
+                              <legend>Información del Nacimiento</legend>
+                              <br>
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Tiempo en trabajo de parto (h):</label>
+                                <div class="col-lg-4">
+                                  <input type="number" maxlength="3" minlength="1" ng-required="true" ng-pattern="/^(\d)+$/"
+                                         ng-model="paciente.antecedente.antPerinatal.horasTrabajoParto" name="horasTrabajoParto"
+                                         placeholder="Horas trabajo de parto" class="form-control"/>
+                                  <span class="text-danger" ng-show="stepy_form.horasTrabajoParto.$touched && stepy_form.horasTrabajoParto.$error.required">Campo requerido</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.horasTrabajoParto.$error.minlength"> Verifique las horas introducidas</span >
+                                  <span class="text-danger" ng-show ="stepy_form.horasTrabajoParto.$error.maxlength" >  Verifique las horas introducidas </span >
+                                  <p class="text-danger" ng-show="stepy_form.horasTrabajoParto.$error.pattern">Escriba sólo dígitos</p>
+
+                                </div>
+                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Tipo parto:</label>
+                                <div class="col-lg-4">
+                                  <select id="tipoParto" name="tipoParto"
+                                          ng-model="paciente.antecedente.antPerinatal.tipoParto"
+                                          required="required" class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="tipoPar in tiposParto" value="{{tipoPar.id}}"
+                                            label="{{tipoPar.nombre}}">{{tipoPar.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Edad gestacional al parto (semanas):</label>
+                                <div class="col-lg-4">
+                                  <input type="number" ng-maxlength="2" ng-minlength="1" min="20" max="44" ng-required="true" ng-pattern="/^(\d)+$/"
+                                         ng-model="paciente.antecedente.antPerinatal.edadGestacionalParto" name="edadGestacionalParto"
+                                         placeholder="Edad gestacional al parto" class="form-control"/>                                                                               
+                                         <span class="text-danger" ng-show="stepy_form.edadGestacionalParto.$touched && stepy_form.edadGestacionalParto.$error.required">Campo requerido</span>
+                                        
+       
+                                  <span ng-show="stepy_form.ci.$error.pattern">Escriba sólo dígitos</span>
+                                                                </div>
+                                                                <label class="col-lg-1 control-label">Complicaciones al nacer:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" ng-model="paciente.antecedente.antPerinatal.complicacionesAlNacer" placeholder="Complicaciones al Nacer" class="form-control">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label">Descripción del parto:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" ng-model="paciente.antecedente.antPerinatal.descripcionParto" placeholder="Descripción del Parto" class="form-control">
+                                                                </div>
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Requirió UCIN:</label>
+                                                                <div class="col-lg-4">
+                                                                    <select id="requirioUcin" name="requirioUcin" ng-model="paciente.antecedente.antPerinatal.requirioUcin" ng-options="item.value as item.label for item in ucinOptions" class="form-control">
+                                  </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Tiempo hospitalización (días):</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="number" maxlength="2" ng-required="true" ng-pattern="/^(\d)+$/"
+                                                                           ng-model="paciente.antecedente.antPerinatal.tiempoHospitalizacion" name="tiempoHospitalizacion" 
+                                                                           placeholder="Tiempo de hospitalización en días" class="form-control">
+                                                                           <span class="text-danger" ng-show="stepy_form.tiempoHospitalizacion.$touched && stepy_form.tiempoHospitalizacion.$error.required">Campo requerido</span>
+                                                                </div>
+
+                                                                <label class="col-lg-1 control-label">Observaciones:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" ng-model="paciente.antecedente.antPerinatal.observaciones" placeholder="Observaciones" class="form-control">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label">Información adicional:</label>
+                                                                <div class="col-lg-4">
+                                                                    <textarea ng-model="paciente.antecedente.antPerinatal.otros" placeholder="" class="form-control" rows="1"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                        </fieldset>
+
+                                                        <fieldset title="Antecedent. Postnatales">
+                                                            <legend>Datos postnatales</legend>
+                                                            <br>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Peso al nacer (g):</label>
+                                                                <div class="col-lg-4">
+                                                                     <input type="number" ng-required="true" ng-model="paciente.antecedente.antPostnatal.pesoAlNacer" name="pesoAlNacer"
+                                                                            placeholder="Peso al nacer" class="form-control" />
+                                                                        <span class="text-danger" ng-show="stepy_form.pesoAlNacer.$touched && stepy_form.pesoAlNacer.$error.required">Campo requerido</span>
+                                                                </div>
+
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Talla (cm):</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="number" ng-required="true" ng-model="paciente.antecedente.antPostnatal.talla" name="talla" 
+                                                                           placeholder="Talla" class="form-control" maxlength="5" />
+                                                                        <span class="text-danger" ng-show="stepy_form.talla.$touched && stepy_form.talla.$error.required">Campo requerido</span>
+                                                                </div>                                                                
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Circ. cefálica (cm):</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="number" ng-required="true" ng-model="paciente.antecedente.antPostnatal.circunfCefalica" name="circunfCefalica" 
+                                                                           placeholder="Circ. Cefálica" class="form-control" maxlength="5" />
+                                                                      <span class="text-danger" ng-show="stepy_form.circunfCefalica.$touched && stepy_form.circunfCefalica.$error.required">Campo requerido</span>
+                                                                </div>
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Apgar:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" ng-required="true" name="apgar" ng-model="paciente.antecedente.antPostnatal.apgar" name="apgar" 
+                                                                           placeholder="_/_/_/" class="form-control" ng-minlength="1" ng-pattern="/^(\d)+$/" ng-maxlength="3" />
+                                                                      <span class="text-danger" ng-show="stepy_form.apgar.$touched && stepy_form.apgar.$error.required">Campo requerido</span>
+                                                                      <span class="text-danger" ng-show="stepy_form.apgar.$error.minlength"> Escriba al menos 1 dígito </span >
+                                  <span class="text-danger" ng-show ="stepy_form.apgar.$error.maxlength" > Escriba sólo 3 dígitos </span >
+                                  <span class="text-danger" ng-show="stepy_form.apgar.$error.pattern">Escriba sólo dígitos</span >
+
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Infecciones SNC:</label>
+                                <div class="col-lg-4">
+                                  <input type="text" ng-model="paciente.antecedente.antPostnatal.infeccionesSnc"
+                                         placeholder="Infecciones" class="form-control"/>
+                                </div>
+                                <label class="col-lg-1 control-label">Infecciones Sistémicas:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPostnatal.infeccionesSistemicas"
+                                         placeholder="infecciones sistémicas" class="form-control"/>
+
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Traumatismos craneales:</label>
+                                <div class="col-lg-4">
+                                  <input type="text"
+                                         ng-model="paciente.antecedente.antPostnatal.traumatismosCraneales"
+                                         placeholder="traumatismos craneales" class="form-control"/>
+                                </div>
+                                <label class="col-lg-1 control-label">Malformaciones congénitas:</label>
+                                <div class="col-lg-4">
+                                  <input type="text" ng-model="paciente.antecedente.antPostnatal.malFormaCongenitas"
+                                         class="form-control"/>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Tipo de llanto:</label>
+                                <div class="col-lg-4">
+                                  <select id="llanto" name="llanto" ng-model="paciente.antecedente.antPostnatal.llanto" class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="llan in llantos" value="{{llan.id}}" label="{{llan.nombre}}">
+                                      {{llan.nombre}}
+                                    </option>
+                                  </select>
+                                </div>
+
+                                <label class="col-lg-1 control-label">Información adicional:</label>
+                                <div class="col-lg-4">
+                                  <textarea class="form-control" ng-model="paciente.antecedente.antPostnatal.otros"
+                                            placeholder="Información adicional"></textarea>
+                                </div>
+                              </div>
+                            </fieldset>
+                            <fieldset title="Antecedent. Familiares">
+                              <legend>Información del familiar</legend>
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label">Enfermedades familiares:</label>
+                                <div class="col-lg-4">
+                                  <textarea class="form-control" ng-model="antFamiliar.padecimientos_cronicos_familiar"
+                                            placeholder="Observaciones"></textarea>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Nombre del representante del niño:</label>
+                                <div class="col-lg-4">
+                                  <input type="text" ng-model="familiar.nombre" ng-required="true"
+                                    name="nombreFam"     placeholder="Nombre del pariente" class="form-control"/>
+                                  <span class="text-danger" ng-show="stepy_form.nombreFam.$touched && stepy_form.nombreFam.$error.required">Campo requerido.</span>
+
+                                                                </div>
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Apellidos:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" ng-model="familiar.apellidos" ng-required="true" name="apellidoFam" placeholder="Apellidos" class="form-control" />
+                                                                    <span class="text-danger" ng-show="stepy_form.apellidoFam.$touched && stepy_form.apellidoFam.$error.required">Campo requerido.</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label"><span class="text-danger">* </span >Teléfono:</label>
+                                                                <div class="col-lg-4">
+                                                                    <input type="text" name="telefono" ng-required="true" ng-model="familiar.telefono" ng-pattern="/^(\d)+$/" 
+                                                                           placeholder="Teléfono" class="form-control" />
+                                                                    <span class="text-danger" ng-show="stepy_form.telefono.$touched && stepy_form.telefono.$error.required">Campo requerido</span>
+                                                                    <span class="text-danger" ng-show="stepy_form.telefono.$error.pattern">Escriba sólo dígitos</span >
+                                                                </div>
+                                                                <label class="col-lg-1 control-label"><span class="text-danger">* </span >Parentezco:</label>
+                                                                <div class="col-lg-4">
+                                                                    <select id="parentezco" name="parentezco" ng-model="familiar.parentezco" ng-required="true" class="form-control">
+                                    <!--<option value="-1">Seleccione una opción</option>-->
+                                    <option ng-repeat="parentes in parentezcos" value="{{parentes.id}}"
+                                            label="{{parentes.nombre}}">{{parentes.nombre}}
+                                    </option>
+                                  </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-6 control-label">He revisado los datos y están correctos:</label>
+                                                                <div class="col-lg-3">
+                                                                    <div class="checkbox">
+                                                                        <input placeholder="Marque aquí" ng-model="checked" ng-init="checked=false" type="checkbox">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </fieldset>
+                                                        <br>
+                                                        <button type="button" onclick="history.back()" class="btn btn--blue btn--l btn--raised"><i
+                              class="icon-reply-3 "></i> Cancelar
+                            </button>
+
+                                                        <button ng-hide="true" type="submit" class="finish btn btn-extend"> Finish!</button>
+                                                        <div ng-if="checked && datosValidos" class="col-lg-6">
+
+                                                            <button ng-click="save()" type="button" ng-disabled="stepy_form.$invalid" class="btn btn--blue btn--l btn--raised">
+                                <i class="icon-checkmark"></i> Guardar
+                              </button>
+
+                                                        </div>
+                                                        <span ng-if="mostarCartelFecha"><label>la fecha de nacimiento es invalida</label> </span>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*=====STEPY WIZARD====*/
+    $(function() {
+        $('#default').stepy({
+            backLabel: 'Anterior',
+            block: true,
+            nextLabel: 'Siguiente',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+    /*=====STEPY WIZARD WITH VALIDATION====*/
+    $(function() {
+        $('#stepy_form').stepy({
+            backLabel: 'Back',
+            nextLabel: 'Next',
+            errorImage: true,
+            block: true,
+            description: true,
+            legend: false,
+            titleClick: true,
+            titleTarget: '#top_tabby',
+            validate: false
+        });
+        //    $('#stepy_form').validate({
+        //      errorPlacement: function (error, element) {
+        //        $('#stepy_form div.stepy-error').append(error);
+        //      },
+        //      rules: {
+        //        'name': 'requerido',
+        //      },
+        //      messages: {
+        //        'name': {
+        //          required: 'Algunos campos son requeridos'
+        //        },
+        //      }
+        //    });
+    });
+</script>

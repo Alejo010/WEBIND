@@ -1,0 +1,96 @@
+<update system="EnLineaContigo" date="2017/05/23">
+  <informations>
+    <info type="opinion">
+      <!-- Identificador del ciudadano en el sistema del programa   -->
+      <citizenid>
+        RTE33454544
+      </citizenid>
+      <programtitle>
+        El problema del agua en Santiago
+      </programtitle>
+      <data>
+         <title>
+          El problema del agua es terrible
+        </title>
+        <text>
+          Hace 10 dias que no llega el agua a mi casa
+        </text>
+      </data>
+      <images>
+        <image>
+          /199393.JPG
+        </image>
+      </images>
+      <videos>
+        /fgdd.mp4
+      </videos>
+      <records>
+        /gardd.mp3
+      </records>
+    </info>
+    <info type="opinion">
+      <!-- Identificador del ciudadano en el sistema del programa   -->
+      <citizenid>
+        RTE33454556
+      </citizenid>
+      <programtitle>
+        Santiago arde
+      </programtitle>
+      <data>
+        <title>
+          Una idea muy buena
+        </title>
+        <text>
+          El presidente electo de Francia, Emmanuel Macron, viajará el lunes 15 de mayo a Berlín para reunirse con la
+          canciller de Alemania, Angela Merkel, su primera reunión como jefe del Estado francés una vez jure su cargo el
+          próximo domingo, según fuentes de la Cancillería alemana y confirmó posteriormente un asesor de Macron, bajo
+          condición de anonimato
+          Macron cumple así con lo prometido en la conversación telefónica que ambos mantuvieron el pasado domingo, tras
+          conocer su victoria en las presidenciales francesas, cuando confirmó a Merkel su intención de viajar a
+          Alemania “tan pronto como sea posible”.
+          “La intención del viaje”, ha declarado el asesor de Macron, “es la de comenzar a trazar un camino juntos en
+          una serie de prioridades: seguridad, economía, inversión y protección social”.
+        </text>
+      </data>
+      <images>
+        <image>
+          /199393.JPG
+        </image>
+      </images>
+      <videos>
+        /fgdd.mp4
+      </videos>
+      <records>
+        /gardd.mp3
+      </records>
+    </info>
+    <info type="felicitation">
+      <!-- Identificador del ciudadano en el sistema del programa   -->
+      <citizenid>
+        RTE33454544
+      </citizenid>
+      <programtitle>
+        El problema del agua en Santiago
+      </programtitle>
+      <data>
+        <title>
+          Viva el 1ro de Mayo
+        </title>
+        <text>
+          Orgulloso de Santiago y sus activades
+        </text>
+      </data>
+      <images>
+        <image>
+          /199393.JPG
+        </image>
+      </images>
+      <videos>
+        /fgdd.mp4
+      </videos>
+      <records>
+        /gardd.mp3
+      </records>
+    </info>
+  </informations>
+</update>

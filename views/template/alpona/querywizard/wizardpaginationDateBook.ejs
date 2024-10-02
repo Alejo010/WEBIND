@@ -1,0 +1,62 @@
+
+<div class="container" id="book-view" ng-controller="QueryWizardController as vm" style="padding-left: 0px">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 ">
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2">
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 well main-container">
+            <div id="wizard-container">
+                <div class="col-sm-12 text-center" style="padding-bottom: 3px">
+                    <h3>Insertar datos del paciente</h3>
+                  <!--{{'CONSULTA' | translate}}-->
+                    <!--<a class="btn btn-primary" ng-click="creationAttestation()">{{'CREATION_ATTESTATION' | translate}}</a>-->
+                  <!--<a class="btn btn-danger" ng-click="createConvocation()">{{'CONVOCATION'| translate}}</a>-->
+                    <!--<a  class="btn btn-info" ng-click="updateCustomer()">{{'UPDATE'| translate}}</a>-->
+                </div >
+                <div id="wizard-step-container">
+                    <ul class="nav nav-pills nav-justified">
+                        <li ng-repeat="step in vm.steps" ng-class="{'active':step.step == vm.currentStep}">
+                            <a ng-click="vm.gotoStep(step.step)"><span class="badge">{{step.step}}</span> {{step.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="wizard-content-container">
+                    <ng-include src="vm.getStepTemplate()"></ng-include>
+                </div>
+
+                <div id="wizard-navigation-container">
+                    <div class="pull-left">
+                        <span class="btn-group">
+                            <button style="border-radius: 10%" ng-disabled="vm.currentStep <= 1" class="btn btn-primary" name="previous" type="button" ng-click="vm.gotoStep(vm.currentStep - 1)"><span class="badge"><i class="fa fa-arrow-left"></i></span> Previous </button>
+                        </span>
+                    </div>
+                    <div class="pull-right">
+                        <span class="btn-group">
+                            <button style="border-radius: 10%" ng-disabled="vm.currentStep >= vm.steps.length" class="btn btn-primary" name="next" type="button" ng-click="vm.gotoStep(vm.currentStep + 1)"> Next <span class="badge"><i class="fa fa-arrow-right"></i></span></button>
+                        </span>
+                       <!-- <button ng-disabled="vm.currentStep != vm.steps.length" class="btn btn-success" name="next" type="button" ng-click="vm.book()"> <i class="fa fa-floppy-o"></i> Book</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2">
+
+        </div>
+    </div>
+    <script type="text/ng-template" id="ModalConfirmMessage.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{items.messageType}}</h3>
+        </div>
+        <div class="modal-body">
+            <h4>{{ items.message}}</h4>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">{{'ACCEPT' | translate}}</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">
+                {{'CANCEL' | translate}}
+            </button>
+        </div>
+    </script>
+  </div>
+</div>

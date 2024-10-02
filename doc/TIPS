@@ -1,0 +1,24 @@
+Consulta
+  motivo_consulta
+  impres_diag
+
+
+Dictamen
+  evolucion
+  examen_fisico
+  diag_def
+  tratamiento
+
+Conclusion
+  indic_exames->Examenes
+  remitir_a->Especialidad
+  fecha_prox_consulta->Date
+
+  Interno
+   num_med->Medico
+   paciente->Datos Paciente
+   especialidad_remite->Consulta
+
+
+
+

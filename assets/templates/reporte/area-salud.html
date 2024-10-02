@@ -1,0 +1,47 @@
+<div class="container">
+  <br>
+  <h2>Reportes por Área de Salud</h2>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span>Cantidad de Pacientes</span>
+        </div>
+        <div class="panel-body">
+          <canvas class="chart chart-pie"
+                  chart-data="chartPacienteData" chart-labels="chartPacienteLabels"
+                  style="display: block; width: 423px; height: 200px;" width="423" height="200">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span>Cantidad de Pacientes por Sexo</span>
+        </div>
+        <div class="panel-body">
+          <canvas class="chart chart-bar"
+                  chart-data="chartSexoData" chart-labels="chartSexoLabels" chart-series="charSexoSeries">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span>Cantidad de Pacientes por Raza</span>
+        </div>
+        <div class="panel-body">
+          <canvas class="chart chart-bar"
+                  chart-data="chartRazaData" chart-labels="chartRazaLabels" chart-series="charRazaSeries">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

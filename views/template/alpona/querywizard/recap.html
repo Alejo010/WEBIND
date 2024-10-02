@@ -1,0 +1,36 @@
+<br />
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-1">
+        <div uib-alert ng-repeat="message in vm.paymentMessages" 
+                 ng-class="'alert-' + message.type">{{message.info}}</div>
+        <h4>Dear, {{vm.customerData.civility}}. {{vm.customerData.name + " " + vm.customerData.firstName}} </h4>
+        <br /> 
+        <h5>Yu have provided de following data.</h5>
+        <label ng-show="(vm.customerData.phoneNumber !== undefined) &&  (vm.customerData.phoneNumber !== '')">Phone Number: {{vm.customerData.phoneNumber}}</label>
+        <br />
+        <label ng-show="(vm.customerData.email !== undefined) &&  (vm.customerData.email !== '')">Email: {{vm.customerData.email}}</label>
+        <br />
+        <label ng-show="(vm.customerData.zipCode !== undefined) &&  (vm.customerData.zipCode !== '')">Zipcode: {{vm.customerData.zipCode}}</label>
+        <br />
+        <h5>Your Driver licence: </h5>
+        <label ng-show="(vm.customerData.driverLicence.number !== undefined) &&  (vm.customerData.driverLicence.number !== '')">
+            Number: {{vm.customerData.driverLicence.number}}
+        </label>
+        <br />
+        <label ng-show="(vm.customerData.driverLicence.placeOfDeliverance !== undefined) &&  (vm.customerData.driverLicence.placeOfDeliverance !== '')">
+            Place of Deliverance: {{vm.customerData.driverLicence.placeOfDeliverance}}
+        </label>
+        <br />
+        <label ng-show="(vm.customerData.driverLicence.dateOfDeliverance !== undefined) &&  (vm.customerData.driverLicence.dateOfDeliverance !== '')">
+            Date of Deliverance: {{vm.customerData.driverLicence.dateOfDeliverance}}
+        </label>
+        <br />
+        <label ng-show="(vm.customerData.driverLicence.dateOfProcuration !== undefined) &&  (vm.customerData.driverLicence.dateOfProcuration !== '')">
+            Date of Procuration {{vm.customerData.driverLicence.dateOfProcuration}}
+        </label>
+        <br />
+
+        <button class="btn btn-info" ng-click="vm.gotoSearch()">Go to search</button>
+        <h5></h5>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+en el config.js de angular cambiar el ip siempre que sea necesario

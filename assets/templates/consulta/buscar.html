@@ -1,0 +1,118 @@
+
+
+<div class="bgc-blue-500 tc-white">
+  <div class="page-header" align="center">
+    <h4> {{title}}</h4>
+  </div>
+</div>
+
+<div ng-controller="ConsultaBuscarController">
+<div class="row">
+  <div class="col-md-12">
+    <form name="form" id="form" class="form-horizontal" novalidate>
+      <div class="form-group">
+        <label class="col-lg-2 control-label">HC</label>
+        <div class="col-lg-10">
+          <input type="text" ng-model="buscarpor.hc" name="hc"
+                 ng-pattern="/^(\d)+$/"
+                 ng-minlength="4" ng-maxlength="11"
+                 placeholder="Escriba número de la Historia Clínica"
+                 class="form-control">
+
+          <span class="text-danger" colorpicker="red" ng-show ="form.hc.$error.minlength" > Escriba al menos 4 dígitos </span >
+          <span class="text-danger" ng-show ="form.hc.$error.maxlength" > Escriba hasta 11 dígitos </span >
+          <p class="text-danger" ng-show="form.hc.$error.pattern">Escriba sólo dígitos</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Tarjeta de menor:</label>
+        <div class="col-lg-10">
+          <input ng-model="buscarpor.ci" type="text" class="form-control" name="ci"
+                 placeholder="Escriba el No. de la Tarjeta de menor"
+                 ng-pattern="/^(\d)+$/"
+                 ng-minlength="11" ng-maxlength="11">
+          <span class="text-danger" colorpicker="red" ng-show ="form.ci.$error.minlength" > Escriba al menos 4 dígitos </span >
+          <span class="text-danger" ng-show ="form.ci.$error.maxlength" > Escriba hasta 11 dígitos </span >
+          <p class="text-danger" ng-show="form.ci.$error.pattern">Escriba sólo dígitos</p>
+        </div>
+      </div>
+<!--
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Nombre:</label>
+        <div class="col-lg-10">
+          <input ng-model="buscarpor.nombre" type="text" class="form-control" name="buscarpor.nombre"
+                 placeholder="Escriba el CI" ng-maxlength="50" ng-minlength="3">
+        </div>
+      </div>
+    -->
+      <div class="form-group" ng-if="cartel">
+        <blockquote class="quote_orange">
+          <p>
+            {{cartel}}
+          </p>
+        </blockquote>
+      </div>
+
+      <div class="form-group">
+        <label class="col-lg-2 control-label">&nbsp;</label>
+        <div class="col-lg-10">
+          <div class="form-actions">
+            <button ng-disabled="form.$invalid"  ng-click="buscar()" type="button" class="btn btn--blue btn--l btn--raised">Buscar
+            </button>
+            <!--  <button type="button" class="btn">Cancelar</button>
+            --></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- SITE CONTAINER -->
+<div class="main-container" ng-if='buscarpor.mostrar'>
+  <div class="container">
+    <p></p>
+    <div class="col-md-8">
+      <div class="square-widget">
+        <div class="widget-head clearfix">
+          <h4 class="pull-left"><i class="icon-align-justify"></i> Resumen del Paciente</h4>
+        </div>
+        <div class="widget-container">
+          <dl class="dl-horizontal">
+            <dt># HC:</dt>
+            <dd>{{paciente.hc}}</dd>
+
+            <dt>Nombre y apellidos:</dt>
+            <dd>{{paciente.nombre}} {{paciente.apellidos}}</dd>
+
+            <dt>Tarjeta de menor:</dt>
+            <dd>{{paciente.ci}}</dd>
+
+
+            <dt>Dirección:</dt>
+            <dd>{{paciente.direccion}}</dd>
+
+
+            <dt>Fecha de Nacimiento:</dt>
+            <dd>{{paciente.fechaNacimiento | date:'EEEE,dd MMMM yyyy'}} </dd>
+          </dl>
+        </div>
+      </div>
+          <div class="col-2">
+            <div class="btn-group-sm">
+              <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/paciente/show/{{paciente.id}}" title="Ver detalles"
+                 class="btn btn--m btn--blue btn--flat" lx-ripple><i class="icon-search-2"></i>Ver detalles</a>
+
+              <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/consulta/index/{{paciente.id}}" title="Ver su historial de consultas"
+                 class="btn btn--m btn--blue btn--flat" lx-ripple><i class="icon-folder-open"></i>Historial de consultas</a>
+
+                 <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/consulta/new/{{paciente.id}}/{{medico.id}}"
+                 class="btn btn--m btn--blue btn--flat" lx-ripple><i class="icon-plus"></i>  Agregar consulta</a>
+            </div>
+          </div>
+      <br><br>
+
+    </div>
+  </div>
+</div>
+</div>

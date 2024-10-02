@@ -1,0 +1,231 @@
+<div class="bgc-blue-500 tc-white">
+  <div class="page-header" align="center">
+    <h4>Consulta realizada el {{consulta.fecha| date:'EEEE,dd MMMM yyyy'}}
+      <p>Especialidad {{consulta.medico.especialidad.nombre}}. Nombre del Paciente: {{consulta.paciente.nombre}}
+        {{consulta.paciente.apellidos}}</p>
+    </h4>
+  </div>
+</div>
+
+<div class="container" id="HtmlData" name="HtmlData">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box-widget">
+        <div class="widget-head clearfix">
+          <h4 class="pull-left"><i class="icon-clipboard-2"></i>
+            Detalles de la consulta</h4>
+        </div>
+        <div class="widget-container">
+          <div class="widget-block">
+            <div class="widget-content box-padding">
+              <dl class="dl-horizontal">
+
+                <dt>Motivo:</dt>
+                <dd> {{consulta.motivo}}</dd>
+
+                <dt>Impresión Diagnóstica:</dt>
+                <dd> {{consulta.impresionDiagnostica}}</dd>
+
+                <dt>Diagnóstico Def:</dt>
+                <dd> {{consulta.diagosticoDef}}</dd>
+
+                <dt>Examen Físico:</dt>
+                <dd>{{consulta.examenFisico}}</dd>
+
+                <dt>Desarrollo Psicomotor:</dt>
+                <dd> Fijacion visual: {{consulta.fijacionVisual}}</dd>
+
+
+                <dt>Tratamiento:</dt>
+                <dd>{{consulta.tratamiento}}</dd>
+
+                <dt>Pertinencia:</dt>
+                <dd ng-if="consulta.positivo">Si</dd>
+                <dd ng-if="!consulta.positivo">No</dd>
+
+                <dt>Indicación de MNT :</dt>
+                <dd>{{consulta.mnt}}</dd>
+
+                <dt>Evolución:</dt>
+                <dd>{{consulta.evolucion}}</dd>
+                <br>
+
+                <span ng-if="consulta.listaRemisiones.length > 0">
+              <dt><i class="icon-signout"></i> Remisiones a:</dt>
+            <span ng-repeat="remi in consulta.listaRemisiones">
+              <dd> {{remi.especialidad_destino.nombre}}</dd>
+             </span>
+            <dt>Motivo de remisión:</dt> <dd>{{consulta.listaRemisiones[0].motivo}}</dd>
+            <dt>Fecha de remision:</dt> <dd>{{consulta.listaRemisiones[0].fecha| date:'EEEE,dd MMMM yyyy'}}</dd>
+            </span>
+
+                <br>
+                <span ng-if="consulta.fechaProximaConsulta">
+            <dt>Fecha próxima consulta:</dt>
+            <dd> {{consulta.fechaProximaConsulta| date:'EEEE,dd MMMM yyyy'}}</dd>
+            <br>
+            </span>
+
+                <dt>Médico que consultó:</dt>
+                <dd> {{consulta.medico.nombre}} {{consulta.medico.apellidos}}</dd>
+
+                <dt>Especialista en:</dt>
+                <dd> {{consulta.medico.especialidad.nombre}}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="box-widget">
+        <div class="widget-head clearfix">
+          <h4 class="pull-left"><i class="icon-health"></i>
+            Exámenes indicados</h4>
+        </div>
+        <div class="widget-container">
+          <div class="widget-block">
+            <div class="widget-content box-padding">
+              <dl class="dl-horizontal" ng-repeat="examenInd in consulta.examenesIndicados">
+                <dt>Examen:</dt>
+                <dd> {{examenInd.examen.nombre}}</dd>
+
+                <dt>Resultado:</dt>
+                <dd ng-if='examenInd.examen.resuelto'>{{examenInd.examen.nombre}}</dd>
+                <dd ng-if='!examenInd.examen.resuelto'>Pendiente por resultado</dd>
+                <p>&nbsp; </p>
+              </dl>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box-widget">
+        <div class="widget-head clearfix">
+          <h4 class="pull-left"><i class="icon-list-6"></i>
+            Desarrollo Psicomotor</h4>
+        </div>
+        <div class="widget-container">
+          <div class="widget-block">
+            <div class="widget-content box-padding">
+              <dl class="dl-horizontal">
+                <div class="col-lg-4">
+                  <dt>Fijación Visual:</dt>
+                  <dd>{{consulta.fijacionVisual}}</dd>
+                  <dt>Seguimiento visual:</dt>
+                  <dd>{{consulta.seguimientoVisual}}</dd>
+                  <dt>Sonrisa social:</dt>
+                  <dd>{{consulta.sonrisaSocial}}</dd>
+                  <dt>Gorjeo:</dt>
+                  <dd>{{consulta.gorjeo}}</dd>
+                  <dt>Sostén cefálico:</dt>
+                  <dd>{{consulta.sostenCefalico}}</dd>
+                  <dt>Manos a la línea media:</dt>
+                  <dd>{{consulta.manosALaLineaMedia}}</dd>
+                  <dt>Vocaliza:</dt>
+                  <dd>{{consulta.vocaliza}}</dd>
+                  <dt>Control cefálico:</dt>
+                  <dd>{{consulta.controlCefalico}}</dd>
+                  <dt>Agarre grosero:</dt>
+                  <dd>{{consulta.agarreGrosero}}</dd>
+                </div>
+                <div class="col-lg-4">
+                  <dt>Transferencia de objetos:</dt>
+                  <dd>{{consulta.transferenciaDeObjetos}}</dd>
+                  <dt>Rolado de prono a supino:</dt>
+                  <dd>{{consulta.roladoDePronoASupino}}</dd>
+                  <dt>Rolado de supino a prono:</dt>
+                  <dd>{{consulta.roladoDeSupinoAProno}}</dd>
+                  <dt>Sostén sentado:</dt>
+                  <dd>{{consulta.sostenSentado}}</dd>
+                  <dt>Sedestación:</dt>
+                  <dd>{{consulta.sedestacion}}</dd>
+                  <dt>Trompetillas:</dt>
+                  <dd>{{consulta.trompetillas}}</dd>
+                  <dt>Pinza digital:</dt>
+                  <dd>{{consulta.pinzaDigital}}</dd>
+                  <dt>Cuatro puntos:</dt>
+                  <dd>{{consulta.cuatroPuntos}}</dd>
+                  <dt>Monosílabos:</dt>
+                  <dd>{{consulta.monosilabos}}</dd>
+                </div>
+                <div class="col-lg-4">
+                  <dt>Gateo alterno:</dt>
+                  <dd>{{consulta.gateoAlterno}}</dd>
+                  <dt>Se para con ayuda:</dt>
+                  <dd>{{consulta.seParaConAyuda}}</dd>
+                  <dt>Bipedestación con apoyo:</dt>
+                  <dd>{{consulta.bipedestacionConApoyo}}</dd>
+                  <dt>Bipedestación independiente:</dt>
+                  <dd>{{consulta.bipedestacionIndependiente}}</dd>
+                  <dt>Pasos sueltos:</dt>
+                  <dd>{{consulta.pasosSueltos}}</dd>
+                  <dt>4 a 6 palabras:</dt>
+                  <dd>{{consulta.palabras4a6}}</dd>
+                  <dt>Responde por su nombre:</dt>
+                  <dd>{{consulta.respondePorSuNombre}}</dd>
+                  <dt>Cumple ordenes complejas:</dt>
+                  <dd>{{consulta.cumpleOrdenesComplejas}}</dd>
+                  <dt>Responde a estímulos sonoro:</dt>
+                  <dd>{{consulta.respondeEstimuloSonoro}}</dd>
+                </div>
+
+
+
+                <p>&nbsp; </p>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="col-md-6">-->
+    <!--<div class="box-widget">-->
+    <!--<div class="widget-head clearfix">-->
+    <!--<h4 class="pull-left"><i class="icon-health"></i>-->
+    <!--Exámenes indicados</h4>-->
+    <!--</div>-->
+    <!--<div class="widget-container">-->
+    <!--<div class="widget-block">-->
+    <!--<div class="widget-content box-padding">-->
+    <!--<dl class="dl-horizontal" ng-repeat="examenInd in consulta.examenesIndicados">-->
+    <!--<dt>Examen:</dt>-->
+    <!--<dd> {{examenInd.examen.nombre}}</dd>-->
+
+    <!--<dt>Resultado:</dt>-->
+    <!--<dd ng-if='examenInd.examen.resuelto'>{{examenInd.examen.nombre}}</dd>-->
+    <!--<dd ng-if='!examenInd.examen.resuelto'>Pendiente por resultado</dd>-->
+    <!--<p>&nbsp; </p>-->
+    <!--</dl>-->
+    <!--<br>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>
+
+</div>
+
+<div class="pull-left">
+  <dl></dl>
+  <div class="col-lg-12">
+    <div class="card__actions">
+      <button type="submit" onclick="history.back()" class="btn btn--blue btn--l btn--raised"><i
+        class="icon-reply-3 "></i> Volver atrás
+      </button>
+    </div>
+  </div>
+</div>
+<!--
+<div class="btn btn-primary" ng-click="HTMLclick()">Create PDF File</div>
+-->

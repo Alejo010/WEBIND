@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html ng-app="WebInd" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <div ng-cloak>
+        <title ng-cloak>Sistema informático para gestionar la información de la consulta provincial de neurodesarrollo y la discapacidad infantil en la provincia</title>
+    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--
+      Stylesheets and Preprocessors
+      ==============================
+
+      You can always bring in CSS files manually with `<link>` tags, or asynchronously
+      using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+      of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, stylesheets from your `assets/styles` folder are included
+      here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+      are supported. In production, your styles will be minified and concatenated into
+      a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your CSS files
+          + Import stylesheets from other directories
+          + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+  -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/css/font-alpona.css">
+    <link rel="stylesheet" href="/styles/css/prettify.css">
+    <link rel="stylesheet" href="/styles/css/responsive-tables.css">
+    <link rel="stylesheet" href="/styles/css/jquery.stepy.css">
+    <link rel="stylesheet" href="/styles/css/bootstrap-reset.css">
+    <link rel="stylesheet" href="/styles/exportstyle/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/angular-material.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.css">
+    <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.min.css">
+    <link rel="stylesheet" href="/styles/css/angular-bootstrap-calendar.min.css">
+    <link rel="stylesheet" href="/styles/css/colorpicker.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/chartcss/c3.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/elegant-icons-style.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/line-icons.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/owl.carousel.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/style-responsive.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/widgets.css">
+    <link rel="stylesheet" href="/styles/exportstyle/exported/xcharts.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/exportstyle/datepicker3.css">
+    <link rel="stylesheet" href="/styles/css/styles.css">
+    <link rel="stylesheet" href="/styles/mdi/css/materialdesignicons.css">
+    <link rel="stylesheet" href="/styles/css/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/js/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="/styles/css/select/select.min.css">
+    <!--STYLES END-->
+
+    <script src="/.tmp/public/js/alponajs/jquery.js"></script>
+    <script src="/.tmp/public/js/alponajs/respond.min.js"></script>
+
+</head>
+<!--<div class="layout-align-center" ng-show="i18nLoaded" ng-hide="!i18nLoaded"><img src="/images/loading.gif" /></div>-->
+
+<body calls="ng-cloak" ng-controller="HeaderController">
+
+    <script src="/js/app/controller/HeaderController.js">
+    </script>
+    <main ng-hide="i18nLoaded">
+        <span id="tempIdUser" style="display:none">T</span>
+        <span id="tempSocketId" style="display:none">T</span>
+        <span id="activeModal" style="display:none">N</span>
+        <div class="main-wrapper">
+            <!--<div class="scroll-top">-->
+            <!--<a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>-->
+            <!--</div>-->
+
+            <!-- START FORM AUTHENTICATED -->
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-md-offset-4" ng-hide="userShowAuthenticated">
+                    <br><br><br>
+                    <div class="panel panel-default">
+                        <div align="center">
+                            <img align="center" src="images/imagen_webind.png">
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                                        <!--ng-controller="AuthController"-->
+                                        <div ng-show="alertShow">
+                                            <script type="text/ng-template" id="alert.html">
+                                                <div ng-transclude></div>
+                                            </script>
+                                            <div uib-alert id="messageAlert" template-url="alert.html" style="background-color:#f10b2b;color:white"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                      </span>
+                                                <input type="username" class="form-control" id="username" placeholder="Ingrese Usuario" ng-model="data.loginUsername">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                      </span>
+                                                <input type="password" class="form-control" id="login-password" placeholder="Ingrese Contraseña" ng-model="data.loginPassword">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-lg btn-primary btn-block" style="height: 30px;" ng-click="loginUser()">Ingresar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END FORM AUTHENTICATED -->
+            <!-- START SITE CONTAINER -->
+            <div class="top-bar" style="display:none" id="allComponent">
+                <div class="container" style="width: auto;">
+                    <div class="row" ng-swipe-left="">
+                        <div class="col-sm-4 col-md-4">
+                            <a href="#" class="left-toggle"><i class="icon-menu-2 "></i></a>
+                            <!-- LOGO -->
+                            <div class="">
+                                <a href=""><img src="images/WEBIND-logo.png" alt="Webind Logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 responsive-notification-mnu">
+                            <ul class="notification-bar">
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-head">
+                                        <h6>Notificaciones</h6>
+                                    </div>
+                                    <ul class="notification-list">
+                                        <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                          class="notification-time">Neurofisiología</span></span></a></li>
+                                        <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                          class="notification-time">Oftalmología</span></span></a></li>
+                                        <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                          class="notification-time">Genética</span></span></a></li>
+                                        <li><a href="#" class="clearfix"><i class=" icon-bell orange"></i><span class="notification-intro">Vestibulum viverra magna vitae dui volutpat dapibus. <span
+                          class="notification-time">Oftalmología</span></span></a></li>
+                                    </ul>
+                                    <div class="action-btn">
+                                        <button class="btn btn-block">Ver todo</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <script type="text/ng-template" id="myModalChatContent.html">
+                                        <div class="modal-body">
+                                            <div class="home-page">
+                                                <!-- Home page body start -->
+                                                <div class="home-body">
+                                                    <div class="row">
+                                                        <!-- Message  Markup starts -->
+                                                        <div class="col-md-8">
+                                                            <div class="message-container">
+                                                                <p ng-show="data.selectedFriendId !== null" ? true : false>
+                                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                                    <span class="mesAreasage-heading"> Historial de chat con: {{data.selectedFriendName}}</span>
+                                                                </p>
+                                                                <div class="message-list">
+                                                                    <ul class="message-thread">
+                                                                        <li ng-repeat="messagePacket in data.messages" ng-class="{ 'align-right' : alignMessage(messagePacket.id_usuario_envia) } ">
+                                                                            {{messagePacket.mensaje}}<br>
+                                                                            <div class="date-text">{{messagePacket.createdAt}}</div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="message-text">
+                                                                    <textarea id="message" class="message form-control" placeholder="Escriba y presione ENTER" ng-keydown="sendMessage($event)">
+
+                                                  </textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Message Area Markup ends -->
+
+                                                        <!-- Chat list Markup starts -->
+                                                        <div class="col-md-4">
+                                                            <div class="chat-list-container">
+                                                                <p class="chat-list-heading"><i class="icon-users" aria-hidden="true"></i><span> Usuarios</span>
+                                                                </p>
+                                                                <div class="chat-list">
+                                                                    <ul class="list-group" ng-if="data.chatlist.length > 0">
+                                                                        <li class="list-group-item" ng-repeat="friend in data.chatlist" ng-click="selectFriendToChat(friend.id)" ng-class="{'active':friend.id == data.selectedFriendId}" id='{{friend.id}}'>
+                                                                            {{friend.username}}
+                                                                            <!--span ng-class="Y === 'Y' ? 'online' : 'offline'"> </span-->
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div class="alert alert-info" ng-if="data.chatlist.length === 0">
+                                                                        <strong>No hay usuarios en linea.</strong>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Chat List Markup ends -->
+
+                                                    </div>
+                                                </div>
+                                                <!-- Home page body start -->
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+                                        </div>
+                                    </script>
+                                    <!---------------------------------------->
+                                </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-md-4 clearfix responsive-log-mnu">
+                            <!-- ADMIN DRODOWN MENU -->
+                            <div class="loged-nav pull-right">
+                                <ul class="clearfix">
+                                    <li class="log-nav dropdown pull-right">
+                                        <a class="dropdown-toggle clearfix" data-toggle="dropdown">
+                                            <span class="pull-left loged-user-name" id="spanRol">Especialista </span>
+                                            <!--span class="logged-user-thumb pull-right"><img class="img-circle" src="images/admin-avatar.jpg" alt="Admin"></span-->
+                                            <span style="margin-top: 5px;" class="logout-user" ng-click="logout()">
+                        <i class="fa fa-power-off" aria-hidden="true"></i>
+                      </span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul class="pull-right">
+                                                <li><a href="#">Nombre de usuario</a></li>
+                                                <li><a href="#">Editar perfil</a></li>
+                                                <li><a href="#">Email </a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="" class="logout-link" ng-click="closeLogin($event)" onclick="return false;"><i
+                            class="icon-lock-3"></i> Salir</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- LEFT BAR  ng-show="userAuthenticated" -->
+                <div class="row">
+                    <div class="left-bar merge-left" ng-hide="userAuthenticated">
+                        <!-- SEARCH BAR-->
+                        <div class="search-bar">
+                            <div class="input-group">
+                            </div>
+                        </div>
+                        <!-- LEFT NAV -->
+                        <div class="left-nav" style="padding-left: 20px">
+                            <ul class="side-navigation accordion" id="nav-accordion">
+                                <li><a href="#!" data-target="#!" class=""><i class="icon-home"></i> Inicio</a>
+                                </li>
+                                <li ng-hide="userDirectivo || userAdministrador"><a href="#"><i class="icon-user-4"></i>Paciente</a>
+                                    <ul>
+                                        <li ng-hide="userDirectivo || userAdministrador || userMedicoPasiva">
+                                            <a href="#!/backend/paciente/new" class="">
+                                                <i class="icon-user-plus-2"></i> Insertar Paciente</a>
+                                        </li>
+                                        <li ng-hide="userDirectivo || userAdministrador">
+                                            <a href="#!/backend/consulta/buscar" class="">
+                                                <i class="icon-search-2"></i> Buscar Paciente</a>
+                                        </li>
+
+                                        <li ng-hide="userDirectivo || userAdministrador">
+                                            <a href="#!/wizard/" data-target="#wizard/" class="">
+                                                <i class="icon-double-angle-right"></i>Planificación Consulta
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li ng-hide="userDirectivo || userAdministrador"><a href="#"><i class="icon-group">
+                  </i>Interconsultas</a>
+                                    <ul>
+                                        <li><a href="#!/remisiones"><i class="icon-arrow-right-6"></i> Entrada de Remisiones</a>
+                                        </li>
+                                        <li><a href="#!/remisionesSalida"><i class="icon-arrow-left-6"></i>Remisiones realizadas </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li ng-hide="userDirectivo || userAdministrador"><a href="#!/backend/paciente/index"><i
+                    class="icon-user-3"></i> Listado de pacientes</a>
+                                </li>
+                                <li ng-hide="userAdministrador"><a href="#"><i class="icon-stats-up"></i> Reportes</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#!/reporte/especialidad"><i class="icon-double-angle-right"></i> Por especialidad </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#!/reporte/area-salud"><i class="icon-double-angle-right"></i> Por &Aacuterea de salud</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/reporte/pacientes-especialidad"><i class="icon-double-angle-right"></i> Pacientes por
+                      Especialidad</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li ng-hide="userDirectivo || userMedicoCentral || userMedicoPasiva"><a href="#"><i
+                    class="icon-briefcase-3 "></i>Gestionar Usuarios</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#!/backend/usuario/index"> <i class="icon-double-angle-right"></i> Usuarios </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li ng-hide="userDirectivo || userMedicoCentral || userMedicoPasiva"><a href="#"><i
+                    class="icon-briefcase-3 "></i>Nomencladores</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#!/backend/area-salud/index"> <i class="icon-double-angle-right"></i> Área de salud </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/especialidad/index"> <i class="icon-double-angle-right"></i>Especialidad</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/examen/index"> <i class="icon-double-angle-right"></i>Examen</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/hospital/index"> <i class="icon-double-angle-right"></i>Hospital</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/movimiento-fetal/index"> <i class="icon-double-angle-right"></i> Movimiento Fetal
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/nivel-escolaridad/index"> <i class="icon-double-angle-right"></i> Nivel Escolaridad
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/parentezco/index"> <i class="icon-double-angle-right"></i> Parentezco
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/tipo-parto/index"> <i class="icon-double-angle-right"></i> Tipo Parto
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/llanto/index"> <i class="icon-double-angle-right"></i> Tipo Llanto
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/municipio/index"> <i class="icon-double-angle-right"></i> Municipios
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!/backend/provincia/index"> <i class="icon-double-angle-right"></i> Provincias
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-wrapper">
+                        <div class="scroll-top">
+                            <a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>
+                        </div>
+                        <!-- SITE CONTAINER -->
+                        <div class="main-container" ng-hide="userAuthenticated">
+                            <div class="container">
+                                <div class="row" ng-hide="userAuthenticated">
+                                    <div class="col-md-12">
+                                        <!-- SHORTCUT BAR -->
+                                        <div class="shortcut-bar">
+                                            <ul class="shortcut-items">
+
+                                                <li ng-hide="userDirectivo || userAdministrador || userMedicoPasiva">
+                                                    <a href="#!/backend/paciente/new" data-target="#newquery/"><i class="icon-user-plus"></i><span
+                            class="shortcut-label"> Nuevo Paciente</span></a>
+                                                </li>
+
+                                                <li ng-hide="userDirectivo || userAdministrador">
+                                                    <a href="#!/remisiones"><span id="incompleteRemission" class="count-noty"
+                                                      style="display:none">0</span><i class="icon-enter"></i><span
+                            class="shortcut-label">Remisiones</span></a>
+                                                </li>
+
+                                                <li ng-hide="userDirectivo || userAdministrador">
+                                                    <a href="#!/backend/consulta/buscar"><i class="icon-stethoscope"></i><span
+                            class="shortcut-label">+ Consulta</span></a>
+                                                </li>
+
+                                                <li ng-hide="userDirectivo || userAdministrador">
+                                                    <a href="#!/backend/paciente/index"><i class="icon-group"></i><span class="shortcut-label">Pacientes</span></a>
+                                                </li>
+
+                                                <li ng-hide="userAdministrador">
+                                                    <a href="#!/reporte/index"><i class="icon-stats-up"></i><span
+                            class="shortcut-label">Reportes</span></a>
+                                                </li>
+
+                                                <li ng-hide="userDirectivo || userAdministrador">
+                                                    <a href="#!/wizard/"><i class="icon-calendar-6"></i><span
+                            class="shortcut-label">Calendario</span></a>
+                                                </li>
+
+                                                <li ng-hide="userDirectivo || userAdministrador">
+                                                    <a ng-click="openModal('lg')" f><span id="incommingMessage" class="count-noty"
+                                                              style="display:none">!</span><i
+                            class="icon-bubbles-2"></i><span class="shortcut-label">Chat</span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-view></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[if lte IE 7]>
+  <script src="js/font-alpona-ie7.js"></script>
+  <![endif]-->
+
+        <script>
+            google.load('visualization', '1', {
+                'packages': ['geochart']
+            });
+            google.setOnLoadCallback(drawRegionsMap);
+
+            function drawRegionsMap() {
+                let data = google.visualization.arrayToDataTable([
+                    ['Country', 'Popularity'],
+                    ['Germany', 200],
+                    ['United States', 300],
+                    ['Brazil', 400],
+                    ['Canada', 500],
+                    ['France', 600],
+                    ['RU', 700]
+                ]);
+                let options = {
+                    colorAxis: {
+                        colors: ['009933', '#e88a05', '#3498db']
+                    }
+                };
+                let chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+        <script>
+            /*====MINI CHART ====*/
+            $(function() {
+                $(".sparkbar").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+                    type: 'bar',
+                    height: '50',
+                    barWidth: 6,
+                    barSpacing: 2,
+                    barColor: '#5fbf00',
+                    negBarColor: '#bf0000',
+                    tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+                });
+            });
+            $(function() {
+                $(".sparkline").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+                    type: 'line',
+                    height: '50',
+                    width: '100',
+                    barWidth: 6,
+                    barSpacing: 2,
+                    barColor: '#5fbf00',
+                    negBarColor: '#bf0000',
+                    tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+                });
+            });
+            $(function() {
+                $(".sparkpie").sparkline([5, 6, 7, 2, 0, -4, -2, 4, 8, 20], {
+                    type: 'pie',
+                    height: '50',
+                    barWidth: 6,
+                    barSpacing: 2,
+                    barColor: '#5fbf00',
+                    negBarColor: '#bf0000',
+                    tooltipFormat: '<span class="spark-tip"><span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}}%)</span>'
+                });
+            });
+            $(function() {
+                $(".line-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, 15, 20, 40, 60], {
+                    type: 'line',
+                    width: '100',
+                    height: '50',
+                    lineColor: '#2b2b2b',
+                    fillColor: '#e5e5e5',
+                    lineWidth: 2,
+                    highlightSpotColor: '#0e8e0e',
+                    spotRadius: 3,
+                    drawNormalOnTop: true
+                });
+                $(".bar-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, -15, 20, 40, 60], {
+                    type: 'bar',
+                    height: '60',
+                    barWidth: 4,
+                    barSpacing: 1,
+                    barColor: '#007f00'
+                });
+                $(".pie-min-chart").sparkline([3, 5, 2, 10, 8], {
+                    type: 'pie',
+                    width: '60',
+                    height: '60'
+                });
+                $(".tristate-min-chart").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
+                    type: 'tristate',
+                    height: '50',
+                    posBarColor: '#bf005f',
+                    negBarColor: '#ff7f00',
+                    zeroBarColor: '#545454',
+                    barWidth: 6,
+                    barSpacing: 1
+                });
+            });
+        </script>
+    </main>
+
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/jst.js"></script>
+    <!--TEMPLATES END-->
+
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/alponajs/jquery.js"></script>
+    <script src="/js/alponajs/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/js/alponajs/prettify.js"></script>
+    <script src="/js/alponajs/jquery.nicescroll.js"></script>
+    <script src="/js/alponajs/jquery.cookie.js"></script>
+    <script src="/js/alponajs/jquery.hoverIntent.minified.js"></script>
+    <script src="/js/alponajs/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/js/alponajs/jquery.validate.js"></script>
+    <script src="/js/alponajs/jquery.stepy.js"></script>
+    <script src="/js/alponajs/common-script.js"></script>
+    <script src="/js/dependencies/exportedjs/bootstrap.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-animate.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-cookies.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-datepicker.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-resource.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-route.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-translate.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-locale_es-cu.js"></script>
+    <script src="/js/dependencies/exportedjs/ui-bootstrap-tpls.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-spinners.min.js"></script>
+    <script src="/js/dependencies/exportedjs/angular-translate.js"></script>
+    <script src="/js/dependencies/exportedjs/bootstrap-datepicker.js"></script>
+    <script src="/js/dependencies/exportedjs/checklist-model.js"></script>
+    <script src="/js/dependencies/exportedjs/locale"></script>
+    <script src="/js/dependencies/exportedjs/locales.js"></script>
+    <script src="/js/dependencies/exportedjs/locales.min.js"></script>
+    <script src="/js/dependencies/exportedjs/moment-with-locales.js"></script>
+    <script src="/js/dependencies/exportedjs/moment-with-locales.min.js"></script>
+    <script src="/js/dependencies/exportedjs/moment.min.js"></script>
+    <script src="/js/dependencies/exportedjs/rzslider.min.js"></script>
+    <script src="/js/dependencies/exportedjs/wow.min.js"></script>
+    <script src="/js/dependencies/angular-audio-recorder.js"></script>
+    <script src="/js/dependencies/angular-audio-recorder.min.js"></script>
+    <script src="/js/dependencies/angular-bootstrap-calendar-tpls.min.js"></script>
+    <script src="/js/dependencies/angular-sanitize.js"></script>
+    <script src="/js/dependencies/bootstrap-colorpicker-module.js"></script>
+    <script src="/js/dependencies/bootstrap-colorpicker-module.min.js"></script>
+    <script src="/js/dependencies/faker.js"></script>
+    <script src="/js/dependencies/html2canvas.min.js"></script>
+    <script src="/js/dependencies/html2pdf.bundle.js"></script>
+    <script src="/js/dependencies/jspdf.min.js"></script>
+    <script src="/js/dependencies/jspdf.plugin.autotable.js"></script>
+    <script src="/js/dependencies/pdfmake.min.js"></script>
+    <script src="/js/dependencies/saveHtmlToPdf.js"></script>
+    <script src="/js/dependencies/saveHtmlToPdf.min.js"></script>
+    <script src="/js/select/select.min.js"></script>
+    <script src="/js/chartjs/Chart.min.js"></script>
+    <script src="/js/chartjs/angular-chart.min.js"></script>
+    <script src="/js/angulartimer/angular-timer.min.js"></script>
+    <script src="/js/angulartimer/angular-timer-all.min.js"></script>
+    <script src="/js/advacedsearch/angular-advanced-searchbox-tpls.min.js"></script>
+    <script src="/js/daterange/angular-datepicker.js"></script>
+    <script src="/js/velocity/velocity.js"></script>
+    <script src="/js/velocity/velocity.ui.js"></script>
+    <script src="/js/lumx/dist/lumx.js"></script>
+    <script src="/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="/js/datatables/jquery.dataTables.js"></script>
+    <script src="/js/config/config.js"></script>
+    <script src="/js/app/app.js"></script>
+    <script src="/js/app/language/en.js"></script>
+    <script src="/js/app/language/es.js"></script>
+    <script src="/js/app/language/fr.js"></script>
+    <script src="/js/app/service/ApiService.js"></script>
+    <script src="/js/app/service/ChartOpinionServices.js"></script>
+    <script src="/js/app/service/QueryServices.js"></script>
+    <script src="/js/app/service/ReporteService.js"></script>
+    <script src="/js/app/service/TodoService.js"></script>
+    <script src="/js/app/service/ToolsService.js"></script>
+    <script src="/js/app/service/WorkService.js"></script>
+    <script src="/js/app/directive/ErrorMessageDirective.js"></script>
+    <script src="/js/app/directive/NrEditDirective.js"></script>
+    <script src="/js/app/directive/NrIndexDirective.js"></script>
+    <script src="/js/app/directive/NrNewDirective.js"></script>
+    <script src="/js/app/directive/NrShowDirective.js"></script>
+    <script src="/js/app/directive/SidebarDirective.js"></script>
+    <script src="/js/app/factory/DatatableFactory.js"></script>
+    <script src="/js/app/filter/LevelFilter.js"></script>
+    <script src="/js/app/filter/LimitWordsFilter.js"></script>
+    <script src="/js/app/filter/MonthFilter.js"></script>
+    <script src="/js/app/filter/WeekFilter.js"></script>
+    <script src="/js/app/controller/AreaSaludBackendController.js"></script>
+    <script src="/js/app/controller/AreaSaludReporteController.js"></script>
+    <script src="/js/app/controller/CalendarController.js"></script>
+    <script src="/js/app/controller/CalendarioBackendController.js"></script>
+    <script src="/js/app/controller/ChartController.js"></script>
+    <script src="/js/app/controller/ConsultaBackendController.js"></script>
+    <script src="/js/app/controller/ConsultaBackendControllerHL7v2.js"></script>
+    <script src="/js/app/controller/ConsultaMessageBuilderQBP_Q21.js"></script>
+    <script src="/js/app/controller/CurrentOpinionController.js"></script>
+    <script src="/js/app/controller/DrogaBackendController.js"></script>
+    <script src="/js/app/controller/EspecialidadBackendController.js"></script>
+    <script src="/js/app/controller/EspecialidadReporteController.js"></script>
+    <script src="/js/app/controller/ExamenBackendController.js"></script>
+    <script src="/js/app/controller/HeaderController.js"></script>
+    <script src="/js/app/controller/HospitalBackendController.js"></script>
+    <script src="/js/app/controller/LlantoBackendController.js"></script>
+    <script src="/js/app/controller/LoginController.js"></script>
+    <script src="/js/app/controller/MainController.js"></script>
+    <script src="/js/app/controller/MedicoBackendController.js"></script>
+    <script src="/js/app/controller/Modal.js"></script>
+    <script src="/js/app/controller/ModalInstanceCtrl.js"></script>
+    <script src="/js/app/controller/ModalInstanceCtrlMail.js"></script>
+    <script src="/js/app/controller/ModalInstanceCtrlWizard.js"></script>
+    <script src="/js/app/controller/ModalInstanceMessage.js"></script>
+    <script src="/js/app/controller/MovimientoFetalBackendController.js"></script>
+    <script src="/js/app/controller/MunicipioBackendController.js"></script>
+    <script src="/js/app/controller/NivelEscolaridadBackendController.js"></script>
+    <script src="/js/app/controller/OcupacionBackendController.js"></script>
+    <script src="/js/app/controller/PacienteBackendController.js"></script>
+    <script src="/js/app/controller/PacienteBackendControllerHL7v2.js"></script>
+    <script src="/js/app/controller/PacienteMessageBuilderADT_A01.js"></script>
+    <script src="/js/app/controller/PacientesPorEspecialidadReporteController.js"></script>
+    <script src="/js/app/controller/ParentezcoBackendController.js"></script>
+    <script src="/js/app/controller/ProvinciaBackendController.js"></script>
+    <script src="/js/app/controller/QueryListController.js"></script>
+    <script src="/js/app/controller/QueryWizardController.js"></script>
+    <script src="/js/app/controller/RemisionesSalidaPageController.js"></script>
+    <script src="/js/app/controller/RemisionPageController.js"></script>
+    <script src="/js/app/controller/ReporteController.js"></script>
+    <script src="/js/app/controller/RolBackendController.js"></script>
+    <script src="/js/app/controller/TimerController.js"></script>
+    <script src="/js/app/controller/TipoPartoBackendController.js"></script>
+    <script src="/js/app/controller/TodoCtrl.js"></script>
+    <script src="/js/app/controller/UsuarioBackendController.js"></script>
+    <script src="/js/app/controller/UsuarioChatController.js"></script>
+    <script src="/js/app/controller/UsuarioHomeController.js"></script>
+    <script src="/js/app/controller/WizardController.js"></script>
+    <script src="/js/app/api-routes.js"></script>
+    <script src="/js/app/routing/backend.js"></script>
+    <script src="/js/app/routing/example.js"></script>
+    <script src="/js/app/routing/reporte.js"></script>
+    <script src="/js/app/routing/routes.js"></script>
+    <script src="/js/app/ModalDemoCtrl.js"></script>
+    <script src="/js/app/utils.js"></script>
+    <!--SCRIPTS END-->
+</body>
+
+</html>

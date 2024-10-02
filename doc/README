@@ -1,0 +1,10 @@
+En el caso de Consulta
+se debe tener en cuenta que la consulta tiene asociado el médico
+que se logea en el sistema y que a través de los datos del médico
+se puede identificar de que tipo de consulta se llega. Es decir
+si la consulta es de Pediatria, Audiología.
+
+Los datos personales solo se insertan por el neonatologo o el pediatra.
+
+
+

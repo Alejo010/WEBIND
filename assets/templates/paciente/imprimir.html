@@ -1,0 +1,1205 @@
+<style>
+  @page {
+    size: Letter;
+    margin: 0.5in;
+    margin-bottom: 0in;
+  }
+
+  @-ro-preferences {
+    page-layout: 1 page;
+    initial-zoom: 125%;
+  }
+
+  body {
+    font-family: arial, sans-serif;
+    line-height: 1.1;
+    margin: 0 6pt;
+  }
+
+  #divImprimirPDF {
+    border-style: solid;
+    border-width: thin;
+  }
+
+  p {
+    margin: 0.01in;
+    padding: 0pt;
+  }
+
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+  }
+
+  td {
+    padding: 5pt;
+  }
+
+  td.formCounter {
+    vertical-align: top;
+    font-weight: bold;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+
+  strong.formCounter,
+  b.formCounter {
+    font-weight: bold;
+    margin-right: 8pt;
+    margin-left: 8pt;
+    float: left;
+  }
+
+  input {
+    -ro-pdf-format: pdf;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 1px;
+  }
+
+  input[type=checkbox] {
+    margin-right: 0.08in;
+    border: 1px solid black;
+    height: 8pt;
+    width: 8pt;
+    color: #0000cc;
+  }
+
+  input[type=text] {
+    border: none;
+    height: 10pt;
+    padding: 0pt;
+    margin: 0pt 0.75pt;
+    color: #0000cc;
+    font-family: 'courier new', monospace;
+  }
+
+  ol {
+    padding-left: 0em;
+  }
+
+  .partHeading table {
+    width: auto;
+    font-size: 10pt;
+  }
+
+  .partHeading table td:first-child {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    width: auto;
+  }
+
+  .partHeading table td:last-child {
+    padding-left: 2em;
+  }
+
+  .partHeading > td {
+    border-bottom: 0.5pt solid black;
+    border-top: 1pt solid black;
+  }
+
+  /*Table 1 */
+
+  #t1 {
+    font-size: 8pt;
+    border-bottom: 1pt solid black;
+  }
+
+  #t1 svg {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  /*Table 1  Cells*/
+
+  #t1c1 {
+    font-size: 6.5pt;
+    border-right: 1pt solid black;
+    width: 1.2in;
+  }
+
+  #t1c1 table td {
+    padding-top: 4pt;
+    padding-bottom: 0pt;
+  }
+
+  #t1c1 span {
+    font-size: 12pt;
+    font-weight: 900;
+  }
+
+  #t1c2 {
+    text-align: center;
+  }
+
+  #t1c3 {
+    vertical-align: middle;
+    font-size: 7pt;
+    border-left: 1pt solid black;
+    width: 1.18in;
+    text-align: center;
+  }
+
+  /*Table 2*/
+
+  #t2 {
+    font-size: 8.5pt;
+    text-align: left;
+  }
+
+  #t2note {
+    width: 15.5cm;
+  }
+
+  td.svgCell {
+    width: 1em;
+    vertical-align: top;
+    padding-top: 0.5pt;
+  }
+
+  #t2 b {
+    font-size: 8pt;
+  }
+
+  #leader1::after {
+    content: leader("  .  ") "W-9";
+  }
+
+  #leader2::after {
+    content: leader("  .  ") "W-8ECI";
+  }
+
+  #leader3::after {
+    content: leader("  .  ") "W-8ECI or W-8IMY";
+  }
+
+  #leader4::after {
+    content: leader("  .  ") "W-8ECI or W-8EXP";
+  }
+
+  #leader5::after {
+    content: leader("  .  ") "W-8IMY";
+  }
+
+  /*Table 3: Part I*/
+
+  #t3 {
+    width: 100%;
+  }
+
+  .t3body {
+    font-size: 10pt;
+  }
+
+  .t3body > td {
+    border-bottom: 0.5px solid black;
+  }
+
+  .t3bodyCol2 {
+    border-left: 0.5px solid black;
+  }
+
+  .t33r1 {
+    padding-bottom: 2pt;
+  }
+
+  .t33r2 {
+    padding-bottom: 1pt;
+  }
+
+  span.t3valign {
+    vertical-align: bottom;
+  }
+
+  #t3 input[type=text] {
+    width: 100%;
+    height: 15pt;
+    font-size: 10pt;
+  }
+
+  /*Table 4: Part II*/
+
+  #t4 input[type=text] {
+    border: none;
+    border-bottom: 0.6px dashed black;
+    font-size: 10pt;
+    height: 8pt;
+    text-align: center;
+  }
+
+  #t4 input[type=checkbox] {
+    margin-left: 2pt;
+    margin-right: 4pt;
+    float: right;
+    vertical-align: top;
+  }
+
+  .t4body {
+    font-size: 10pt;
+  }
+
+  #t4i1 {
+    width: 1.8in;
+    height: 6pt;
+    font-size: 6pt;
+  }
+
+  #t4i2 {
+    width: 0.7in;
+  }
+
+  #t4li4 {
+    width: 1.56in;
+    text-align: left !important;
+  }
+
+  #t4li4a {
+    width: 46.3%;
+    text-align: left !important;
+  }
+
+  #t4li5,
+  #t4li6 {
+    width: 99.5%;
+    text-align: left !important;
+  }
+
+  .t4list td:first-child {
+    width: 2%;
+    padding-top: 2pt;
+  }
+
+  #t4 td.col1 {
+    text-align: right;
+    padding-right: 6pt;
+    vertical-align: top;
+    padding-top: 2pt;
+  }
+
+  #t4 td.col2 {
+    vertical-align: top;
+    font-size: 7pt;
+  }
+
+  #t4r2 > td {
+    padding-top: 4pt;
+  }
+
+  .t4list td:last-child {
+    width: 98%;
+    padding-left: 4pt;
+    vertical-align: top;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+  }
+
+  #t4li3 {
+    width: 60pt;
+  }
+
+  /*Table 5: Part III*/
+
+  #t5 p {
+    font-size: 7.8pt;
+  }
+
+  /*Table 6: Part IV*/
+
+  .t6body {
+    font-size: 10pt;
+  }
+
+  /*Table 7: Sign Here*/
+
+  #t7 {
+    font-size: 7pt;
+    width: 100%;
+    margin-top: 11pt;
+  }
+
+  #t7c1 {
+    border-bottom: 1pt solid black;
+    padding-bottom: 2px;
+  }
+
+  #signHere {
+    font-size: 10pt;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+
+  #t7svg {
+    width: 1.0in;
+    margin-right: 4pt;
+  }
+
+  #t7dashed1 {
+    border-top: 0.6px dashed black
+  }
+
+  #t7dashed2 {
+    border-top: 0.6px dashed black;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  #t7dashed3 {
+    border-top: 0.6px dashed black;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+  }
+
+  #t7dashed1,
+  #t7dashed2,
+  #t7dashed3 {
+    padding-bottom: 1pt;
+    padding-top: 1pt;
+  }
+</style>
+
+<div class="col-lg-12">
+  <p> &nbsp;</p>
+  <div class="row" align="center" ng-hide="true">
+    <div class="col-md-12">
+      <h3>
+        <i class="icon-user"></i> Información general del paciente: {{paciente.nombre}} {{paciente.apellidos}}
+      </h3>
+    </div>
+  </div>
+  <br>
+
+  <div class="main-container">
+    <!--MODO grabacion
+  -->
+    <!--   <div>
+         <select name="listaDeDispositivos" id="listaDeDispositivos"></select>
+         <br><br>
+         <p id="duracion"></p>
+         <br>
+         <button id="btnComenzarGrabacion">Comenzar</button>
+         <button id="btnDetenerGrabacion">Detener</button>
+
+         <h2>Grabaciones:</h2>
+         <ul id="recordingslist"></ul>
+       </div>-->
+
+
+    <!--MODO IMPRESION-->
+    <div class="card__actions">
+      <button type="submit" onclick="history.back()" class="btn btn--blue btn--l btn--raised"><i
+        class="icon-reply"></i> Volver atrás
+      </button>
+      <input class="btn btn--blue btn--l btn--raised" type="button" value="Exportar a PDF1"
+             ng-click="ExportPDFMAKE_Canvas()"/>
+      <input class="btn btn--blue btn--l btn--raised" type="button" id="pdfExport" value="Exportar a EJEMPLO"
+             onclick="javascript:demoFromHTML();"/>
+
+     <!-- <input class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised" type="button" id="pdfToHtml" value="Exportar pdfToHtml"
+             onclick="javascript:pdfToHtml();
+        "/>-->
+
+
+      <!--  <input class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised" type="button" value="audio" ng-click="start_recording()"/>
+
+
+        <input class="btn btn&#45;&#45;blue btn&#45;&#45;l btn&#45;&#45;raised" type="button" id="detectMicrof" value="Detectar dispositivos"
+               onclick="javascript:detectMicro();"/>-->
+    </div>
+
+
+    <!-- controls
+    <button ng-click='startRecording()'>Start</button>
+    <button ng-click='stop_recording()'>Stop</button>
+  -->
+
+    <!--   <ng-audio-recorder id='audioInput' audio-model='recordedInput'>
+      <!-- Start controls, exposed via recorder-->
+    <!--  <div ng-if="recorder.isAvailable">
+        <button ng-click="recorder.startRecord()" type="button" ng-disabled="recorder.status.isRecording">
+            Start Record
+        </button>
+        <button ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
+            Stop Record
+        </button>
+        <button ng-click="recorder.playbackRecording()" type="button"
+                ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+            Play Back
+        </button>
+      </div>
+
+      <div ng-if="!recorder.isAvailable">
+        Message for users when recording is not possible.
+      </div>
+      <!-- End controls
+    </ng-audio-recorder>
+  -->
+
+    <div id="divImprimirPDF" class="container">
+      <table id="tablaPdf">
+        <tr>
+          <td>
+
+            <table id="t1">
+              <tr>
+                <td id="t1c1">
+                  <table>
+                    <tr>
+                      <td><span>No.</span>
+                        <h5>({{paciente.hc}})</h5>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td id="t1c2">
+                  <h1>HISTORIA CLINICA DIGITAL </h1>
+                </td>
+                <td id="t1c3"><span id="fechaActual"> Fecha: {{CurrentDate | date:'dd-MM-yyyy' }}</span></td>
+              </tr>
+            </table>
+
+            <!--************************ Part 1 ************************-->
+            <table id="t3">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>- Datos del paciente -</td>
+                      <td><b>Nombre y apellidos:</b> {{paciente.nombre}} {{paciente.apellidos}}</td>
+                      <td class="t3bodyCol2" style="width: 300px;">
+                        <b class="formCounter">Tarjeta de menor:</b>{{paciente.ci}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+
+              </tr>
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td><b>Fecha de nacimiento:</b> {{paciente.fechaNacimiento | date:'EEEE,dd MMMM yyyy'}}</td>
+                      <td class="t3bodyCol2" style="width: 214px;">
+                        <b class="formCounter">Edad:</b>{{paciente.edadAlta}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+
+              </tr>
+
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td><b class="formCounter">Dirección:</b> {{paciente.direccion}}
+                        <br><b class="formCounter">Municipio:</b>{{paciente.areaSalud.municipio.nombre}}
+                        <br><b class="formCounter">Provincia:</b>{{paciente.areaSalud.municipio.provincia.nombre}}
+                      </td>
+
+
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 3in;"><b class="formCounter"> Hospital de nacimiento:</b>
+                        <p> {{paciente.hospital.nombre}}</p>
+                      </td>
+
+                      <td class="t3bodyCol2" style="width: 214px;"><b class="formCounter">Área de Salud:</b>
+                        {{paciente.areaSalud.nombre}}
+                      </td>
+                    </tr>
+                    <!--  <tr>
+    <td><input type="text"/></td>
+    <td class="t3bodyCol2"><input type="text"/></td>
+  </tr>-->
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 3in;"><b class="formCounter"> Sexo:</b>
+                        <p> {{paciente.sexo.nombre}}</p>
+                      </td>
+                      <td class="t3bodyCol2" style="width: 214px;"><b class="formCounter">Raza:</b>
+                        {{paciente.raza.nombre}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!--************************ ANTECEDENTES PRENATALESPart 2 ************************-->
+            <table id="t4">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>APR</td>
+                      <td><b>ANTECEDENTES PRENATALES</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Edad materna:</b>
+                        <p> {{paciente.antecedente.antPrenatal.edadMaterna}} años</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Hábitos tóxicos madre:</b>
+                        <p> {{paciente.antecedente.antPrenatal.habitosToxicosMadre}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Movimientos fetales:</b>
+                        <p> {{paciente.antecedente.antPrenatal.movimientoFetal.nombre}}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Alteraciones ecosonográficas:</b>
+                        <p> {{paciente.antecedente.antPrenatal.alteracionesEcosonograficas}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Enfermedades agudas:</b>
+                        <p> {{paciente.antecedente.antPrenatal.enfermedadesMaternasAgudas}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Enfermedades crónicas:</b>
+                        <p> {{paciente.antecedente.antPrenatal.antEnfCronicaMaterna}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Información adicional:</b>
+                        <p> {{paciente.antecedente.antPrenatal.otros}}</p>
+                      </td>
+                    </tr>
+
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!--************************ ANTECEDENTES PERINATALES************************-->
+            <table id="t4">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>APE</td>
+                      <td><b>ANTECEDENTES PERINATALES</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Horas en trabajo de parto:</b>
+                        <p> {{paciente.antecedente.antPerinatal.horasTrabajoParto}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Tipo de parto:</b>
+                        <p> {{paciente.antecedente.antPerinatal.tipoParto.nombre}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Edad gestacional al parto:</b>
+                        <p> {{paciente.antecedente.antPerinatal.edadGestacionalParto}} semanas</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Complicaciones al nacer:</b>
+                        <p> {{paciente.antecedente.antPerinatal.complicacionesAlNacer}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Descripción del parto:</b>
+                        <p> {{paciente.antecedente.antPerinatal.descripcionParto}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Requirió UCIN:</b>
+                        <p ng-if="paciente.antecedente.antPerinatal.requirioUcin">Si </p>
+                        <p ng-if="!paciente.antecedente.antPerinatal.requirioUcin">No </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Tiempo de hospitalización:</b>
+                        <p> {{paciente.antecedente.antPerinatal.tiempoHospitalizacion}} días</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Observaciones:</b>
+                        <p> {{paciente.antecedente.antPerinatal.observaciones}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Información adicional:</b>
+                        <p>{{paciente.antecedente.antPerinatal.otros}}</p>
+                      </td>
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!--************************ ANTECEDENTES POSTNATALES************************-->
+            <table id="t4">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>AP</td>
+                      <td><b>ANTECEDENTES POSTNATALES</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Peso al nacer:</b>
+                        <p> {{paciente.antecedente.antPostnatal.pesoAlNacer}} g</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Talla:</b>
+                        <p> {{paciente.antecedente.antPostnatal.talla}} cm</p>
+                      </td>
+
+                      <td style="width: 2in;"><b class="formCounter"> Circunferencia cefálica:</b>
+                        <p> {{paciente.antecedente.antPostnatal.circunfCefalica}} cm</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Apgar:</b>
+                        <p> {{paciente.antecedente.antPostnatal.apgar}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Infecciones SNC:</b>
+                        <p> {{paciente.antecedente.antPostnatal.infeccionesSnc}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Infecciones Sistémicas:</b>
+                        <p> {{paciente.antecedente.antPostnatal.infeccionesSistemicas}}</p>
+                      </td>
+
+                      <td style="width: 2in;"><b class="formCounter"> Traumatismos Craneales:</b>
+                        <p> {{paciente.antecedente.antPostnatal.traumatismosCraneales}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Malformaciones:</b>
+                        <p> {{paciente.antecedente.antPostnatal.malFormaCongenitas}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Llanto:</b>
+                        <p> {{paciente.antecedente.antPostnatal.llanto.nombre}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Observaciones:</b>
+                        <p> {{paciente.antecedente.antPostnatal.otros}}</p>
+                      </td>
+
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!--************************ DATOS FAMILIARES ************************-->
+            <table id="t4">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>D-FAM</td>
+                      <td><b>DATOS FAMILIARES</b></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr class="t3body">
+                <td>
+                  <table>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Enfermedades Familiares:</b>
+                        <p> {{antFamiliar.padecimientos_cronicos_familiar}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter">Nombre del representante:</b>
+                        <p> {{familiar.nombre}} {{familiar.apellidos}}</p>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="width: 2in;"><b class="formCounter"> Parentezco:</b>
+                        <p>{{familiar.parentezco.nombre}}</p>
+                      </td>
+                      <td style="width: 2in;"><b class="formCounter"> Teléfono:</b>
+                        <p>{{familiar.telefono}}</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!--************************ CONSULTAS ************************-->
+            <table id="t6" ng-repeat="consulta in consultas">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>Consulta de {{consulta.medico.especialidad.nombre}}</td>
+                      <td><b>Consulta del día: {{consulta.fecha | date:'dd MMMM yyyy'}}</b></td>
+                      <td>Médico: {{consulta.medico.nombre}} {{consulta.medico.apellidos}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr class="t6body">
+                <td style="padding-top: 2pt;">
+                  <p>
+                    <b>Motivo de consulta: </b> {{consulta.motivo}}</p>
+                  <p><b>Impresión Diagnóstica: </b> {{consulta.impresionDiagnostica}}</p>
+                  <p><b>Diagnóstico Def: </b> {{consulta.diagosticoDef}}</p>
+                  <p><b>Examen Físico:</b> {{consulta.examenFisico}}</p>
+                  <p><b>Desarrollo Psicomotor: </b> Fijacion visual: {{consulta.fijacionVisual}}</p>
+                  <p><b>Indicación de MNT: </b> {{consulta.mnt}}</p>
+                  <p><b>Evolución: </b> {{consulta.evolucion}}</p>
+                  <p><b>Tratamiento: </b> {{consulta.tratamiento}}</p>
+                  <p ng-if="consulta.listaRemisiones.length > 0">
+                    <b>Remitido a: </b> <span ng-repeat="remi in consulta.listaRemisiones">{{remi.especialidad_destino.nombre}}, </span>
+                  </p>
+                  <!--<p ng-repeat="remi in consulta.listaRemisiones">{{remi.especialidad_destino.nombre}}</p>
+-->
+                  <p><b>Motivo de remisión: </b> {{consulta.listaRemisiones[0].motivo}}</p>
+                  <p><b>Fecha de remision: </b> {{consulta.listaRemisiones[0].fecha| date:'EEEE,dd MMMM yyyy'}}</p>
+                  <p><b>Desarrollo Psicomotor: </b> Fijacion visual: {{consulta.fijacionVisual}}</p>
+
+                </td>
+              </tr>
+            </table>
+
+
+            <!--************************ FiNAL DE LA HC ************************-->
+            <table id="t7">
+              <tr class="partHeading">
+                <td>
+                  <table>
+                    <tr>
+                      <td>
+                        <b>Hospital Infantil Sur. Provincia Santiago de Cuba</b></td>
+                      <td style="width: 23%;">No. XXXX</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  var elements = document.getElementById('divImprimirPDF');
+  /*-----------------grabar audio-----------------------------------------------*/
+  // Esperar a que el documento esté listo...
+  /* init();
+
+   function init() {
+   const tieneSoporteUserMedia = () =>
+   !!(navigator.mediaDevices.getUserMedia)
+
+   // Si no soporta...
+   // Amable aviso para que el mundo comience a usar navegadores decentes ;)
+   if (typeof MediaRecorder === "undefined" || !tieneSoporteUserMedia())
+   return alert("Tu navegador web no cumple los requisitos; por favor, actualiza a un navegador decente como Firefox o Google Chrome");
+
+
+   // Declaración de elementos del DOM
+   const $listaDeDispositivos = document.querySelector("#listaDeDispositivos"),
+   $duracion = document.querySelector("#duracion"),
+   $btnComenzarGrabacion = document.querySelector("#btnComenzarGrabacion"),
+   $btnDetenerGrabacion = document.querySelector("#btnDetenerGrabacion");
+
+   // Algunas funciones útiles
+   const limpiarSelect = () => {
+   for (let x = $listaDeDispositivos.options.length - 1; x >= 0; x--) {
+   $listaDeDispositivos.options.remove(x);
+   }
+   }
+
+   const segundosATiempo = numeroDeSegundos => {
+   let horas = Math.floor(numeroDeSegundos / 60 / 60);
+   numeroDeSegundos -= horas * 60 * 60;
+   let minutos = Math.floor(numeroDeSegundos / 60);
+   numeroDeSegundos -= minutos * 60;
+   numeroDeSegundos = parseInt(numeroDeSegundos);
+   if (horas < 10) horas = "0" + horas;
+   if (minutos < 10) minutos = "0" + minutos;
+   if (numeroDeSegundos < 10) numeroDeSegundos = "0" + numeroDeSegundos;
+
+   return `${horas}:${minutos}:${numeroDeSegundos}`;
+   };
+   // Variables "globales"
+   let tiempoInicio, mediaRecorder, idIntervalo;
+   const refrescar = () => {
+   $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
+   }
+   // Consulta la lista de dispositivos de entrada de audio y llena el select
+   const llenarLista = () => {
+   navigator
+   .mediaDevices
+   .enumerateDevices()
+   .then(dispositivos => {
+   limpiarSelect();
+   dispositivos.forEach((dispositivo, indice) => {
+   if (dispositivo.kind === "audioinput") {
+   const $opcion = document.createElement("option");
+   // Firefox no trae nada con label, que viva la privacidad
+   // y que muera la compatibilidad
+   $opcion.text = dispositivo.label || `Dispositivo ${indice + 1}`;
+   $opcion.value = dispositivo.deviceId;
+   $listaDeDispositivos.appendChild($opcion);
+   }
+   })
+   })
+   };
+
+   // Ayudante para la duración; no ayuda en nada pero muestra algo informativo
+   const comenzarAContar = () => {
+   tiempoInicio = Date.now();
+   idIntervalo = setInterval(refrescar, 500);
+   };
+
+   // Comienza a grabar el audio con el dispositivo seleccionado
+   const comenzarAGrabar = () => {
+   if (!$listaDeDispositivos.options.length) return alert("No hay dispositivos");
+   // No permitir que se grabe doblemente
+   if (mediaRecorder) return alert("Ya se está grabando");
+
+   navigator.mediaDevices.getUserMedia({
+   audio: {
+   deviceId: $listaDeDispositivos.value,
+   }
+   })
+   .then(
+   stream => {
+   // Comenzar a grabar con el stream
+   mediaRecorder = new MediaRecorder(stream);
+   mediaRecorder.start();
+   comenzarAContar();
+   // En el arreglo pondremos los datos que traiga el evento dataavailable
+   const fragmentosDeAudio = [];
+   // Escuchar cuando haya datos disponibles
+   mediaRecorder.addEventListener("dataavailable", evento => {
+   // Y agregarlos a los fragmentos
+   fragmentosDeAudio.push(evento.data);
+   });
+   // Cuando se detenga (haciendo click en el botón) se ejecuta esto
+   mediaRecorder.addEventListener("stop", () => {
+   // Detener el stream
+   stream.getTracks().forEach(track => track.stop());
+   // Detener la cuenta regresiva
+   detenerConteo();
+   // Convertir los fragmentos a un objeto binario
+   const blobAudio = new Blob(fragmentosDeAudio);
+
+   createDownloadLink(blobAudio);
+
+
+   // Crear una URL o enlace para descargar
+   const urlParaDescargar = URL.createObjectURL(blobAudio);
+   // Crear un elemento <a> invisible para descargar el audio
+   let a = document.createElement("a");
+   document.body.appendChild(a);
+   a.style = "display: none";
+   a.href = urlParaDescargar;
+   a.download = "grabacion_parzibyte.me.mp3";
+   // Hacer click en el enlace
+   a.click();
+   // Y remover el objeto
+   window.URL.revokeObjectURL(urlParaDescargar);
+   });
+   }
+   )
+   .catch(error => {
+   // Aquí maneja el error, tal vez no dieron permiso
+   console.log(error)
+   });
+   };
+
+
+   const detenerConteo = () => {
+   clearInterval(idIntervalo);
+   tiempoInicio = null;
+   $duracion.textContent = "";
+   }
+
+   const detenerGrabacion = () => {
+   if (!mediaRecorder) return alert("No se está grabando");
+   mediaRecorder.stop();
+   mediaRecorder = null;
+   };
+
+
+   $btnComenzarGrabacion.addEventListener("click", comenzarAGrabar);
+   $btnDetenerGrabacion.addEventListener("click", detenerGrabacion);
+
+   // Cuando ya hemos configurado lo necesario allá arriba llenamos la lista
+
+   llenarLista();
+
+
+
+
+   function createDownloadLink(blobAudio) {
+   //recorder && recorder.exportWAV(function(blob) {
+   var url = URL.createObjectURL(blobAudio);
+   //var url = URL.createObjectURL(blob);
+   var li = document.createElement('li');
+   var au = document.createElement('audio');
+   var hf = document.createElement('a');
+
+   au.controls = true;
+   au.src = url;
+   hf.href = url;
+   hf.download = new Date().toISOString() + '.wav';
+   hf.innerHTML = hf.download;
+   li.appendChild(au);
+   li.appendChild(hf);
+   recordingslist.appendChild(li);
+   // });
+   }
+
+
+
+
+
+   }*/
+
+
+
+  /*----------------------imprimir pdf------------------------------------------*/
+  function pdfToHtml() {
+    var elements = document.getElementById('divImprimirPDF');
+
+    var worker = new html2pdf();
+    worker.from(elements).save();
+   // html2pdf().from(elements).save();
+  }
+
+
+  function demoFromHTML() {
+
+    html2canvas(elements, {
+      useCORS: true,
+      onrendered: (canvas) => {
+        let doc = new jsPDF("p", "mm", "a4");
+        //Obtengo la dimensión en pixeles en base a la documentación
+        let a4Size = {
+          w: convertPointsToUnit(595.28, "px"),
+          h: convertPointsToUnit(841.89, "px")
+        }
+        /*Nuevo Canvas donde generare mis imágenes separadas*/
+        let canvastoPrint = document.createElement('canvas');
+        let ctx = canvastoPrint.getContext("2d");
+        /* Medidas de mi hoja*/
+        canvastoPrint.width = a4Size.w;
+        canvastoPrint.height = a4Size.h;
+        /* Tomo cuanto corresponde esos los 700 pixeles restantes de el total de mi imagen*/
+        let aspectRatioA4 = a4Size.w / a4Size.h;
+        let rezised = canvas.width / aspectRatioA4;
+        let printed = 0, page = 0;
+        while (printed < canvas.height) {
+          //Tomo la imagen en proporcion a el ancho y alto.
+          ctx.drawImage(canvas, 0, printed, canvas.width, rezised, 5, 8, a4Size.w, a4Size.h);
+          var imgtoPdf = canvastoPrint.toDataURL("image/png");
+          let width = doc.internal.pageSize.getWidth();
+          let height = doc.internal.pageSize.getHeight();
+          if (page == 0) { // si es la primera pagina, va directo a doc
+            doc.addImage(imgtoPdf, 'JPEG', 5, 5, width, height);
+          }
+          else { // Si no ya tengo que agregar nueva hoja.
+            let page = doc.addPage();
+            page.addImage(imgtoPdf, 'JPEG', 5, 8, width, height);
+          }
+          ctx.clearRect(0, 0, canvastoPrint.width, canvastoPrint.height); // Borro el canvas
+          printed += rezised; //actualizo lo que ya imprimi
+          page++; // actualizo mi pagina
+        }
+        doc.save('test.pdf');
+      }
+    });
+
+  }
+  function convertPointsToUnit(points, unit) {
+    // Unit table from https://github.com/MrRio/jsPDF/blob/ddbfc0f0250ca908f8061a72fa057116b7613e78/jspdf.js#L791
+    var multiplier;
+    switch (unit) {
+      case "pt":
+        multiplier = 1;
+        break;
+      case "mm":
+        multiplier = 72 / 25.4;
+        break;
+      case "cm":
+        multiplier = 72 / 2.54;
+        break;
+      case "in":
+        multiplier = 72;
+        break;
+      case "px":
+        multiplier = 96 / 72;
+        break;
+      case "pc":
+        multiplier = 12;
+        break;
+      case "em":
+        multiplier = 12;
+        break;
+      case "ex":
+        multiplier = 6;
+      default:
+        throw "Invalid unit: " + unit;
+    }
+    return points * multiplier;
+  }
+
+
+  function gffdfdemoFromHTML() {
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    source = $('#divImprimirPDF')[0];
+
+    specialElementHandlers = {
+      '#bypassme': function (element, renderer) {
+        return true
+      }
+    };
+    margins = {
+      top: 80,
+      bottom: 60,
+      left: 40,
+      width: 522
+    };
+
+    pdf.fromHTML(
+      source,
+      margins.left, // x coord
+      margins.top, { // y coord
+        'width': margins.width,
+        'elementHandlers': specialElementHandlers
+      },
+
+      function (dispose) {
+        pdf.save('Prueba.pdf');
+      }, margins
+    );
+  }
+
+
+  //imprime una sola pagina, recorta el texto
+
+  function sssdemoFromHTML() {
+    var elements = document.getElementById('divImprimirPDF');
+    //let elements = document.querySelectorAll("#divImprimirPDF .impresion");
+    let pdf = jsPDF('p', 'pt', 'letter', 1);
+    var options = {
+      background: '#fff',
+    };
+    var pageHeight = pdf.internal.pageSize.height; // Tamaño de una pagina
+    alert("pageHeight " + pageHeight);
+    var pageHeightLeft = pageHeight; // La utilizaremos para ver cuanto espacio nos queda
+    position = 0;
+
+    //for(let i = 0; i < elements.length; i++) {
+
+    // html2canvas(elements[i]).then(function(canvas) {
+    // html2canvas(elements).then(function(canvas) {
+    html2canvas(document.getElementById('divImprimirPDF')).then(function (canvas) {
+      alert("canvas.height " + canvas.height);
+      // Comprobamos salto
+      while (pageHeightLeft - canvas.height <= 0) {
+        // if (pageHeightLeft - canvas.height <= 0) {
+        pdf.addPage();
+        position = 0; // Pintaremos en el inicio de la nueva pagina
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, canvas.width, canvas.height, options);
+        position += canvas.height; // Marcamos el siguiente inicio
+        pageHeightLeft -= canvas.height; // Marcamos cuanto espacio nos queda
+        alert("position" + position);
+        alert("pageHeightLeft " + pageHeightLeft);
+      }
+
+      // pdf.save("prueba2.pdf");
+    });
+    //}
+    //pdf.save("prueba2.pdf");
+  }
+
+
+  //imprime una sola pagina, recorta el texto
+  function ccccdemoFromHTML() {
+    html2canvas(document.getElementById('divImprimirPDF'), {
+      onrendered: function (canvas) {
+
+        var img = canvas.toDataURL("image/png");
+        var doc = new jsPDF();
+        doc.addImage(img, 'JPEG', 20, 20);
+        doc.save('test.pdf');
+      }
+
+    });
+
+  }
+
+
+  //imprime una varias paginas, corta al final
+
+  function vdemoFromHTMLxxxxxxx() {
+    html2canvas(document.getElementById('divImprimirPDF'),
+      {
+        onrendered: function (canvasObj) {
+          var pdf = new jsPDF('P', 'pt', 'letter'), pdfConf = {
+            pagesplit: true,
+            margin: {
+              top: 10,
+              right: 10,
+              bottom: 10,
+            },
+            backgroundColor: '#FFF'
+          };
+          document.body.appendChild(canvasObj);
+          pdf.addHTML(canvasObj, 0, 0, pdfConf, function () {
+            document.body.removeChild(canvasObj);
+            pdf.save('demoFromHTML.pdf');
+          });
+        }
+      })
+  }
+
+
+</script>
+

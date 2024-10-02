@@ -1,0 +1,74 @@
+
+<style>
+  input.ng-invalid {
+    border-color: red;
+  }
+  input.ng-valid {
+    border-color: green;
+  }
+</style>
+
+<div class="main-container">
+  <div class="container">
+    <div class="page-header">
+      <h2><i class="icon-office"></i> {{title}}</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6 widget-module">
+        <div class="box-widget">
+          <div class="widget-head clearfix">
+            <span class="h-icon"><i class=" icon-paragraph-justify-2"></i></span>
+            <h4 class="pull-left">Datos del Área de salud</h4>
+            <div class="pull-right widget-action">
+            </div>
+          </div>
+          <div class="widget-container">
+            <div class="widget-block">
+              <div class="widget-content box-padding">
+                <form name="formAreaSalud" ng-submit="save()" id="formAreaSalud" novalidate class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label">  <span>* </span >Nombre:</label>
+                    <div class="col-lg-10">
+                      <input type="text" ng-model="area.nombre" name="areasalud"
+                             placeholder="Nombre del área de salud" ng-required="true"
+                             ng-minlength="3" ng-maxlength="100" class="form-control"/>
+                      <br>
+                        <span ng-show="formAreaSalud.areasalud.$touched && formAreaSalud.areasalud.$error.required">
+                        <span ng-show ="formAreaSalud.areasalud.$error.minlength" > Escriba mínimo 3 caracteres. </span >
+                        <span ng-show ="formAreaSalud.areasalud.$error.maxlength" > Sólo se aceptan 90 caracteres como máximo. </span >
+                      El nombre del área de salud es requerido.</span>
+                    </div>
+
+
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label"><span>* </span >Municipio:</label>
+                    <div class="col-lg-10">
+                      <select id="municipio" name="municipio" ng-model="area.municipio" ng-required="true" class="form-control">
+                        <option ng-repeat="mun in municipios" value="{{mun.id}}" label="{{mun.nombre}}">{{mun.nombre}}
+                        </option>
+                      </select>
+                    </div>
+                    <strong class="col-lg-3" ng-if="area.municipio.nombre">{{area.municipio.nombre}}</strong>
+                    <span ng-show="formAreaSalud.municipio.$touched && formAreaSalud.municipio.$error.required">
+                      El municipio es requerido.</span>
+                  </div>
+
+                  <div class="card__actions">
+                    <button type="submit" ng-disabled="formAreaSalud.$invalid" class="btn btn--blue btn--l btn--raised"><i
+                      class="icon-checkmark"></i> Guardar
+                    </button>
+                    <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/area-salud/index"
+                       class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

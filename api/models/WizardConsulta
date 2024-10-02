@@ -1,0 +1,29 @@
+ Primera Ventana
+
+   especialidad_remite
+
+   motivo_consulta
+
+   impres_diagnostico
+
+   examen_fisico
+
+
+ Segunda Ventana
+   * diagnostico_definido
+
+
+ Tercera Ventana
+   indic_exames
+   tratamiento
+
+   evolucion
+   fecha_prox_consulta
+   remitir_a
+
+
+
+   Datos internos
+     Medico
+     Paciente
+     especialidad_remite

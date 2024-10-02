@@ -1,0 +1,144 @@
+<!--<div class="main-wrapper">-->
+<!--<div class="scroll-top">-->
+<!--<a href="#" class="tip-top" title="Go Top"><i class="icon-arrow-up"></i></a>-->
+<!--</div>-->
+<!--&lt;!&ndash; SITE CONTAINER &ndash;&gt;-->
+<!--<div class="main-container">-->
+<!--<div class="container">-->
+
+<!--<div class="page-header">-->
+
+<!--<h1><i class="icon-table-2"></i> Interconsulta</h1>-->
+<!--</div>-->
+<!--<ul class="breadcrumb">-->
+<!--<li><a href="#"><i class="icon-home"></i></a></li>-->
+<!--<li><a href="#">Interconsulta</a></li>-->
+<!--<li class="active">Entrada de remisiones</li>-->
+<!--</ul>-->
+<div>
+  <div class=" well clearfix" style="margin-right:0px;margin-top: 5px">
+    <div class="search-form  form-horizontal">
+      <form name="simplesearch" style="margin-left: 0px; padding-left: 0px">
+        <div class=" form-group">
+          <!--<div class="input-group">
+            &lt;!&ndash;For geolocation uib-typeahead="address for address in getLocation($viewValue)"&ndash;&gt;
+            <input class="form-control" placeholder="Nombre/ Especialidad" type="text"
+                   uib-typeahead="state for state in states | filter:$viewValue"
+                   ng-model="criteriaList"
+                   maxlength="40">
+            <span class="input-group-addon" ng-click="searchFuncList()"><span
+                class="fa fa-search"></span></span>
+          </div>-->
+        </div>
+
+      <!--  <div uib-alert ng-repeat="alert in alerts" dismiss-on-timeout=3000
+             ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert()">
+          {{ alert.msg }}
+        </div>-->
+      </form>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="square-widget">
+            <!--<div class="widget-head clearfix">-->
+            <!--<h2 class="pull-left">Entrada de remisiones de interconsulta</h2>-->
+            <!--</div>-->
+            <div class="widget-container">
+          <!--    <p>
+                <button class="btn btn-info">Imprimir</button>
+                <button class="btn btn-info">Exportar</button>
+              </p>
+              <div ng-show="indexPage.totalItems > 0" align="right" style="color:#000066">
+                <ul style="margin-top: 0px;margin-bottom: 0px" uib-pagination boundary-links="true"
+                    items-per-page="indexPage.itemPerPage"
+                    total-items="indexPage.totalItems"
+                    ng-click="getPagableRecords()" ng-model="indexPage.currentPage" class="pagination-sm"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+                &lt;!&ndash;</div>&ndash;&gt;
+                &lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;
+
+              </div>-->
+
+<!--
+              <table class="table table-striped responsive">
+                <thead>
+                <tr>
+                  <th>
+                    Fecha
+                  </th>
+                  <th>
+                    Nombre del Paciente
+                  </th>
+                  <th>
+                    # Historia Clínica
+                  </th>
+                  <th>
+                    Area de Salud
+                  </th>
+                  <th>
+                    Datos del Paciente
+                  </th>
+                  <th>
+                    Opciones
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="iPacient in pacients">
+                  {{iPacient}}
+                  <td>
+                    {{iPacient.fecha_prox_consulta}}
+                  </td>
+                  <td>
+                    {{iPacient.persona.name}}
+                  </td>
+                  <td>
+                    {{iPacient.hc}}
+                  </td>
+                  <td>
+                    {{iPacient.area_salud.municipio}} /{{iPacient.area_salud.name}}
+                  </td>
+                  <td>
+                    <a class="btn btn-small show-tooltip" title="Ver datos del paciente " href="#"><i
+                        class="icon-file-10" ng-click="showPacientInfo(iPacient)"></i></a>
+                  </td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-small show-tooltip" title="Datos de la última consulta" href="#"><i
+                          class="icon-book"></i></a>
+                      <a class="btn btn-small show-tooltip" title="Datos de consulta " href=""
+                         ng-click="showPacientDataQuery()">
+                        <i
+                          class="icon-file-4"></i></a>
+                      &lt;!&ndash;<a class="btn btn-small show-tooltip" title="Resumen de HC" href="#"><i class="icon-profile"></i></a>&ndash;&gt;
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <div ng-show="indexPage.totalItems > 0" align="right" style="color:#000066">
+                <ul style="margin-top: 0px;margin-bottom: 0px" uib-pagination boundary-links="true"
+                    items-per-page="indexPage.itemPerPage"
+                    total-items="indexPage.totalItems"
+                    ng-click="getPagableRecords()" ng-model="indexPage.currentPage" class="pagination-sm"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+                &lt;!&ndash;</div>&ndash;&gt;
+                &lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;
+
+              </div>
+-->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<style>
+  input.ng-invalid {
+    border-color: red;
+  }
+
+  input.ng-valid {
+    border-color: green;
+  }
+</style>
+
+<div class="main-container">
+  <div class="container">
+    <div class="page-header">
+      <h2><i class="icon-office"></i> {{title}}</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6 widget-module">
+        <div class="box-widget">
+          <div class="widget-head clearfix">
+            <span class="h-icon"><i class=" icon-paragraph-justify-2"></i></span>
+            <h4 class="pull-left">Datos del nuevo municipio</h4>
+            <div class="pull-right widget-action">
+            </div>
+          </div>
+          <div class="widget-container">
+            <div class="widget-block">
+              <div class="widget-content box-padding">
+                <form name="formMunicipio" ng-submit="save()" id="formMunicipio" novalidate class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label"><span>* </span>Nombre:</label>
+                    <div class="col-lg-10">
+                      <input type="text" ng-model="municipio.nombre" name="municipio"
+                             placeholder="Nombre del municipio" ng-required="true"
+                             ng-minlength="3" ng-maxlength="100" class="form-control"/>
+                      <br>
+                      <span ng-show="formMunicipio.municipio.$touched && formMunicipio.municipio.$error.required"> Este campo es requerido.</span>
+                      <span ng-show="formMunicipio.municipio.$error.minlength"> Escriba mínimo 3 caracteres. </span>
+                      <span ng-show="formMunicipio.municipio.$error.maxlength"> Sólo se aceptan 90 caracteres como máximo. </span>
+
+                    </div>
+
+
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label"><span>* </span>Provincia:</label>
+                    <div class="col-lg-10">
+                      <select id="provincia" name="provincia" ng-model="municipio.provincia" ng-required="true"
+                              class="form-control">
+                        <option ng-repeat="prov in provincias" value="{{prov.id}}" label="{{prov.nombre}}">{{prov.nombre}}</option>
+                      </select>
+                    </div>
+                    <strong class="col-lg-3" ng-if="municipio.provincia.nombre">{{municipio.provincia.nombre}}</strong><span ng-show="formMunicipio.municipio.$touched && formAreaSalud.municipio.$error.required">
+                      Este campo es requerido.</span>
+                  </div>
+
+                  <div class="card__actions">
+                    <button type="submit" ng-disabled="formMunicipio.$invalid" class="btn btn--blue btn--l btn--raised">
+                      <i class="icon-checkmark"></i> Guardar
+                    </button>
+                    <a class="btn btn--blue btn--l btn--raised" type="button" href="#!/backend/area-salud/index"
+                       class="btn btn--m btn--blue btn--flat" lx-ripple>Cancelar</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

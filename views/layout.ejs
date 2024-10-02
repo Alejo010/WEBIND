@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html ng-app="WebInd" lang="en">
+<head>
+  <div ng-cloak>
+    <title ng-cloak>Layout</title>
+  </div>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <!--
+      Stylesheets and Preprocessors
+      ==============================
+
+      You can always bring in CSS files manually with `<link>` tags, or asynchronously
+      using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+      of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, stylesheets from your `styles` folder are included
+      here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+      are supported. In production, your styles will be minified and concatenated into
+      a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your CSS files
+          + Import stylesheets from other directories
+          + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+  -->
+
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/css/bootstrap.css">
+  <link rel="stylesheet" href="/styles/css/font-alpona.css">
+  <link rel="stylesheet" href="/styles/css/prettify.css">
+  <link rel="stylesheet" href="/styles/css/responsive-tables.css">
+  <link rel="stylesheet" href="/styles/css/jquery.stepy.css">
+  <link rel="stylesheet" href="/styles/css/bootstrap-reset.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/angular-material.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.css">
+  <link rel="stylesheet" href="/styles/exportstyle/daterange/angular-datepicker.min.css">
+  <link rel="stylesheet" href="/styles/css/angular-bootstrap-calendar.min.css">
+  <link rel="stylesheet" href="/styles/css/colorpicker.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/chartcss/c3.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/elegant-icons-style.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/line-icons.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/owl.carousel.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/style-responsive.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/widgets.css">
+  <link rel="stylesheet" href="/styles/exportstyle/exported/xcharts.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/styles/exportstyle/datepicker3.css">
+  <link rel="stylesheet" href="/styles/css/styles.css">
+  <link rel="stylesheet" href="/styles/mdi/css/materialdesignicons.css">
+  <link rel="stylesheet" href="/styles/css/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="/js/lumx/dist/lumx.css">
+  <link rel="stylesheet" href="/styles/css/select/select.min.css">
+  <!--STYLES END-->
+
+
+</head>
+<!--<div class="layout-align-center" ng-show="i18nLoaded" ng-hide="!i18nLoaded"><img src="/images/loading.gif" /></div>-->
+<body calls="ng-cloak" ng-controller="HeaderController">
+
+<main ng-hide="i18nLoaded">
+  <%- body %>
+</main>
+
+<!--
+    Client-side Templates
+    ========================
+
+    HTML templates are important prerequisites of modern, rich client applications.
+    To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+    that you load these templates client-side.
+
+    By default, your Gruntfile is configured to automatically load and precompile
+    client-side JST templates in your `templates` folder, then
+    include them here automatically (between TEMPLATES and TEMPLATES END).
+
+    To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+    For example, here are a few things you could do:
+
+        + Import templates from other directories
+        + Use a different template engine (handlebars, jade, dust, etc.)
+        + Internationalize your client-side templates using a server-side
+          stringfile before they're served.
+-->
+
+<!--TEMPLATES-->
+<script type="text/javascript" src="/jst.js"></script>
+<!--TEMPLATES END-->
+
+
+<!--
+
+  Client-side Javascript
+  ========================
+
+  You can always bring in JS files manually with `script` tags, or asynchronously
+  on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+  take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+  By default, files in your `js` folder are included here
+  automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+  CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+  and concatenated into a single file.
+
+  To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+  For example, here are a few things you could do:
+
+      + Change the order of your scripts
+      + Import scripts from other directories
+      + Use a different preprocessor, like TypeScript
+
+-->
+
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/alponajs/jquery.js"></script>
+<script src="/js/alponajs/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="/js/alponajs/prettify.js"></script>
+<script src="/js/alponajs/jquery.nicescroll.js"></script>
+<script src="/js/alponajs/jquery.cookie.js"></script>
+<script src="/js/alponajs/jquery.hoverIntent.minified.js"></script>
+<script src="/js/alponajs/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/js/alponajs/jquery.validate.js"></script>
+<script src="/js/alponajs/jquery.stepy.js"></script>
+<script src="/js/alponajs/common-script.js"></script>
+<script src="/js/dependencies/exportedjs/bootstrap.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-animate.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-cookies.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-datepicker.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-resource.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-route.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-translate.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-locale_es-cu.js"></script>
+<script src="/js/dependencies/exportedjs/ui-bootstrap-tpls.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-spinners.min.js"></script>
+<script src="/js/dependencies/exportedjs/angular-translate.js"></script>
+<script src="/js/dependencies/exportedjs/bootstrap-datepicker.js"></script>
+<script src="/js/dependencies/exportedjs/checklist-model.js"></script>
+<script src="/js/dependencies/exportedjs/locale"></script>
+<script src="/js/dependencies/exportedjs/locales.js"></script>
+<script src="/js/dependencies/exportedjs/locales.min.js"></script>
+<script src="/js/dependencies/exportedjs/moment-with-locales.js"></script>
+<script src="/js/dependencies/exportedjs/moment-with-locales.min.js"></script>
+<script src="/js/dependencies/exportedjs/moment.min.js"></script>
+<script src="/js/dependencies/exportedjs/rzslider.min.js"></script>
+<script src="/js/dependencies/exportedjs/wow.min.js"></script>
+<script src="/js/dependencies/angular-audio-recorder.js"></script>
+<script src="/js/dependencies/angular-audio-recorder.min.js"></script>
+<script src="/js/dependencies/angular-bootstrap-calendar-tpls.min.js"></script>
+<script src="/js/dependencies/angular-sanitize.js"></script>
+<script src="/js/dependencies/bootstrap-colorpicker-module.js"></script>
+<script src="/js/dependencies/bootstrap-colorpicker-module.min.js"></script>
+<script src="/js/dependencies/faker.js"></script>
+<script src="/js/dependencies/html2canvas.min.js"></script>
+<script src="/js/dependencies/html2pdf.bundle.js"></script>
+<script src="/js/dependencies/jspdf.min.js"></script>
+<script src="/js/dependencies/jspdf.plugin.autotable.js"></script>
+<script src="/js/dependencies/pdfmake.min.js"></script>
+<script src="/js/dependencies/saveHtmlToPdf.js"></script>
+<script src="/js/dependencies/saveHtmlToPdf.min.js"></script>
+<script src="/js/select/select.min.js"></script>
+<script src="/js/chartjs/Chart.min.js"></script>
+<script src="/js/chartjs/angular-chart.min.js"></script>
+<script src="/js/angulartimer/angular-timer.min.js"></script>
+<script src="/js/angulartimer/angular-timer-all.min.js"></script>
+<script src="/js/advacedsearch/angular-advanced-searchbox-tpls.min.js"></script>
+<script src="/js/daterange/angular-datepicker.js"></script>
+<script src="/js/velocity/velocity.js"></script>
+<script src="/js/velocity/velocity.ui.js"></script>
+<script src="/js/lumx/dist/lumx.js"></script>
+<script src="/js/datatables/dataTables.bootstrap.js"></script>
+<script src="/js/datatables/jquery.dataTables.js"></script>
+<script src="/js/config/config.js"></script>
+<script src="/js/app/app.js"></script>
+<script src="/js/app/language/en.js"></script>
+<script src="/js/app/language/es.js"></script>
+<script src="/js/app/language/fr.js"></script>
+<script src="/js/app/service/ApiService.js"></script>
+<script src="/js/app/service/ChartOpinionServices.js"></script>
+<script src="/js/app/service/QueryServices.js"></script>
+<script src="/js/app/service/ReporteService.js"></script>
+<script src="/js/app/service/TodoService.js"></script>
+<script src="/js/app/service/ToolsService.js"></script>
+<script src="/js/app/service/WorkService.js"></script>
+<script src="/js/app/directive/ErrorMessageDirective.js"></script>
+<script src="/js/app/directive/NrEditDirective.js"></script>
+<script src="/js/app/directive/NrIndexDirective.js"></script>
+<script src="/js/app/directive/NrNewDirective.js"></script>
+<script src="/js/app/directive/NrShowDirective.js"></script>
+<script src="/js/app/directive/SidebarDirective.js"></script>
+<script src="/js/app/factory/DatatableFactory.js"></script>
+<script src="/js/app/filter/LevelFilter.js"></script>
+<script src="/js/app/filter/LimitWordsFilter.js"></script>
+<script src="/js/app/filter/MonthFilter.js"></script>
+<script src="/js/app/filter/WeekFilter.js"></script>
+<script src="/js/app/controller/AreaSaludBackendController.js"></script>
+<script src="/js/app/controller/AreaSaludReporteController.js"></script>
+<script src="/js/app/controller/CalendarController.js"></script>
+<script src="/js/app/controller/CalendarioBackendController.js"></script>
+<script src="/js/app/controller/ChartController.js"></script>
+<script src="/js/app/controller/ConsultaBackendController.js"></script>
+<script src="/js/app/controller/ConsultaBackendControllerHL7v2.js"></script>
+<script src="/js/app/controller/ConsultaMessageBuilderQBP_Q21.js"></script>
+<script src="/js/app/controller/CurrentOpinionController.js"></script>
+<script src="/js/app/controller/DrogaBackendController.js"></script>
+<script src="/js/app/controller/EspecialidadBackendController.js"></script>
+<script src="/js/app/controller/EspecialidadReporteController.js"></script>
+<script src="/js/app/controller/ExamenBackendController.js"></script>
+<script src="/js/app/controller/HeaderController.js"></script>
+<script src="/js/app/controller/HospitalBackendController.js"></script>
+<script src="/js/app/controller/LlantoBackendController.js"></script>
+<script src="/js/app/controller/LoginController.js"></script>
+<script src="/js/app/controller/MainController.js"></script>
+<script src="/js/app/controller/MedicoBackendController.js"></script>
+<script src="/js/app/controller/Modal.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrl.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrlMail.js"></script>
+<script src="/js/app/controller/ModalInstanceCtrlWizard.js"></script>
+<script src="/js/app/controller/ModalInstanceMessage.js"></script>
+<script src="/js/app/controller/MovimientoFetalBackendController.js"></script>
+<script src="/js/app/controller/MunicipioBackendController.js"></script>
+<script src="/js/app/controller/NivelEscolaridadBackendController.js"></script>
+<script src="/js/app/controller/OcupacionBackendController.js"></script>
+<script src="/js/app/controller/PacienteBackendController.js"></script>
+<script src="/js/app/controller/PacienteBackendControllerHL7v2.js"></script>
+<script src="/js/app/controller/PacienteMessageBuilderADT_A01.js"></script>
+<script src="/js/app/controller/PacientesPorEspecialidadReporteController.js"></script>
+<script src="/js/app/controller/ParentezcoBackendController.js"></script>
+<script src="/js/app/controller/ProvinciaBackendController.js"></script>
+<script src="/js/app/controller/QueryListController.js"></script>
+<script src="/js/app/controller/QueryWizardController.js"></script>
+<script src="/js/app/controller/RemisionesSalidaPageController.js"></script>
+<script src="/js/app/controller/RemisionPageController.js"></script>
+<script src="/js/app/controller/ReporteController.js"></script>
+<script src="/js/app/controller/RolBackendController.js"></script>
+<script src="/js/app/controller/TimerController.js"></script>
+<script src="/js/app/controller/TipoPartoBackendController.js"></script>
+<script src="/js/app/controller/TodoCtrl.js"></script>
+<script src="/js/app/controller/UsuarioBackendController.js"></script>
+<script src="/js/app/controller/UsuarioChatController.js"></script>
+<script src="/js/app/controller/UsuarioHomeController.js"></script>
+<script src="/js/app/controller/WizardController.js"></script>
+<script src="/js/app/api-routes.js"></script>
+<script src="/js/app/routing/backend.js"></script>
+<script src="/js/app/routing/example.js"></script>
+<script src="/js/app/routing/reporte.js"></script>
+<script src="/js/app/routing/routes.js"></script>
+<script src="/js/app/ModalDemoCtrl.js"></script>
+<script src="/js/app/utils.js"></script>
+<!--SCRIPTS END-->
+</body>
+</html>

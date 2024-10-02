@@ -1,0 +1,235 @@
+<div class="col-lg-12">
+  <p> &nbsp;</p>
+  <div class="row" align="center">
+    <div class="col-md-12">
+      <h3>
+        <i class="icon-user"></i>
+        Información general del paciente: {{paciente.nombre}} {{paciente.apellidos}}
+      </h3>
+    </div>
+  </div>
+  <br>
+
+  <div class="main-container">
+      <!--MODO WEB A COLOR-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box-widget">
+            <div class="widget-head clearfix">
+              <h4 class="pull-left"><i class="icon-align-justify"></i> Datos</h4>
+            </div>
+            <div class="widget-container">
+              <div class="widget-block">
+                <div class="widget-content box-padding">
+                  <dl class="dl-horizontal">
+                    <dt>HC:</dt>
+                    <dd> {{paciente.hc}}</dd>
+                    <dt>Tarjeta de menor:</dt>
+                    <dd> {{paciente.ci}}</dd>
+                    <dt>Edad:</dt>
+                    <dd> {{paciente.edadAlta}}</dd>
+                    <dt>Fecha de nacimiento:</dt>
+                    <dd> {{paciente.fechaNacimiento | date:'EEEE,dd MMMM yyyy'}}</dd>
+                    <dt>Dirección:</dt>
+                    <dd> {{paciente.direccion}}</dd>
+                    <dt>Área de Salud:</dt>
+                    <dd>{{paciente.areaSalud.nombre}}</dd>
+                    <dt>Municipio:</dt>
+                    <dd>{{paciente.areaSalud.municipio.nombre}}</dd>
+                    <dt>Provincia:</dt>
+                    <dd>{{paciente.areaSalud.municipio.provincia.nombre}}</dd>
+                    <dt>Hospital de nacimiento:</dt>
+                    <dd>{{paciente.hospital.nombre}}</dd>
+                    <dt>Sexo:</dt>
+                    <dd>{{paciente.sexo.nombre}}</dd>
+                    <dt>Raza:</dt>
+                    <dd>{{paciente.raza.nombre}}</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box-widget">
+            <div class="widget-head clearfix">
+              <h4 class="pull-left"><i class="icon-align-justify"></i> Antecedentes Postnatales</h4>
+            </div>
+            <div class="widget-container">
+              <div class="widget-block">
+                <div class="widget-content box-padding">
+                  <dl class="dl-horizontal">
+                    <dt>Peso al nacer:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.pesoAlNacer}} g</dd>
+
+                    <dt>Talla:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.talla}} cm</dd>
+
+                    <dt>Circunferencia cefálica:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.circunfCefalica}} cm</dd>
+
+                    <dt>Apgar:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.apgar}}</dd>
+
+                    <dt>Infecciones SNC:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.infeccionesSnc}}</dd>
+
+                    <dt>Infecciones Sistémicas:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.infeccionesSistemicas}}</dd>
+
+                    <dt>Traumatismos Craneales:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.traumatismosCraneales}}</dd>
+
+                    <dt>Malformaciones:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.malFormaCongenitas}}</dd>
+
+                    <dt>Llanto:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.llanto.nombre}}</dd>
+
+                    <dt>Observaciones:</dt>
+                    <dd>{{paciente.antecedente.antPostnatal.otros}}</dd>
+
+                  </dl>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box-widget">
+            <div class="widget-head clearfix">
+              <h4 class="pull-left"><i class="icon-align-justify"></i> Antecedentes Prenatales</h4>
+            </div>
+            <div class="widget-container">
+              <div class="widget-block">
+                <div class="widget-content box-padding">
+                  <dl class="dl-horizontal">
+                    <dt>Edad materna:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.edadMaterna}} años</dd>
+
+                    <dt>Hábitos tóxicos madre:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.habitosToxicosMadre}}</dd>
+
+                    <dt>Alteraciones ecosonográficas:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.alteracionesEcosonograficas}}</dd>
+
+                    <dt>Movimientos fetales:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.movimientoFetal.nombre}}</dd>
+
+                    <dt>Antecedentes obstétricos:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.antObstetricos}}</dd>
+
+                    <dt>Enfermedades agudas:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.enfermedadesMaternasAgudas}}</dd>
+
+                    <dt>Enfermedades crónicas:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.antEnfCronicaMaterna}}</dd>
+
+                    <dt>Información adicional:</dt>
+                    <dd>{{paciente.antecedente.antPrenatal.otros}}</dd>
+                  </dl>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box-widget">
+            <div class="widget-head clearfix">
+              <h4 class="pull-left"><i class="icon-align-justify"></i> Antecedentes Perinatales</h4>
+            </div>
+            <div class="widget-container">
+              <div class="widget-block">
+                <div class="widget-content box-padding">
+                  <dl class="dl-horizontal">
+                    <dt>Horas en trabajo de parto:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.horasTrabajoParto}}</dd>
+
+                    <dt>Tipo de parto:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.tipoParto.nombre}}</dd>
+
+                    <dt>Edad gestacional al parto:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.edadGestacionalParto}} semanas</dd>
+
+                    <dt>Complicaciones al nacer:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.complicacionesAlNacer}}</dd>
+
+                    <dt>Descripción del parto:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.descripcionParto}}</dd>
+
+                    <dt>Requirió UCIN:</dt>
+                    <dd ng-if="paciente.antecedente.antPerinatal.requirioUcin">Si</dd>
+                    <dd ng-if="!paciente.antecedente.antPerinatal.requirioUcin">No</dd>
+
+                    <dt>Tiempo de hospitalización:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.tiempoHospitalizacion}} días</dd>
+
+                    <dt>Observaciones:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.observaciones}}</dd>
+
+                    <dt>Información adicional:</dt>
+                    <dd>{{paciente.antecedente.antPerinatal.otros}}</dd>
+
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box-widget">
+            <div class="widget-head clearfix">
+              <h4 class="pull-left"><i class="icon-align-justify"></i> Datos familiares</h4>
+            </div>
+            <div class="widget-container">
+              <div class="widget-block">
+                <div class="widget-content box-padding">
+                  <dl class="dl-horizontal">
+                    <dt>Enfermedades Familiares:</dt>
+                    <dd>{{antFamiliar.padecimientos_cronicos_familiar}}</dd>
+                    <dt>Nombre del representante:</dt>
+                    <dd>{{familiar.nombre}} {{familiar.apellidos}}</dd>
+                    <dt>Parentezco:</dt>
+                    <dd>{{familiar.parentezco.nombre}}</dd>
+
+                    <dt>Teléfono:</dt>
+                    <dd>{{familiar.telefono}}</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <br><br><br>
+
+          <div class="widget-container">
+            <div class="widget-block">
+              <div class="card__actions">
+                <button type="submit" onclick="history.back()" class="btn btn--blue btn--l btn--raised"><i
+                  class="icon-reply"></i> Volver atrás
+                </button>
+                <a class="btn btn--blue btn--l btn--raised" type="button" ico
+                   href="#!/backend/consulta/new/{{paciente.id}}/{{medico.id}}"
+                   class="btn btn--m btn--blue btn--flat" lx-ripple><i class="icon-plus"></i> Agregar consulta </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
